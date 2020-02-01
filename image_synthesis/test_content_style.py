@@ -55,6 +55,14 @@ for epoch in range(1):
         im = Image.fromarray((out_np * 255).astype(np.uint8))
         im.save("./out/real/" + str(i) + ".jpg")
 
+        out_np = model.fake_B[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
+        im = Image.fromarray((out_np * 255).astype(np.uint8))
+        im.save("./out/fake/" + str(i) + ".jpg")
+
+        novelview = model.apply_mask(model.netG_real(model.content_Aref, torch.cat([model.z_style_B, model.vp_Aref], 1)), model.mask_Aref, model.bg_B)
+        out_np = novelview[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
+        im = Image.fromarray((out_np * 255).astype(np.uint8))
+        im.save("./out/novelview/" + str(i) + ".jpg")
 
         if i > 10000:
             break

@@ -18,7 +18,7 @@ class ContentStyleModel(BaseModel):
         parser.add_argument('--lambda_mask', type=float, default=2.5, help='mask loss')
         parser.add_argument('--lambda_cycle_A', type=float, default=10.0, help='weight for forward cycle')
         parser.add_argument('--lambda_cycle_B', type=float, default=25.0, help='weight for backward cycle')
-        parser.add_argument('--lambda_content_code', type=float, default=1.0, help='weight for forward cycle')
+        parser.add_argument('--lambda_content_code', type=float, default=10.0, help='weight for forward cycle')
         parser.add_argument('--lambda_style_code', type=float, default=10.0, help='weight for backward cycle')
         return parser
 
@@ -114,10 +114,14 @@ class ContentStyleModel(BaseModel):
             z = self.netE_style(input_image)
             return z, None, None
 
-    def backward_GE(self):
+    def backward_GE(self, is_test=False):
         realB_with_vp = cat_feature(self.real_B, self.vp_B)
         self.content_B = self.netE_content_real(realB_with_vp)
         self.z_style_B, mu_style_B, logvar_style_B = self.encode_style(realB_with_vp, self.vae)
+
+        if is_test:
+            self.z_style_B = mu_style_B
+
         self.rec_B = self.apply_mask(self.netG_real(self.content_B, torch.cat([self.z_style_B, self.vp_B], 1)), self.mask_B, self.bg_B)
         self.loss_cycle_B = self.critCycle(self.real_B, self.rec_B) * self.opt.lambda_cycle_B + self.critGAN(self.netD_realpair(cat_feature(self.real_Bref, self.rec_B)), True)
 
@@ -144,6 +148,8 @@ class ContentStyleModel(BaseModel):
         self.content_Aref = self.netE_content_depth(cat_feature(self.real_Aref, self.vp_Aref))
         self.loss_content_identity = self.critCycle(self.content_A.detach(), self.content_Aref) * self.opt.lambda_content_code
 
+        self.content_realA2B = self.netE_content_real(cat_feature(self.real_A2B, self.vp_A))
+        self.loss_content_identity += self.critCycle(self.content_A.detach(), self.content_realA2B) * self.opt.lambda_content_code
 
         if self.opt.lambda_kl_real > 0.0:
             self.loss_mu_enc = torch.mean(torch.abs(mu_style_B))

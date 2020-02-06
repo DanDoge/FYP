@@ -37,11 +37,11 @@ class ContentStyleModel(BaseModel):
         self.vp_dim = 2
 
         if self.isTrain:
-            self.model_names += ['E_content_real', 'E_content_depth', 'E_style', 'G_real', 'G_depth', 'D_real', 'D_depth', 'D_realpair', 'D_depthpair']
+            self.model_names += ['E_content_real', 'E_content_depth', 'E_style', 'G_real', 'G_depth', 'D_real', 'D_depth']
         else:
             self.model_names += ['E_content_real', 'E_content_depth', 'E_style', 'G_real', 'G_depth']
 
-        self.visual_names += ['real_A', 'real_B', 'rec_A', 'rec_B', 'fake_A', 'fake_B']
+        self.visual_names += ['real_A', 'real_B', 'rec_A', 'rec_Aref', 'rec_B', 'rec_Bref', 'fake_A', 'fake_B']
         self.loss_names += ['G_A', 'G_B', 'cycle_A', 'cycle_B', 'D_depth', 'D_real', 'cycle_style_code', 'cycle_content_code', 'content_identity', 'style_identity']
         self.cuda_names += ['z_texture']
 
@@ -64,9 +64,6 @@ class ContentStyleModel(BaseModel):
 
         self.netD_depth = self.define_D(opt.input_nc + self.vp_dim, ext="A")
         self.netD_real = self.define_D(opt.output_nc + self.vp_dim, ext="B")
-        self.netD_depthpair = self.define_D(opt.input_nc * 2, ext="A")
-        self.netD_realpair = self.define_D(opt.output_nc * 2, ext="B")
-
 
 
 
@@ -77,7 +74,7 @@ class ContentStyleModel(BaseModel):
                                                 lr=opt.lr, betas=(opt.beta1, 0.999))
         self.optimizer_G = torch.optim.Adam(itertools.chain(self.netG_real.parameters(), self.netG_depth.parameters()),
                                                 lr=opt.lr, betas=(opt.beta1, 0.999))
-        self.optimizer_D = torch.optim.Adam(itertools.chain(self.netD_depth.parameters(), self.netD_real.parameters()), self.netD_depthpair.parameters(), self.netD_realpair.parameters()),
+        self.optimizer_D = torch.optim.Adam(itertools.chain(self.netD_depth.parameters(), self.netD_real.parameters()),
                                                 lr=opt.lr, betas=(opt.beta1, 0.999))
         self.optimizers += [self.optimizer_E, self.optimizer_G, self.optimizer_D]
 
@@ -122,13 +119,16 @@ class ContentStyleModel(BaseModel):
         if is_test:
             self.z_style_B = mu_style_B
 
+        self.rec_Bref = self.apply_mask(self.netG_real(self.content_B, torch.cat([self.z_style_B, self.vp_Bref], 1)), self.mask_Bref, self.bg_B)
         self.rec_B = self.apply_mask(self.netG_real(self.content_B, torch.cat([self.z_style_B, self.vp_B], 1)), self.mask_B, self.bg_B)
-        self.loss_cycle_B = self.critCycle(self.real_B, self.rec_B) * self.opt.lambda_cycle_B + self.critGAN(self.netD_realpair(cat_feature(self.real_Bref, self.rec_B)), True)
+        self.loss_cycle_B = (self.critCycle(self.real_Bref, self.rec_Bref)+ self.critCycle(self.real_B, self.rec_B)) * self.opt.lambda_cycle_B
 
         realA_with_vp = cat_feature(self.real_A, self.vp_A)
         self.content_A = self.netE_content_depth(realA_with_vp)
+
+        self.rec_Aref = self.apply_mask(self.netG_depth(cat_feature(self.content_A, self.vp_Aref)), self.mask_Aref, self.bg_A)
         self.rec_A = self.apply_mask(self.netG_depth(cat_feature(self.content_A, self.vp_A)), self.mask_A, self.bg_A)
-        self.loss_cycle_A = self.critCycle(self.real_A, self.rec_A) * self.opt.lambda_cycle_A + self.critGAN(self.netD_depthpair(cat_feature(self.real_Aref, self.rec_A)), True)
+        self.loss_cycle_A = (self.critCycle(self.real_Aref, self.rec_Aref) + self.critCycle(self.real_A, self.rec_A)) * self.opt.lambda_cycle_A
 
         self.fake_A = self.apply_mask(self.netG_depth(cat_feature(self.content_B, self.vp_B)), self.mask_B, self.bg_A)
         self.loss_G_A = self.critGAN(self.netD_depth(cat_feature(self.fake_A, self.vp_B)), True)
@@ -151,6 +151,7 @@ class ContentStyleModel(BaseModel):
         self.content_realA2B = self.netE_content_real(cat_feature(self.real_A2B, self.vp_A))
         self.loss_content_identity += self.critCycle(self.content_A.detach(), self.content_realA2B) * self.opt.lambda_content_code
 
+
         if self.opt.lambda_kl_real > 0.0:
             self.loss_mu_enc = torch.mean(torch.abs(mu_style_B))
             self.loss_var_enc = torch.mean(logvar_style_B.exp())
@@ -164,34 +165,40 @@ class ContentStyleModel(BaseModel):
         self.loss_G.backward()
 
     def backward_D(self, epoch):
-        loss_D_depth_realpair = self.critGAN(self.netD_depthpair(cat_feature(self.real_A, self.real_Aref)), True)
-        loss_D_depth_fakepair = self.critGAN(self.netD_depthpair(cat_feature(self.real_Aref, self.rec_A)), False)
-        self.loss_D_depthpair = loss_D_depth_realpair + loss_D_depth_fakepair
-
-        loss_D_real_realpair = self.critGAN(self.netD_realpair(cat_feature(self.real_B, self.real_Bref)), True)
-        loss_D_real_fakepair = self.critGAN(self.netD_realpair(cat_feature(self.real_Bref, self.rec_B)), False)
-        self.loss_D_realpair = loss_D_real_realpair + loss_D_real_fakepair
-
-        loss_D_depth_real = self.critGAN(self.netD_depth(cat_feature(self.rec_A, self.vp_A)), True)
+        '''
+        if epoch > 100:
+            real_A = self.real_A
+        else:
+            real_A = self.rec_A.detach() * (100 - epoch) / 100 + self.real_A.detach() * epoch / 100
+        '''
+        real_A = self.rec_A.detach()
+        loss_D_depth_real = self.critGAN(self.netD_depth(cat_feature(real_A, self.vp_A)), True)
         loss_D_depth_fake = self.critGAN(self.netD_depth(cat_feature(self.fake_A.detach(), self.vp_B)), False)
         self.loss_D_depth = loss_D_depth_real + loss_D_depth_fake
 
-        loss_D_real_real = self.critGAN(self.netD_real(cat_feature(self.rec_B, self.vp_B)), True)
+
+        '''
+        if epoch > 100:
+            real_B = self.real_B
+        else:
+            real_B = self.rec_B.detach() * (100 - epoch) / 100 + self.real_B.detach() * epoch / 100
+        '''
+        real_B = self.rec_B.detach()
+        loss_D_real_real = self.critGAN(self.netD_real(cat_feature(real_B, self.vp_B)), True)
         loss_D_real_fake = self.critGAN(self.netD_real(cat_feature(self.fake_B.detach(), self.vp_A)), False)
         self.loss_D_real = loss_D_real_real + loss_D_real_fake
-
-        self.loss_D = self.loss_D_real + self.loss_D_depth + self.loss_D_realpair + self.loss_D_depthpair
+        self.loss_D = self.loss_D_real + self.loss_D_depth
         self.loss_D.backward()
 
 
     def update_D(self, epoch=0):
-        self.set_requires_grad([self.netD_depth, self.netD_real, self.netD_depthpair, self.netD_realpair], True)
+        self.set_requires_grad([self.netD_depth, self.netD_real], True)
         self.optimizer_D.zero_grad()
         self.backward_D(epoch)
         self.optimizer_D.step()
 
     def update_G(self, epoch=0):
-        self.set_requires_grad([self.netD_depth, self.netD_real, self.netD_depthpair, self.netD_realpair], False)
+        self.set_requires_grad([self.netD_depth, self.netD_real], False)
         self.optimizer_E.zero_grad()
         self.optimizer_G.zero_grad()
         self.backward_GE()

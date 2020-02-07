@@ -18,7 +18,7 @@ class ContentStyleModel(BaseModel):
         parser.add_argument('--lambda_mask', type=float, default=2.5, help='mask loss')
         parser.add_argument('--lambda_cycle_A', type=float, default=10.0, help='weight for forward cycle')
         parser.add_argument('--lambda_cycle_B', type=float, default=25.0, help='weight for backward cycle')
-        parser.add_argument('--lambda_content_code', type=float, default=10.0, help='weight for forward cycle')
+        parser.add_argument('--lambda_content_code', type=float, default=5.0, help='weight for forward cycle')
         parser.add_argument('--lambda_style_code', type=float, default=10.0, help='weight for backward cycle')
         return parser
 
@@ -41,7 +41,7 @@ class ContentStyleModel(BaseModel):
         else:
             self.model_names += ['E_content_real', 'E_content_depth', 'E_style', 'G_real', 'G_depth']
 
-        self.visual_names += ['real_A', 'real_B', 'rec_A', 'rec_Aref', 'rec_B', 'rec_Bref', 'fake_A', 'fake_B']
+        self.visual_names += ['real_A', 'real_B', 'rec_A', 'rec_B', 'rec_Aref', 'rec_Bref', 'fake_A', 'fake_B']
         self.loss_names += ['G_A', 'G_B', 'cycle_A', 'cycle_B', 'D_depth', 'D_real', 'cycle_style_code', 'cycle_content_code', 'content_identity', 'style_identity']
         self.cuda_names += ['z_texture']
 
@@ -146,10 +146,13 @@ class ContentStyleModel(BaseModel):
         self.loss_style_identity = self.critCycle(mu_style_B.detach(), mu_style_Bref) * self.opt.lambda_style_code
 
         self.content_Aref = self.netE_content_depth(cat_feature(self.real_Aref, self.vp_Aref))
+        realBref_with_vp = cat_feature(self.real_Bref, self.vp_Bref)
+        self.content_Bref = self.netE_content_real(realBref_with_vp)
         self.loss_content_identity = self.critCycle(self.content_A.detach(), self.content_Aref) * self.opt.lambda_content_code
+        self.loss_content_identity += self.critCycle(self.content_B.detach(), self.content_Bref) * self.opt.lambda_content_code
 
         self.content_realA2B = self.netE_content_real(cat_feature(self.real_A2B, self.vp_A))
-        self.loss_content_identity += self.critCycle(self.content_A.detach(), self.content_realA2B) * self.opt.lambda_content_code
+        self.loss_content_identity += self.critCycle(self.content_A.detach(), self.content_realA2B) * self.opt.lambda_content_code * 2
 
 
         if self.opt.lambda_kl_real > 0.0:

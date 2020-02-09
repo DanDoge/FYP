@@ -31,9 +31,9 @@ class ContentStyleModel(BaseModel):
         self.vae = opt.lambda_kl_real > 0.0
         self.bg_B = -1
         self.bg_A = 1
-        self.n_downsample = 4
+        self.n_downsample = 6
         self.content_dim = 16
-        self.n_res = 4
+        self.n_res = 3
         self.vp_dim = 2
 
         if self.isTrain:

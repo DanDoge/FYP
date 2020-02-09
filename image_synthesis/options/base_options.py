@@ -19,12 +19,12 @@ class BaseOptions():
 
     def initialize(self, parser):
         parser.add_argument('--dataroot', type=str, default=None, help='path to images (should have subfolders trainA, trainB, valA, valB, etc)')
-        parser.add_argument('--batch_size', type=int, default=12, help='batch size')
+        parser.add_argument('--batch_size', type=int, default=32, help='batch size')
         parser.add_argument('--load_size', type=int, default=128, help='scale images to this size')
         parser.add_argument('--crop_size', type=int, default=128, help='then crop to this size')
         parser.add_argument('--input_nc', type=int, default=1, help='# of input image channels')
         parser.add_argument('--output_nc', type=int, default=3, help='# of output image channels')
-        parser.add_argument('--nz_texture', type=int, default=8, help='the dimension of texture code')
+        parser.add_argument('--nz_texture', type=int, default=128, help='the dimension of texture code')
         parser.add_argument('--nz_shape', type=int, default=200, help='the dimension of shape code')
         parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2, -1 for CPU mode')
         parser.add_argument('--name', type=str, default='experiment_name', help='name of the experiment. It decides where to store samples and models')

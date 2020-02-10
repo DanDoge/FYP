@@ -716,7 +716,7 @@ class StyleEncoder(nn.Module):
         else:
             return self.model(x).view(x.size(0), -1)
 
-
+'''
 class ContentEncoder(nn.Module):
     def __init__(self, n_downsample, n_res, input_dim, dim, norm, activ, pad_type='zero'):
         super(ContentEncoder, self).__init__()
@@ -733,7 +733,33 @@ class ContentEncoder(nn.Module):
 
     def forward(self, x):
         return self.model(x)
+'''
 
+class ContentEncoder(nn.Module):
+    def __init__(self, n_downsample, n_res, input_dim, dim, norm, activ, pad_type='zero', nz=0):
+        super(ContentEncoder, self).__init__()
+        self.n_blocks = 0
+        block = [Conv2dBlock(input_dim + nz, dim, 7, 1, 3, norm=norm, activation=activ, pad_type='reflect')]
+        setattr(self, 'block_{:d}'.format(self.n_blocks), nn.Sequential(*block))
+        self.n_blocks += 1
+        # downsampling blocks
+        for i in range(n_downsample):
+            block = [Conv2dBlock(dim + nz, 2 * dim, 4, 2, 1, norm=norm, activation=activ, pad_type='reflect')]
+            setattr(self, 'block_{:d}'.format(self.n_blocks), nn.Sequential(*block))
+            dim *= 2
+            self.n_blocks += 1
+        # residual blocks
+        self.resnet_block = ResBlocks(n_res, dim, norm=norm, activation=activ, pad_type=pad_type, nz=nz)
+        self.output_dim = dim + nz
+
+    def forward(self, x, y=None):
+        if y is not None:
+            output = x
+            for n in range(self.n_blocks):
+                block = getattr(self, 'block_{:d}'.format(n))
+                output = block(cat_feature(output, y))
+            output = self.resnet_block(cat_feature(output, y))
+            return output
 
 class Decoder_all(nn.Module):
     def __init__(self, n_upsample, n_res, dim, output_dim, norm='batch', activ='relu', pad_type='zero', nz=0):

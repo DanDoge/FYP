@@ -1,5 +1,5 @@
 from .base_model import BaseModel
-from .networks import _cal_kl, GANLoss, cat_feature
+from .networks import _cal_kl, GANLoss, cat_feature, VGGPerceptualLoss
 from util.image_pool import ImagePool
 import itertools
 import torch
@@ -31,8 +31,8 @@ class ContentStyleModel(BaseModel):
         self.vae = opt.lambda_kl_real > 0.0
         self.bg_B = -1
         self.bg_A = 1
-        self.n_downsample = 6
-        self.content_dim = 16
+        self.n_downsample = 4
+        self.content_dim = 8
         self.n_res = 3
         self.vp_dim = 2
 
@@ -56,7 +56,7 @@ class ContentStyleModel(BaseModel):
         self.netE_style = StyleEncoder(self.n_downsample, opt.output_nc + self.vp_dim, 64, self.nz_texture, 'batch', 'lrelu', self.vae)
         self.netG_real = Decoder_all(self.n_downsample, self.n_res * 2, self.netE_content_real.output_dim, opt.output_nc, norm='batch', activ='lrelu', nz=self.nz_texture + self.vp_dim)
         self.netG_depth = Decoder(self.n_downsample, self.n_res, self.netE_content_depth.output_dim + self.vp_dim, opt.input_nc, norm='batch', activ='lrelu', nz=0)
-        
+
         self.netE_content_depth = init_net(self.netE_content_depth, opt.init_type, opt.init_param, self.gpu_ids)
         self.netE_content_real = init_net(self.netE_content_real, opt.init_type, opt.init_param, self.gpu_ids)
         self.netE_style = init_net(self.netE_style, opt.init_type, opt.init_param, self.gpu_ids)
@@ -68,6 +68,7 @@ class ContentStyleModel(BaseModel):
 
 
 
+        self.critCycle_real = VGGPerceptualLoss(resize=True, device=self.device)
         self.critCycle = torch.nn.L1Loss().to(self.device)
         self.critGAN = GANLoss(gan_mode=opt.gan_mode).to(self.device)
 
@@ -122,7 +123,7 @@ class ContentStyleModel(BaseModel):
 
         self.rec_Bref = self.apply_mask(self.netG_real(self.content_B, torch.cat([self.z_style_B, self.vp_Bref], 1)), self.mask_Bref, self.bg_B)
         self.rec_B = self.apply_mask(self.netG_real(self.content_B, torch.cat([self.z_style_B, self.vp_B], 1)), self.mask_B, self.bg_B)
-        self.loss_cycle_B = (self.critCycle(self.real_Bref, self.rec_Bref)+ self.critCycle(self.real_B, self.rec_B)) * self.opt.lambda_cycle_B
+        self.loss_cycle_B = (self.critCycle_real(self.real_Bref, self.rec_Bref)+ self.critCycle_real(self.real_B, self.rec_B)) * self.opt.lambda_cycle_B
 
         realA_with_vp = cat_feature(self.real_A, self.vp_A)
         self.content_A = self.netE_content_depth(self.real_A, self.vp_A)
@@ -134,7 +135,7 @@ class ContentStyleModel(BaseModel):
         self.fake_A = self.apply_mask(self.netG_depth(cat_feature(self.content_B, self.vp_B)), self.mask_B, self.bg_A)
         self.loss_G_A = self.critGAN(self.netD_depth(cat_feature(self.fake_A, self.vp_B)), True)
 
-        self.rec_content_B = self.netE_content_depth(cat_feature(self.fake_A, self.vp_B))
+        self.rec_content_B = self.netE_content_depth(self.fake_A, self.vp_B)
         self.loss_cycle_content_code = self.critCycle(self.content_B.detach(), self.rec_content_B) * self.opt.lambda_content_code
 
         self.fake_B = self.apply_mask(self.netG_real(self.content_A, torch.cat([self.z_style_B, self.vp_A], 1)), self.mask_A, self.bg_B)
@@ -148,12 +149,12 @@ class ContentStyleModel(BaseModel):
 
         self.content_Aref = self.netE_content_depth(self.real_Aref, self.vp_Aref)
         realBref_with_vp = cat_feature(self.real_Bref, self.vp_Bref)
-        self.content_Bref = self.netE_content_real(elf.real_Bref, self.vp_Bref)
+        self.content_Bref = self.netE_content_real(self.real_Bref, self.vp_Bref)
         self.loss_content_identity = self.critCycle(self.content_A.detach(), self.content_Aref) * self.opt.lambda_content_code
         self.loss_content_identity += self.critCycle(self.content_B.detach(), self.content_Bref) * self.opt.lambda_content_code
 
-        self.content_realA2B = self.netE_content_real(self.real_A2B, self.vp_A)
-        self.loss_content_identity += self.critCycle(self.content_A.detach(), self.content_realA2B) * self.opt.lambda_content_code * 2
+        #self.content_realA2B = self.netE_content_real(cat_feature(self.real_A2B, self.vp_A))
+        #self.loss_content_identity += self.critCycle(self.content_A.detach(), self.content_realA2B) * self.opt.lambda_content_code * 2
 
 
         if self.opt.lambda_kl_real > 0.0:

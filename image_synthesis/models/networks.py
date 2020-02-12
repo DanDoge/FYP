@@ -3,6 +3,48 @@ import torch.nn as nn
 import math
 from .basics import get_norm_layer, get_non_linearity, init_net
 
+import torchvision
+
+class VGGPerceptualLoss(torch.nn.Module):
+    def __init__(self, resize, device):
+        super(VGGPerceptualLoss, self).__init__()
+        model = torchvision.models.vgg16(pretrained=False)
+        model.load_state_dict(torch.load('./models/vgg16.pth'))
+        model.to(device)
+        blocks = []
+        blocks.append(model.features[:4].eval())
+        blocks.append(model.features[4:9].eval())
+        blocks.append(model.features[9:16].eval())
+        blocks.append(model.features[16:23].eval())
+        for bl in blocks:
+            for p in bl:
+                p.requires_grad = False
+        self.critCycle = torch.nn.L1Loss().to(device)
+        self.blocks = torch.nn.ModuleList(blocks)
+        self.transform = torch.nn.functional.interpolate
+        self.mean = torch.nn.Parameter(torch.tensor([0.485, 0.456, 0.406]).view(1,3,1,1)).to(device)
+        self.std = torch.nn.Parameter(torch.tensor([0.229, 0.224, 0.225]).view(1,3,1,1)).to(device)
+        self.resize = resize
+
+    def forward(self, input, target):
+        if input.shape[1] != 3:
+            input = input.repeat(1, 3, 1, 1)
+            target = target.repeat(1, 3, 1, 1)
+        input = (input-self.mean) / self.std
+        target = (target-self.mean) / self.std
+        if self.resize:
+            input = self.transform(input, mode='bilinear', size=(224, 224), align_corners=False)
+            target = self.transform(target, mode='bilinear', size=(224, 224), align_corners=False)
+        loss = 0.0
+        x = input
+        y = target
+        loss += self.critCycle(x, y)
+        for block in self.blocks:
+            x = block(x)
+            y = block(y)
+            loss += self.critCycle(x, y)
+        return loss
+
 
 ###############################################################################
 # Functions
@@ -83,7 +125,6 @@ def define_E(input_nc, output_nc, nef, model, crop_size=128,
         raise NotImplementedError('Encoder model name [%s] is not recognized' % model)
 
     return init_net(netE, init_type, init_param, gpu_ids)
-
 
 
 class D_NLayersMulti(nn.Module):
@@ -716,24 +757,6 @@ class StyleEncoder(nn.Module):
         else:
             return self.model(x).view(x.size(0), -1)
 
-'''
-class ContentEncoder(nn.Module):
-    def __init__(self, n_downsample, n_res, input_dim, dim, norm, activ, pad_type='zero'):
-        super(ContentEncoder, self).__init__()
-        self.model = []
-        self.model += [Conv2dBlock(input_dim, dim, 7, 1, 3, norm=norm, activation=activ, pad_type='reflect')]
-        # downsampling blocks
-        for i in range(n_downsample):
-            self.model += [Conv2dBlock(dim, 2 * dim, 4, 2, 1, norm=norm, activation=activ, pad_type='reflect')]
-            dim *= 2
-        # residual blocks
-        self.model += [ResBlocks(n_res, dim, norm=norm, activation=activ, pad_type=pad_type)]
-        self.model = nn.Sequential(*self.model)
-        self.output_dim = dim
-
-    def forward(self, x):
-        return self.model(x)
-'''
 
 class ContentEncoder(nn.Module):
     def __init__(self, n_downsample, n_res, input_dim, dim, norm, activ, pad_type='zero', nz=0):
@@ -760,6 +783,7 @@ class ContentEncoder(nn.Module):
                 output = block(cat_feature(output, y))
             output = self.resnet_block(cat_feature(output, y))
             return output
+
 
 class Decoder_all(nn.Module):
     def __init__(self, n_upsample, n_res, dim, output_dim, norm='batch', activ='relu', pad_type='zero', nz=0):

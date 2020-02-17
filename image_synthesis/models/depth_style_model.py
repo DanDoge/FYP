@@ -10,7 +10,7 @@ from .basics import init_net
 import numpy as np
 
 
-class ContentStyleModel(BaseModel):
+class DepthStyleModel(BaseModel):
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
         parser.add_argument('--lambda_z', type=float, default=1.0, help='weight for ||E(G(random_z)) - random_z||')
@@ -50,13 +50,13 @@ class ContentStyleModel(BaseModel):
 
 
         # load/define networks: define G
-        self.netG_real = self.define_G(opt.input_nc + self.vp_dim, opt.output_nc, opt.nz_texture, ext='AB')
-        self.netG_depth = self.define_G(opt.output_nc + self.vp_dim, opt.input_nc, self.vp_dim, ext='BA')
+        self.netG_real = self.define_G(opt.input_nc, opt.output_nc, opt.nz_texture, ext='AB')
+        self.netG_depth = self.define_G(opt.output_nc, opt.input_nc, self.vp_dim, ext='BA')
         self.netE_style = self.define_E(opt.output_nc + self.vp_dim, self.vae)
 
         if opt.isTrain:
-            self.netD_real = self.define_D(opt.output_nc, ext='A')
-            self.netD_depth = self.define_D(opt.input_nc, ext='B')
+            self.netD_real = self.define_D(opt.output_nc + self.vp_dim, ext='A')
+            self.netD_depth = self.define_D(opt.input_nc + self.vp_dim, ext='B')
 
 
         self.critCycle = torch.nn.L1Loss().to(self.device)
@@ -110,26 +110,24 @@ class ContentStyleModel(BaseModel):
         if is_test:
             self.z_style_B = mu_style_B
 
-        self.fake_A = self.apply_mask(self.netG_depth(realB_with_vp, self.vp_B), self.mask_B, self.bg_A)
-        self.fake_Aref = self.apply_mask(self.netG_depth(realB_with_vp, self.vp_Bref), self.mask_Bref, self.bg_A)
+
+        self.fake_A = self.apply_mask(self.netG_depth(self.real_B, self.vp_B, self.vp_B), self.mask_B, self.bg_A)
+        self.fake_Aref = self.apply_mask(self.netG_depth(self.real_B, self.vp_B, self.vp_Bref), self.mask_Bref, self.bg_A)
         self.loss_G_A = self.critGAN(self.netD_depth(cat_feature(self.fake_A, self.vp_B)), True) + self.critGAN(self.netD_depth(cat_feature(self.fake_Aref, self.vp_Bref)), True)
 
-        self.rec_B = self.apply_mask(self.netG_real(self.fake_A, self.z_style_B), self.mask_B, self.bg_B)
-        self.rec_Bref = self.apply_mask(self.netG_real(self.fake_Aref, self.z_style_B), self.mask_Bref, self.bg_B)
+        self.rec_B = self.apply_mask(self.netG_real(self.fake_A, self.vp_B, self.z_style_B), self.mask_B, self.bg_B)
+        self.rec_Bref = self.apply_mask(self.netG_real(self.fake_Aref, self.vp_Bref, self.z_style_B), self.mask_Bref, self.bg_B)
         self.loss_cycle_B = (self.critCycle(self.real_Bref, self.rec_Bref)+ self.critCycle(self.real_B, self.rec_B)) * self.opt.lambda_cycle_B
 
-        realA_with_vp = cat_feature(self.real_A, self.vp_A)
-        realAref_with_vp = cat_feature(self.real_Aref, self.vp_Aref)
-
-        self.fake_B = self.apply_mask(self.netG_real(realA_with_vp, self.z_style_B), self.mask_A, self.bg_B)
-        self.fake_Bref = self.apply_mask(self.netG_real(realAref_with_vp, self.z_style_B), self.mask_Aref, self.bg_B)
+        self.fake_B = self.apply_mask(self.netG_real(self.real_A, self.vp_A, self.z_style_B), self.mask_A, self.bg_B)
+        self.fake_Bref = self.apply_mask(self.netG_real(self.real_Aref, self.vp_Aref, self.z_style_B), self.mask_Aref, self.bg_B)
         self.loss_G_B = self.critGAN(self.netD_real(cat_feature(self.fake_B, self.vp_A)), True) + self.critGAN(self.netD_real(cat_feature(self.fake_Bref, self.vp_Aref)), True)
 
-        self.rec_A = self.apply_mask(self.netG_depth(cat_feature(self.fake_B, self.vp_A), self.vp_A), self.mask_A, self.bg_A)
-        self.rec_Aref = self.apply_mask(self.netG_depth(cat_feature(self.fake_Bref, self.vp_Aref), self.vp_Aref), self.mask_Aref, self.bg_A)
+        self.rec_A = self.apply_mask(self.netG_depth(self.fake_B, self.vp_A, self.vp_A), self.mask_A, self.bg_A)
+        self.rec_Aref = self.apply_mask(self.netG_depth(self.fake_Bref, self.vp_Aref, self.vp_Aref), self.mask_Aref, self.bg_A)
         self.loss_cycle_A = (self.critCycle(self.real_Aref, self.rec_Aref) + self.critCycle(self.real_A, self.rec_A)) * self.opt.lambda_cycle_A
 
-        self.fake_Brandom = self.apply_mask(self.netG_real(realA_with_vp, self.z_texture), self.mask_A, self.bg_B)
+        self.fake_Brandom = self.apply_mask(self.netG_real(self.real_A, self.vp_A, self.z_texture), self.mask_A, self.bg_B)
 
 
         if self.opt.lambda_kl_real > 0.0:
@@ -139,7 +137,7 @@ class ContentStyleModel(BaseModel):
         # combined loss
         self.loss_G = self.loss_cycle_A + self.loss_cycle_B \
                         + self.loss_G_A + self.loss_G_B \
-                        + self.loss_mu_enc + self.loss_var_enc + self.loss_kl_real \
+                        + self.loss_mu_enc + self.loss_var_enc + self.loss_kl_real
         self.loss_G.backward()
 
     def backward_D(self, epoch):

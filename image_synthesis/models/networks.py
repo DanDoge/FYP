@@ -30,19 +30,19 @@ class VGGPerceptualLoss(torch.nn.Module):
         if input.shape[1] != 3:
             input = input.repeat(1, 3, 1, 1)
             target = target.repeat(1, 3, 1, 1)
+        loss = 0.0
+        loss += self.critCycle(input, target)
         input = (input-self.mean) / self.std
         target = (target-self.mean) / self.std
         if self.resize:
             input = self.transform(input, mode='bilinear', size=(224, 224), align_corners=False)
             target = self.transform(target, mode='bilinear', size=(224, 224), align_corners=False)
-        loss = 0.0
         x = input
         y = target
-        loss += self.critCycle(x, y)
         for block in self.blocks:
             x = block(x)
             y = block(y)
-            loss += self.critCycle(x, y)
+            loss += self.critCycle(x, y) / 100
         return loss
 
 
@@ -82,7 +82,7 @@ def define_G(input_nc, output_nc, nz, ngf,
     elif model == 'unet' and where_add == 'all':
         netG = G_Unet_add_all(input_nc, output_nc, nz, n_blocks, ngf, norm_layer=norm_layer, nl_layer=nl_layer, use_dropout=use_dropout)
     elif model == 'resnet_cat':
-        netG = G_Resnet(input_nc, output_nc, nz, num_downs=2, n_res=n_blocks - 4, ngf=ngf, norm=norm, nl_layer=nl)
+        netG = G_Resnet(input_nc, output_nc, 2, nz, num_downs=2, n_res=n_blocks - 4, ngf=ngf, norm=norm, nl_layer=nl)
     else:
         raise NotImplementedError('Generator model name [%s] is not recognized' % model)
 
@@ -690,12 +690,12 @@ class E_NLayers(nn.Module):
 
 
 class G_Resnet(nn.Module):
-    def __init__(self, input_nc, output_nc, nz, num_downs, n_res, ngf=64,
+    def __init__(self, input_nc, output_nc, nvp, nz, num_downs, n_res, ngf=64,
                  norm=None, nl_layer=None):
         super(G_Resnet, self).__init__()
         n_downsample = num_downs
         pad_type = 'reflect'
-        self.enc_content = ContentEncoder(n_downsample, n_res, input_nc, ngf, norm, nl_layer, pad_type=pad_type)
+        self.enc_content = ContentEncoder(n_downsample, n_res, input_nc, ngf, norm, nl_layer, pad_type=pad_type, nz=nvp)
         if nz == 0:
             self.dec = Decoder(n_downsample, n_res, self.enc_content.output_dim, output_nc, norm=norm, activ=nl_layer, pad_type=pad_type, nz=nz)
         else:
@@ -704,8 +704,8 @@ class G_Resnet(nn.Module):
     def decode(self, content, style=None):
         return self.dec(content, style)
 
-    def forward(self, image, style=None):
-        content = self.enc_content(image)
+    def forward(self, image, vp, style=None):
+        content = self.enc_content(image, vp)
         images_recon = self.decode(content, style)
         return images_recon
 

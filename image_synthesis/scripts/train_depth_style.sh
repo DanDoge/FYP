@@ -9,7 +9,7 @@ DATE=`date +%Y-%m-%d`
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 ROOT_DIR=${SCRIPTPATH}/..
-CHECKPOINTS_DIR=${ROOT_DIR}/checkpoints/content_style/${CLASS}_${DATASET}/${DATE}/
+CHECKPOINTS_DIR=${ROOT_DIR}/checkpoints/depth_style/${CLASS}_${DATASET}/${DATE}/
 
 
 # command

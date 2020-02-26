@@ -27,6 +27,15 @@ model.netG_real.eval()
 model.netG_depth.eval()
 model.netE_style.eval()
 
+vp_B = []
+vp_Bref = []
+
+def savefig(tensor, name, i):
+    out_np = tensor[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
+    im = Image.fromarray((out_np * 255).astype(np.uint8))
+    im.save("./out/" + name + "/" + str(i) + ".jpg")
+    return
+
 
 for epoch in range(1):
 
@@ -38,32 +47,43 @@ for epoch in range(1):
         if model.skip():
             continue
 
-        model.backward_GE()
+        #model.backward_GE()
+        savefig(model.real_B, "real", i)
+        savefig(model.real_Bref, "realref", i)
+        realB_with_vp = cat_feature(model.real_B, model.vp_B)
+        model.z_style_B, mu_style_B, logvar_style_B = model.encode_style(realB_with_vp, model.vae)
 
-        '''
-        torch.save(model.real_A2B, "./out/save_output_" + str(i))
-        torch.save(model.rec_A, "./out/save_target_" + str(i))
-        '''
-        out_np = model.rec_B[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
-        im = Image.fromarray((out_np * 255).astype(np.uint8))
-        im.save("./out/rec/" + str(i) + ".jpg")
+        model.fake_A = model.apply_mask(model.netG_depth(model.real_B, model.vp_B, model.vp_B), model.mask_B, model.bg_A)
+        model.fake_Aref = model.apply_mask(model.netG_depth(model.real_B, model.vp_B, model.vp_Bref), model.mask_Bref, model.bg_A)
 
-        out_np = model.real_B[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
-        im = Image.fromarray((out_np * 255).astype(np.uint8))
-        im.save("./out/real/" + str(i) + ".jpg")
+        model.rec_B = model.apply_mask(model.netG_real(model.fake_A, model.vp_B, model.z_style_B), model.mask_B, model.bg_B)
+        savefig(model.rec_B, "rec", i)
+        model.rec_Bref = model.apply_mask(model.netG_real(model.fake_Aref, model.vp_Bref, model.z_style_B), model.mask_Bref, model.bg_B)
+        savefig(model.rec_Bref, "novelview", i)
 
-        out_np = model.fake_B[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
-        im = Image.fromarray((out_np * 255).astype(np.uint8))
-        im.save("./out/fake/" + str(i) + ".jpg")
+        model.fake_B = model.apply_mask(model.netG_real(model.real_A, model.vp_A, model.z_style_B), model.mask_A, model.bg_B)
+        savefig(model.fake_B, "fake", i)
+        model.fake_Bref = model.apply_mask(model.netG_real(model.real_Aref, model.vp_Aref, model.z_style_B), model.mask_Aref, model.bg_B)
+        savefig(model.fake_Bref, "fakevp", i)
 
-        out_np = model.rec_Bref[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
-        im = Image.fromarray((out_np * 255).astype(np.uint8))
-        im.save("./out/novelview/" + str(i) + ".jpg")
+        realBref_with_vp = cat_feature(model.real_Bref, model.vp_Bref)
+        model.z_style_B, mu_style_B, logvar_style_B = model.encode_style(realBref_with_vp, model.vae)
+        model.fake_refB = model.apply_mask(model.netG_real(model.real_A, model.vp_A, model.z_style_B), model.mask_A, model.bg_B)
+        savefig(model.fake_refB, "fakestyle", i)
 
-        out_np = model.fake_Brandom[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
-        im = Image.fromarray((out_np * 255).astype(np.uint8))
-        im.save("./out/random/" + str(i) + ".jpg")
+        model.rec_A = model.apply_mask(model.netG_depth(model.fake_B, model.vp_A, model.vp_A), model.mask_A, model.bg_A)
+        model.rec_Aref = model.apply_mask(model.netG_depth(model.fake_Bref, model.vp_Aref, model.vp_Aref), model.mask_Aref, model.bg_A)
+
+        model.fake_Brandom = model.apply_mask(model.netG_real(model.real_A, model.vp_A, model.z_texture), model.mask_A, model.bg_B)
+        savefig(model.fake_Brandom, "random", i)
+
+
+        vpB.append(model.vp_B[0].detach().cpu().numpy())
+        vpBref.append(model.vp_Bref[0].detach().cpu().numpy())
 
 
         #break
+    import pickle
+    pickle.dump(vpB, "./out/vp_B")
+    pickle.dump(vpBref, "./out/vp_Bref")
     break

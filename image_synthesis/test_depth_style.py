@@ -27,14 +27,20 @@ model.netG_real.eval()
 model.netG_depth.eval()
 model.netE_style.eval()
 
-vp_B = []
-vp_Bref = []
+vpB = []
+vpBref = []
 
 def savefig(tensor, name, i):
     out_np = tensor[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
     im = Image.fromarray((out_np * 255).astype(np.uint8))
     im.save("./out/" + name + "/" + str(i) + ".jpg")
     return
+
+def cat_feature(x, y):
+    y_expand = y.view(y.size(0), y.size(1), 1, 1).expand(
+        y.size(0), y.size(1), x.size(2), x.size(3))
+    x_cat = torch.cat([x, y_expand], 1)
+    return x_cat
 
 
 for epoch in range(1):
@@ -77,13 +83,13 @@ for epoch in range(1):
         model.fake_Brandom = model.apply_mask(model.netG_real(model.real_A, model.vp_A, model.z_texture), model.mask_A, model.bg_B)
         savefig(model.fake_Brandom, "random", i)
 
-
         vpB.append(model.vp_B[0].detach().cpu().numpy())
         vpBref.append(model.vp_Bref[0].detach().cpu().numpy())
 
 
         #break
+
     import pickle
-    pickle.dump(vpB, "./out/vp_B")
-    pickle.dump(vpBref, "./out/vp_Bref")
+    pickle.dump(vpB, open("./out/vp_B", "wb"))
+    pickle.dump(vpBref, open("./out/vp_Bref", "wb"))
     break

@@ -25,7 +25,7 @@ class Depth2RealDataset(BaseDataset):
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
         parser.add_argument('--random_shift', action='store_true', help='add random shift to real images and rendered ones')
-        parser.add_argument('--color_jitter', action='store_true', help='jitter the hue of loaded images')
+        parser.add_argument('--color_jitter', action='store_false', help='jitter the hue of loaded images')
         # type of  pose pool to sample from:
         parser.add_argument('--pose_type', type=str, default='hack', choices=['hack'], help='select which pool of poses to sample from')
         parser.add_argument('--pose_align', action='store_true', help='choose to shuffle pose or not. not shuffling == paired pose')

@@ -76,6 +76,8 @@ class DepthStyleModel(BaseModel):
         self.real_A = input['A'].to(self.device)
         self.real_B = input['B'].to(self.device)
         self.real_A2B = input['Ar'].to(self.device)
+        self.real_B2A = input["Bd"].to(self.device)
+        self.real_Bref2A = input["Brefd"].to(self.device)
 
         self.mask_Aref = input['Amref'].to(self.device)
         self.mask_Bref = input['Bmref'].to(self.device)
@@ -113,7 +115,10 @@ class DepthStyleModel(BaseModel):
 
         self.fake_A = self.apply_mask(self.netG_depth(self.real_B, self.vp_B, self.vp_B), self.mask_B, self.bg_A)
         self.fake_Aref = self.apply_mask(self.netG_depth(self.real_B, self.vp_B, self.vp_Bref), self.mask_Bref, self.bg_A)
-        self.loss_G_A = self.critGAN(self.netD_depth(cat_feature(self.fake_A, self.vp_B)), True) + self.critGAN(self.netD_depth(cat_feature(self.fake_Aref, self.vp_Bref)), True)
+        self.loss_G_A = self.critGAN(self.netD_depth(cat_feature(self.fake_A, self.vp_B)), True) \
+                        + self.critGAN(self.netD_depth(cat_feature(self.fake_Aref, self.vp_Bref)), True) \
+                        + self.critCycle(self.fake_A, self.real_B2A) \
+                        + self.critCycle(self.fake_Aref, self.real_Bref2A)
 
         self.rec_B = self.apply_mask(self.netG_real(self.fake_A, self.vp_B, self.z_style_B), self.mask_B, self.bg_B)
         self.rec_Bref = self.apply_mask(self.netG_real(self.fake_Aref, self.vp_Bref, self.z_style_B), self.mask_Bref, self.bg_B)
@@ -121,7 +126,8 @@ class DepthStyleModel(BaseModel):
 
         self.fake_B = self.apply_mask(self.netG_real(self.real_A, self.vp_A, self.z_style_B), self.mask_A, self.bg_B)
         self.fake_Bref = self.apply_mask(self.netG_real(self.real_Aref, self.vp_Aref, self.z_style_B), self.mask_Aref, self.bg_B)
-        self.loss_G_B = self.critGAN(self.netD_real(cat_feature(self.fake_B, self.vp_A)), True) + self.critGAN(self.netD_real(cat_feature(self.fake_Bref, self.vp_Aref)), True)
+        self.loss_G_B = self.critGAN(self.netD_real(cat_feature(self.fake_B, self.vp_A)), True) \
+                        + self.critGAN(self.netD_real(cat_feature(self.fake_Bref, self.vp_Aref)), True)
 
         self.rec_A = self.apply_mask(self.netG_depth(self.fake_B, self.vp_A, self.vp_A), self.mask_A, self.bg_A)
         self.rec_Aref = self.apply_mask(self.netG_depth(self.fake_Bref, self.vp_Aref, self.vp_Aref), self.mask_Aref, self.bg_A)

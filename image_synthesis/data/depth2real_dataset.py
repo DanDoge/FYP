@@ -65,49 +65,48 @@ class Depth2RealDataset(BaseDataset):
 
         model_B = self.model_list[random.randint(0, len(self.model_list) - 1)]
         fileB = self.model2image[model_B]["albedo"][random.randint(0, len(self.model2image[model_B]["albedo"]) - 1)]
+        fileBdepth = fileB.replace("albedo", "depth")
         fileB_vp = torch.Tensor([int(fileB.split("_")[-4]), int(fileB.split("_")[-2])])
 
         fileBref = self.model2image[model_B]["albedo"][random.randint(0, len(self.model2image[model_B]["albedo"]) - 1)]
+        fileBrefdepth = fileBref.replace("albedo", "depth")
         fileBref_vp = torch.Tensor([int(fileBref.split("_")[-4]), int(fileBref.split("_")[-2])])
 
+        def get_depth_image(file_depth):
+            img_depth = Image.open(file_depth)
+            rgb_depth = img_depth.convert("L")
+            rgb_depth = self.transform_rgb(rgb_depth)
+            mask_depth = torch.zeros_like(rgb_depth)
+            mask_depth[rgb_depth != 1.] = 1
+            rgb_depth = (rgb_depth - 0.5) / 0.5
+            return rgb_depth, mask_depth
 
-        imgA = Image.open(fileA)
-        rgbA = imgA.convert("L")
-        rgbA = self.transform_rgb(rgbA)
-        maskA = torch.zeros_like(rgbA)
-        maskA[rgbA != 1.] = 1
-        rgbA = (rgbA - 0.5) / 0.5
+        def get_rgb_image(file_rgb):
+            img_rgb = Image.open(file_rgb)
+            img_mask_rgb = self.transform_mask(img_rgb)
+            mask_rgb = img_maskB_rgb[3, :, :]
+            mask_rgb = mask_rgb.unsqueeze(0)
+            rgb_rgb = img_rgb.convert("RGB")
+            rgb_rgb = self.transform_rgb(rgb_rgb)
+            rgb_rgb = get_normaliztion()(rgb_rgb)
+            return rgb_rgb, mask_rgb
 
-        imgAref = Image.open(fileAref)
-        rgbAref = imgAref.convert("L")
-        rgbAref = self.transform_rgb(rgbAref)
-        maskAref = torch.zeros_like(rgbAref)
-        maskAref[rgbAref != 1.] = 1
-        rgbAref = (rgbAref - 0.5) / 0.5
+        rgbA, maskA = get_depth_image(fileA)
+        rgbAref, maskAref = get_depth_image(fileAref)
 
         imgA_real = Image.open(fileAreal)
         imgA_real = imgA_real.convert("RGB")
         imgA_real = self.transform_rgb(imgA_real)
         imgA_real = get_normaliztion()(imgA_real)
 
-        imgB = Image.open(fileB)
-        img_maskB = self.transform_mask(imgB)
-        maskB = img_maskB[3, :, :]
-        maskB = maskB.unsqueeze(0)
-        rgbB = imgB.convert("RGB")
-        rgbB = self.transform_rgb(rgbB)
-        rgbB = get_normaliztion()(rgbB)
+        rgbB, maskB = get_rgb_image(fileB)
+        rgbBref, maskBref = get_rgb_image(fileBref)
 
-        imgBref = Image.open(fileBref)
-        img_maskBref = self.transform_mask(imgBref)
-        maskBref = img_maskBref[3, :, :]
-        maskBref = maskBref.unsqueeze(0)
-        rgbBref = imgBref.convert("RGB")
-        rgbBref = self.transform_rgb(rgbBref)
-        rgbBref = get_normaliztion()(rgbBref)
+        rgbBdepth, _ = get_depth_image(fileBdepth)
+        rgbBrefdepth, _ = get_depth_image(fileBrefdepth)
 
 
-        return {'A': rgbA, 'B': rgbB, 'Am': maskA, 'Bm': maskB, 'Ar': imgA_real, "Aref": rgbAref, "Amref": maskAref, "Bref": rgbBref, "Bmref": maskBref, "Avp": fileA_vp, "Arefvp": fileAref_vp, "Bvp": fileB_vp, "Brefvp": fileBref_vp}
+        return {'A': rgbA, 'B': rgbB, 'Am': maskA, 'Bm': maskB, 'Ar': imgA_real, "Aref": rgbAref, "Amref": maskAref, "Bref": rgbBref, "Bmref": maskBref, "Bd": rgbBdepth, "Brefd": rgbBrefdepth, "Avp": fileA_vp, "Arefvp": fileAref_vp, "Bvp": fileB_vp, "Brefvp": fileBref_vp}
 
     def __len__(self):
         return max(self.len_depth, self.len_albedo)

@@ -14,8 +14,8 @@ model.setup(opt)
 visualizer = Visualizer(opt)
 total_steps = 0
 
-#model.save_dir = "/data1/huangdj/VON-master/checkpoints/texture_real/car_df/2019-11-15/car_df/"
-#model.load_networks(10)
+model.save_dir = "/data1/huangdj/VON-master/checkpoints/depth_real/car_df/2020-02-29/car_df/"
+model.load_networks(7)
 
 #model.netG_AB.module.load_state_dict(torch.load("/data1/huangdj/VON-master/checkpoints/texture_real/car_df/2019-11-15/car_df/10_net_G_AB.pth"))
 #model.netE.module.load_state_dict(torch.load("/data1/huangdj/VON-master/checkpoints/texture_real/car_df/2019-11-15/car_df/10_net_E.pth"))

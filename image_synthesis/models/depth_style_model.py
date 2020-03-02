@@ -109,6 +109,9 @@ class DepthStyleModel(BaseModel):
         realB_with_vp = cat_feature(self.real_B, self.vp_B)
         self.z_style_B, mu_style_B, logvar_style_B = self.encode_style(realB_with_vp, self.vae)
 
+        realBref_with_vp = cat_feature(self.real_Bref, self.vp_Bref)
+        self.z_style_Bref, mu_style_Bref, logvar_style_Bref = self.encode_style(realBref_with_vp, self.vae)
+
         if is_test:
             self.z_style_B = mu_style_B
 
@@ -134,10 +137,12 @@ class DepthStyleModel(BaseModel):
         self.loss_cycle_A = (self.critCycle(self.real_Aref, self.rec_Aref) + self.critCycle(self.real_A, self.rec_A)) * self.opt.lambda_cycle_A
 
         self.fake_Brandom = self.apply_mask(self.netG_real(self.real_A, self.vp_A, self.z_texture), self.mask_A, self.bg_B)
+        fakeB_with_vp = cat_feature(self.fake_Brandom, self.vp_A)
+        self.z_texture_rec, mu_style_random, logvar_style_random = self.encode_style(fakeB_with_vp, self.vae)
 
 
         if self.opt.lambda_kl_real > 0.0:
-            self.loss_mu_enc = torch.mean(torch.abs(mu_style_B))
+            self.loss_mu_enc = torch.mean(torch.abs(mu_style_B)) + self.critCycle(self.z_style_Bref, self.z_style_B.detach()) + self.critCycle(self.z_texture, self.z_texture_rec)
             self.loss_var_enc = torch.mean(logvar_style_B.exp())
             self.loss_kl_real = _cal_kl(mu_style_B, logvar_style_B, self.opt.lambda_kl_real)
         # combined loss

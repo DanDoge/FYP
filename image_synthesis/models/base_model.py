@@ -76,10 +76,10 @@ class BaseModel(ABC):
             self.load_network(netD, opt.model3D_dir + '_D_3D.pth')
         return netD
 
-    def define_G(self, input_nc, output_nc, nz, ext=''):
+    def define_G(self, input_nc, output_nc, nz, model=opt.netG, ext=''):
         opt = self.opt
         netG = networks.define_G(input_nc, output_nc, nz, opt.ngf,
-                                 model=opt.netG, crop_size=opt.crop_size,
+                                 model=model, crop_size=opt.crop_size,
                                  norm=opt.norm, nl=opt.nl, use_dropout=opt.use_dropout, init_type=opt.init_type, init_param=opt.init_param,
                                  gpu_ids=self.gpu_ids, where_add=self.opt.where_add)
 

@@ -67,7 +67,7 @@ def cat_feature(x, y):
 
 def define_G(input_nc, output_nc, nz, ngf,
              model, crop_size=128, norm='batch', nl='relu',
-             use_dropout=False, init_type='xavier', init_param=0.02, gpu_ids=[], where_add='input'):
+             use_dropout=False, init_type='xavier', init_param=0.02, gpu_ids=[], where_add='all'):
     netG = None
     norm_layer = get_norm_layer(layer_type=norm)
     nl_layer = get_non_linearity(layer_type=nl)

@@ -112,9 +112,6 @@ class DepthStyleModel(BaseModel):
         realBref_with_vp = cat_feature(self.real_Bref, self.vp_Bref)
         self.z_style_Bref, mu_style_Bref, logvar_style_Bref = self.encode_style(realBref_with_vp, self.vae)
 
-        if is_test:
-            self.z_style_B = mu_style_B
-
 
         self.fake_A = self.apply_mask(self.netG_depth(self.real_B, self.vp_B, self.vp_B), self.mask_B, self.bg_A)
         self.fake_Aref = self.apply_mask(self.netG_depth(self.real_B, self.vp_B, self.vp_Bref), self.mask_Bref, self.bg_A)

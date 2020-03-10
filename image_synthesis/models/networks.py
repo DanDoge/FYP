@@ -855,6 +855,17 @@ class ResBlocks(nn.Module):
         return self.model(x)
 
 
+class SPADEResBlocks(nn.Module):
+    def __init__(self, num_blocks, dim, norm='inst', activation='relu', pad_type='zero', nz=0):
+        super(ResBlocks, self).__init__()
+        self.model = []
+        for i in range(num_blocks):
+            self.model += [SPADEResBlock(dim, norm=norm, activation=activation, pad_type=pad_type, nz=nz)]
+        self.model = nn.Sequential(*self.model)
+
+    def forward(self, x, seg):
+        return self.model(x, seg)
+
 ##################################################################################
 # Basic Blocks
 ##################################################################################
@@ -874,6 +885,74 @@ class ResBlock(nn.Module):
         out = self.model(x)
         out += residual
         return out
+
+import torch.nn.functional as F
+
+class SPADE(nn.Module):
+    def __init__(self, config_text, norm_nc, label_nc):
+        super().__init__()
+
+        ks = 3
+
+        self.param_free_norm = nn.InstanceNorm2d(norm_nc, affine=False)
+
+        # The dimension of the intermediate embedding space. Yes, hardcoded.
+        nhidden = 128
+
+        pw = ks // 2
+        self.mlp_shared = nn.Sequential(
+            nn.Conv2d(label_nc, nhidden, kernel_size=ks, padding=pw),
+            nn.ReLU()
+        )
+        self.mlp_gamma = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw)
+        self.mlp_beta = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw)
+
+    def forward(self, x, segmap):
+
+        # Part 1. generate parameter-free normalized activations
+        normalized = self.param_free_norm(x)
+
+        # Part 2. produce scaling and bias conditioned on semantic map
+        segmap = F.interpolate(segmap, size=x.size()[2:], mode='nearest')
+        actv = self.mlp_shared(segmap)
+        gamma = self.mlp_gamma(actv)
+        beta = self.mlp_beta(actv)
+
+        # apply scale and bias
+        out = normalized * (1 + gamma) + beta
+
+        return out
+
+class SPADEResBlock(nn.module):
+    def __init__(self, dim, norm='inst', activation='relu', pad_type='zero', nz=0):
+        super(SPADEResBlock, self).__init__()
+
+        self.learned_shortcut = False
+
+        self.conv_0 = nn.Conv2d(dim + nz, dim, kernel_size=3, padding=1)
+        self.conv_1 = nn.Conv2d(dim, dim + nz, kernel_size=3, padding=1)
+
+        if False: # use spectral norm?
+            self.conv_0 = spectral_norm(self.conv_0)
+            self.conv_1 = spectral_norm(self.conv_1)
+
+        self.semantic_nc = 1 # nc of depth map
+        self.norm_0 = SPADE(config, dim + nz, 1)
+        self.norm_1 = SPADE(config, dim, 1)
+
+    def forward(self, x, seg):
+        x_s = x
+
+        dx = self.conv_0(self.actvn(self.norm_0(x, seg)))
+        dx = self.conv_1(self.actvn(self.norm_1(dx, seg)))
+
+        out = x_s + dx
+
+        return out
+
+    def actvn(self, x):
+        return F.leaky_relu(x, 2e-1)
+
 
 
 class Conv2dBlock(nn.Module):

@@ -50,7 +50,7 @@ class DepthStyleModel(BaseModel):
 
 
         # load/define networks: define G
-        self.netG_real = self.define_G(opt.input_nc, opt.output_nc, opt.nz_texture, model='unet', ext='AB')
+        self.netG_real = self.define_G(opt.input_nc, opt.output_nc, opt.nz_texture, ext='AB')
         self.netG_depth = self.define_G(opt.output_nc, opt.input_nc, self.vp_dim, ext='BA')
         self.netE_style = self.define_E(opt.output_nc + self.vp_dim, self.vae)
 

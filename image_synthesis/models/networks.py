@@ -67,7 +67,7 @@ def cat_feature(x, y):
 
 def define_G(input_nc, output_nc, nz, ngf,
              model, crop_size=128, norm='batch', nl='relu',
-             use_dropout=False, init_type='xavier', init_param=0.02, gpu_ids=[], where_add='all'):
+             use_dropout=False, init_type='xavier', init_param=0.02, gpu_ids=[], where_add='all', num_downs=2):
     netG = None
     norm_layer = get_norm_layer(layer_type=norm)
     nl_layer = get_non_linearity(layer_type=nl)
@@ -80,9 +80,9 @@ def define_G(input_nc, output_nc, nz, ngf,
     if model == 'unet' and where_add == 'input':
         netG = G_Unet_add_input(input_nc, output_nc, nz, n_blocks, ngf, norm_layer=norm_layer, nl_layer=nl_layer, use_dropout=use_dropout)
     elif model == 'unet' and where_add == 'all':
-        netG = G_Unet_add_all(input_nc, output_nc, nz, n_blocks, ngf, norm_layer=norm_layer, nl_layer=nl_layer, use_dropout=use_dropout)
+        netG = G_Unet_add_all(input_nc, output_nc, nz, num_downs, ngf * 2, norm_layer=norm_layer, nl_layer=nl_layer, use_dropout=use_dropout)
     elif model == 'resnet_cat':
-        netG = G_Resnet(input_nc, output_nc, 2, nz, num_downs=2, n_res=n_blocks - 4, ngf=ngf, norm=norm, nl_layer=nl)
+        netG = G_Resnet(input_nc, output_nc, 2, nz, num_downs=num_downs, n_res=n_blocks - 4, ngf=ngf, norm=norm, nl_layer=nl)
     else:
         raise NotImplementedError('Generator model name [%s] is not recognized' % model)
 
@@ -629,7 +629,7 @@ class UnetBlock_with_z(nn.Module):
         self.up = nn.Sequential(*up)
 
     def forward(self, x, z):
-        # print(x.size())
+        #print(x.size())
         if self.nz > 0:
             z_img = z.view(z.size(0), z.size(1), 1, 1).expand(z.size(0), z.size(1), x.size(2), x.size(3))
             x_and_z = torch.cat([x, z_img], 1)
@@ -699,14 +699,14 @@ class G_Resnet(nn.Module):
         if nz == 0:
             self.dec = Decoder(n_downsample, n_res, self.enc_content.output_dim, output_nc, norm=norm, activ=nl_layer, pad_type=pad_type, nz=nz)
         else:
-            self.dec = Decoder_all(n_downsample, n_res, self.enc_content.output_dim, output_nc, norm=norm, activ=nl_layer, pad_type=pad_type, nz=nz)
+            self.dec = Decoder_all(n_downsample, n_res, self.enc_content.output_dim, output_nc, norm=norm, activ=nl_layer, pad_type=pad_type, nz=nz, nlabel=input_nc)
 
-    def decode(self, content, style=None):
-        return self.dec(content, style)
+    def decode(self, content, style=None, image=None):
+        return self.dec(content, style, image)
 
     def forward(self, image, vp, style=None):
         content = self.enc_content(image, vp)
-        images_recon = self.decode(content, style)
+        images_recon = self.decode(content, style, image)
         return images_recon
 
 ##################################################################################
@@ -782,14 +782,15 @@ class ContentEncoder(nn.Module):
                 block = getattr(self, 'block_{:d}'.format(n))
                 output = block(cat_feature(output, y))
             output = self.resnet_block(cat_feature(output, y))
+            #print(output.shape)
             return output
 
 
 class Decoder_all(nn.Module):
-    def __init__(self, n_upsample, n_res, dim, output_dim, norm='batch', activ='relu', pad_type='zero', nz=0):
+    def __init__(self, n_upsample, n_res, dim, output_dim, norm='batch', activ='relu', pad_type='zero', nz=0, nlabel=0):
         super(Decoder_all, self).__init__()
         # AdaIN residual blocks
-        self.resnet_block = ResBlocks(n_res, dim, norm, activ, pad_type=pad_type, nz=nz)
+        self.resnet_block = SPADEResBlocks(n_res, dim, norm, activ, pad_type=pad_type, nz=nz, nlabel=nlabel)
         self.n_blocks = 0
         # upsampling blocks
         for i in range(n_upsample):
@@ -801,9 +802,9 @@ class Decoder_all(nn.Module):
         setattr(self, 'block_{:d}'.format(self.n_blocks), Conv2dBlock(dim + nz, output_dim, 7, 1, 3, norm='none', activation='tanh', pad_type='reflect'))
         self.n_blocks += 1
 
-    def forward(self, x, y=None):
+    def forward(self, x, y=None, depthmap=None):
         if y is not None:
-            output = self.resnet_block(cat_feature(x, y))
+            output = self.resnet_block(cat_feature(x, y), depthmap)
             for n in range(self.n_blocks):
                 block = getattr(self, 'block_{:d}'.format(n))
                 if n > 0:
@@ -854,17 +855,20 @@ class ResBlocks(nn.Module):
     def forward(self, x):
         return self.model(x)
 
-
 class SPADEResBlocks(nn.Module):
-    def __init__(self, num_blocks, dim, norm='inst', activation='relu', pad_type='zero', nz=0):
-        super(ResBlocks, self).__init__()
+    def __init__(self, num_blocks, dim, norm='inst', activation='relu', pad_type='zero', nz=0, nlabel=0):
+        super(SPADEResBlocks, self).__init__()
         self.model = []
-        for i in range(num_blocks):
-            self.model += [SPADEResBlock(dim, norm=norm, activation=activation, pad_type=pad_type, nz=nz)]
-        self.model = nn.Sequential(*self.model)
+        self.num_blocks = num_blocks
+        for i in range(self.num_blocks):
+            self.model += [SPADEResBlock(dim, norm=norm, activation=activation, pad_type=pad_type, nz=nz, nlabel=nlabel)]
+        self.model = nn.ModuleList(*self.model)
 
     def forward(self, x, seg):
-        return self.model(x, seg)
+        out = x
+        for i in range(self.num_blocks):
+            out = self.model[i](out, seg)
+        return out
 
 ##################################################################################
 # Basic Blocks
@@ -889,8 +893,8 @@ class ResBlock(nn.Module):
 import torch.nn.functional as F
 
 class SPADE(nn.Module):
-    def __init__(self, config_text, norm_nc, label_nc):
-        super().__init__()
+    def __init__(self, norm_nc, label_nc):
+        super(SPADE, self).__init__()
 
         ks = 3
 
@@ -903,9 +907,9 @@ class SPADE(nn.Module):
         self.mlp_shared = nn.Sequential(
             nn.Conv2d(label_nc, nhidden, kernel_size=ks, padding=pw),
             nn.ReLU()
-        )
-        self.mlp_gamma = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw)
-        self.mlp_beta = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw)
+        ).cuda()
+        self.mlp_gamma = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw).cuda()
+        self.mlp_beta = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw).cuda()
 
     def forward(self, x, segmap):
 
@@ -919,26 +923,27 @@ class SPADE(nn.Module):
         beta = self.mlp_beta(actv)
 
         # apply scale and bias
+        #print(normalized.shape, gamma.shape, beta.shape)
         out = normalized * (1 + gamma) + beta
 
         return out
 
-class SPADEResBlock(nn.module):
-    def __init__(self, dim, norm='inst', activation='relu', pad_type='zero', nz=0):
+class SPADEResBlock(nn.Module):
+    def __init__(self, dim, norm='inst', activation='relu', pad_type='zero', nz=0, nlabel=1):
         super(SPADEResBlock, self).__init__()
 
         self.learned_shortcut = False
 
-        self.conv_0 = nn.Conv2d(dim + nz, dim, kernel_size=3, padding=1)
-        self.conv_1 = nn.Conv2d(dim, dim + nz, kernel_size=3, padding=1)
+        self.conv_0 = nn.Conv2d(dim + nz, dim, kernel_size=3, padding=1).cuda()
+        self.conv_1 = nn.Conv2d(dim, dim + nz, kernel_size=3, padding=1).cuda()
 
         if False: # use spectral norm?
             self.conv_0 = spectral_norm(self.conv_0)
             self.conv_1 = spectral_norm(self.conv_1)
 
-        self.semantic_nc = 1 # nc of depth map
-        self.norm_0 = SPADE(config, dim + nz, 1)
-        self.norm_1 = SPADE(config, dim, 1)
+        #self.semantic_nc = 1 # nc of depth map
+        self.norm_0 = SPADE(dim + nz, nlabel)
+        self.norm_1 = SPADE(dim, nlabel)
 
     def forward(self, x, seg):
         x_s = x
@@ -951,7 +956,7 @@ class SPADEResBlock(nn.module):
         return out
 
     def actvn(self, x):
-        return F.leaky_relu(x, 2e-1)
+        return F.leaky_relu(x, 2e-1).cuda()
 
 
 

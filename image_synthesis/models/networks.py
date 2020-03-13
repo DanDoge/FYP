@@ -80,7 +80,7 @@ def define_G(input_nc, output_nc, nz, ngf,
     if model == 'unet' and where_add == 'input':
         netG = G_Unet_add_input(input_nc, output_nc, nz, n_blocks, ngf, norm_layer=norm_layer, nl_layer=nl_layer, use_dropout=use_dropout)
     elif model == 'unet' and where_add == 'all':
-        netG = G_Unet_add_all(input_nc, output_nc, nz, num_downs, ngf * 2, norm_layer=norm_layer, nl_layer=nl_layer, use_dropout=use_dropout)
+        netG = G_Unet_add_all(input_nc, output_nc, nz, num_downs, ngf, norm_layer=norm_layer, nl_layer=nl_layer, use_dropout=use_dropout)
     elif model == 'resnet_cat':
         netG = G_Resnet(input_nc, output_nc, 2, nz, num_downs=num_downs, n_res=n_blocks - 4, ngf=ngf, norm=norm, nl_layer=nl)
     else:
@@ -862,9 +862,11 @@ class SPADEResBlocks(nn.Module):
         self.num_blocks = num_blocks
         for i in range(self.num_blocks):
             self.model += [SPADEResBlock(dim, norm=norm, activation=activation, pad_type=pad_type, nz=nz, nlabel=nlabel)]
-        self.model = nn.ModuleList(*self.model)
+        self.model = nn.ModuleList(self.model)
 
     def forward(self, x, seg):
+        if len(list(seg.shape)) == 2:
+            seg = seg.view(-1, 2, 1, 1)
         out = x
         for i in range(self.num_blocks):
             out = self.model[i](out, seg)
@@ -907,9 +909,9 @@ class SPADE(nn.Module):
         self.mlp_shared = nn.Sequential(
             nn.Conv2d(label_nc, nhidden, kernel_size=ks, padding=pw),
             nn.ReLU()
-        ).cuda()
-        self.mlp_gamma = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw).cuda()
-        self.mlp_beta = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw).cuda()
+        )
+        self.mlp_gamma = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw)
+        self.mlp_beta = nn.Conv2d(nhidden, norm_nc, kernel_size=ks, padding=pw)
 
     def forward(self, x, segmap):
 
@@ -934,8 +936,8 @@ class SPADEResBlock(nn.Module):
 
         self.learned_shortcut = False
 
-        self.conv_0 = nn.Conv2d(dim + nz, dim, kernel_size=3, padding=1).cuda()
-        self.conv_1 = nn.Conv2d(dim, dim + nz, kernel_size=3, padding=1).cuda()
+        self.conv_0 = nn.Conv2d(dim + nz, dim, kernel_size=3, padding=1)
+        self.conv_1 = nn.Conv2d(dim, dim + nz, kernel_size=3, padding=1)
 
         if False: # use spectral norm?
             self.conv_0 = spectral_norm(self.conv_0)
@@ -956,7 +958,7 @@ class SPADEResBlock(nn.Module):
         return out
 
     def actvn(self, x):
-        return F.leaky_relu(x, 2e-1).cuda()
+        return F.leaky_relu(x, 2e-1)
 
 class AddCoordsTh(nn.Module):
     def __init__(self, x_dim=64, y_dim=64, with_r=False):
@@ -1078,6 +1080,7 @@ class CoordConv(nn.Module):
         ret = self.conv(ret)
         return ret
 
+
 class Conv2dBlock(nn.Module):
     def __init__(self, input_dim, output_dim, kernel_size, stride,
                  padding=0, norm='none', activation='relu', pad_type='zero'):
@@ -1122,7 +1125,7 @@ class Conv2dBlock(nn.Module):
 
         # initialize convolution
         #self.conv = nn.Conv2d(input_dim, output_dim, kernel_size, stride, bias=self.use_bias)
-        self.conv = CoordConv(input_dim, output_dim, with_r=False, kernel_size, stride, bias=self.use_bias)
+        self.conv = CoordConv(input_dim, output_dim, False, kernel_size=kernel_size, stride=stride, bias=self.use_bias)
 
     def forward(self, x):
         x = self.conv(self.pad(x))

@@ -76,12 +76,12 @@ class BaseModel(ABC):
             self.load_network(netD, opt.model3D_dir + '_D_3D.pth')
         return netD
 
-    def define_G(self, input_nc, output_nc, nz, model=opt.netG, ext=''):
+    def define_G(self, input_nc, output_nc, nz, num_downs, model='resnet_cat', ext='', ngf=32):
         opt = self.opt
-        netG = networks.define_G(input_nc, output_nc, nz, opt.ngf,
+        netG = networks.define_G(input_nc, output_nc, nz, ngf=ngf,
                                  model=model, crop_size=opt.crop_size,
                                  norm=opt.norm, nl=opt.nl, use_dropout=opt.use_dropout, init_type=opt.init_type, init_param=opt.init_param,
-                                 gpu_ids=self.gpu_ids, where_add=self.opt.where_add)
+                                 gpu_ids=self.gpu_ids, where_add=self.opt.where_add, num_downs=num_downs)
 
         if opt.model2D_dir:
             self.load_network(netG, opt.model2D_dir + '_net_G_%s.pth' % ext)
@@ -157,7 +157,7 @@ class BaseModel(ABC):
         return output
 
     def setup_DR(self, opt):
-        from render_module.render_sketch import VoxelRenderLayer, CroppingLayer, GetRotationMatrix, FineSizeCroppingLayer
+        #from render_module.render_sketch import VoxelRenderLayer, CroppingLayer, GetRotationMatrix, FineSizeCroppingLayer
         self.angles_2_rotmat = GetRotationMatrix()
         vsize = opt.load_size
         voxel_shape = torch.Size([opt.batch_size, 1, vsize, vsize, vsize])
@@ -290,7 +290,7 @@ class BaseModel(ABC):
                 if hasattr(state_dict, '_metadata'):
                     del state_dict._metadata
 
-                net.load_state_dict(state_dict)
+                net.load_state_dict(state_dict, strict=False)
 
     # print network information
     def print_networks(self, verbose):

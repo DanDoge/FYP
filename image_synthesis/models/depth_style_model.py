@@ -124,6 +124,7 @@ class DepthStyleModel(BaseModel):
         self.rec_Bref = self.apply_mask(self.netG_real(self.fake_Aref, self.z_style_B), self.mask_Bref, self.bg_B)
         self.loss_cycle_B = (self.critCycle(self.real_Bref, self.rec_Bref)+ self.critCycle(self.real_B, self.rec_B)) * self.opt.lambda_cycle_B
 
+        
         self.fake_B = self.apply_mask(self.netG_real(self.real_A, self.z_style_B), self.mask_A, self.bg_B)
         self.fake_Bref = self.apply_mask(self.netG_real(self.real_Aref, self.z_style_B), self.mask_Aref, self.bg_B)
         self.loss_G_B = self.critGAN(self.netD_real(cat_feature(self.fake_B, self.vp_A)), True) \
@@ -132,6 +133,7 @@ class DepthStyleModel(BaseModel):
         self.rec_A = self.apply_mask(self.netG_depth(self.fake_B, self.vp_A, self.vp_A), self.mask_A, self.bg_A)
         self.rec_Aref = self.apply_mask(self.netG_depth(self.fake_Bref, self.vp_Aref, self.vp_Aref), self.mask_Aref, self.bg_A)
         self.loss_cycle_A = (self.critCycle(self.real_Aref, self.rec_Aref) + self.critCycle(self.real_A, self.rec_A)) * self.opt.lambda_cycle_A
+
 
         self.fake_Brandom = self.apply_mask(self.netG_real(self.real_A, self.z_texture), self.mask_A, self.bg_B)
         fakeB_with_vp = cat_feature(self.fake_Brandom, self.vp_A)

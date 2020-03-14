@@ -55,8 +55,8 @@ class DepthStyleModel(BaseModel):
         self.netE_style = self.define_E(opt.output_nc + self.vp_dim, self.vae)
 
         if opt.isTrain:
-            self.netD_real = self.define_D(opt.output_nc + self.vp_dim, ext='A')
-            self.netD_depth = self.define_D(opt.input_nc + self.vp_dim, ext='B')
+            self.netD_real = self.define_D(opt.output_nc * 2, ext='A')
+            self.netD_depth = self.define_D(opt.input_nc * 2, ext='B')
 
 
         self.critCycle = torch.nn.L1Loss().to(self.device)
@@ -115,8 +115,8 @@ class DepthStyleModel(BaseModel):
 
         self.fake_A = self.apply_mask(self.netG_depth(self.real_B, self.vp_B, self.vp_B), self.mask_B, self.bg_A)
         self.fake_Aref = self.apply_mask(self.netG_depth(self.real_B, self.vp_B, self.vp_Bref), self.mask_Bref, self.bg_A)
-        self.loss_G_A = self.critGAN(self.netD_depth(cat_feature(self.fake_A, self.vp_B)), True) \
-                        + self.critGAN(self.netD_depth(cat_feature(self.fake_Aref, self.vp_Bref)), True) \
+        self.loss_G_A = self.critGAN(self.netD_depth(torch.cat([self.fake_A, self.real_Bref2A], 1)), True) \
+                        + self.critGAN(self.netD_depth(torch.cat([self.fake_Aref, self.real_B2A], 1)), True) \
                         + self.critCycle(self.fake_A, self.real_B2A) \
                         + self.critCycle(self.fake_Aref, self.real_Bref2A)
 
@@ -124,11 +124,11 @@ class DepthStyleModel(BaseModel):
         self.rec_Bref = self.apply_mask(self.netG_real(self.fake_Aref, self.z_style_B), self.mask_Bref, self.bg_B)
         self.loss_cycle_B = (self.critCycle(self.real_Bref, self.rec_Bref)+ self.critCycle(self.real_B, self.rec_B)) * self.opt.lambda_cycle_B
 
-        
+
         self.fake_B = self.apply_mask(self.netG_real(self.real_A, self.z_style_B), self.mask_A, self.bg_B)
         self.fake_Bref = self.apply_mask(self.netG_real(self.real_Aref, self.z_style_B), self.mask_Aref, self.bg_B)
-        self.loss_G_B = self.critGAN(self.netD_real(cat_feature(self.fake_B, self.vp_A)), True) \
-                        + self.critGAN(self.netD_real(cat_feature(self.fake_Bref, self.vp_Aref)), True)
+        self.loss_G_B = self.critGAN(self.netD_real(torch.cat([self.fake_B, self.real_Bref], 1)), True) \
+                        + self.critGAN(self.netD_real(torch.cat([self.fake_Bref, self.real_B], 1)), True)
 
         self.rec_A = self.apply_mask(self.netG_depth(self.fake_B, self.vp_A, self.vp_A), self.mask_A, self.bg_A)
         self.rec_Aref = self.apply_mask(self.netG_depth(self.fake_Bref, self.vp_Aref, self.vp_Aref), self.mask_Aref, self.bg_A)
@@ -157,9 +157,9 @@ class DepthStyleModel(BaseModel):
         else:
             real_A = self.rec_A.detach() * (100 - epoch) / 100 + self.real_A.detach() * epoch / 100
         '''
-        real_A = self.rec_A.detach()
-        loss_D_depth_real = self.critGAN(self.netD_depth(cat_feature(real_A, self.vp_A)), True)
-        loss_D_depth_fake = self.critGAN(self.netD_depth(cat_feature(self.fake_A.detach(), self.vp_B)), False)
+        #real_A = self.rec_A.detach()
+        loss_D_depth_real = self.critGAN(self.netD_depth(torch.cat([self.real_A, self.real_Aref], 1)), True)
+        loss_D_depth_fake = self.critGAN(self.netD_depth(torch.cat([self.fake_A.detach(), self.real_Bref2A], 1)), False) + self.critGAN(self.netD_depth(torch.cat([self.fake_Aref.detach(), self.real_B2A], 1)), False)
         self.loss_D_depth = loss_D_depth_real + loss_D_depth_fake
 
 
@@ -169,9 +169,9 @@ class DepthStyleModel(BaseModel):
         else:
             real_B = self.rec_B.detach() * (100 - epoch) / 100 + self.real_B.detach() * epoch / 100
         '''
-        real_B = self.rec_B.detach()
-        loss_D_real_real = self.critGAN(self.netD_real(cat_feature(real_B, self.vp_B)), True)
-        loss_D_real_fake = self.critGAN(self.netD_real(cat_feature(self.fake_B.detach(), self.vp_A)), False)
+        #real_B = self.rec_B.detach()
+        loss_D_real_real = self.critGAN(self.netD_real(torch.cat([self.real_B, self.real_Bref], 1)), True)
+        loss_D_real_fake = self.critGAN(self.netD_real(torch.cat([self.fake_B.detach(), self.realBref], 1)), False) + self.critGAN(self.netD_real(torch.cat([self.fake_Bref.detach(), self.realB], 1)), False)
         self.loss_D_real = loss_D_real_real + loss_D_real_fake
         self.loss_D = self.loss_D_real + self.loss_D_depth
         self.loss_D.backward()

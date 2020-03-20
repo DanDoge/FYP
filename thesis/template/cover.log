@@ -1,0 +1,2280 @@
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  20 MAR 2020 16:16
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**cover.tex
+(./cover.tex
+LaTeX2e <2018-12-01>
+./cover.tex:2: Undefined control sequence.
+l.2 \NewCoffin
+               \result
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:2: Undefined control sequence.
+l.2 \NewCoffin \result
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:3: Undefined control sequence.
+l.3 \NewCoffin
+               \topBox
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:3: Undefined control sequence.
+l.3 \NewCoffin \topBox
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:4: Undefined control sequence.
+l.4 \NewCoffin
+               \badge
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:4: Undefined control sequence.
+l.4 \NewCoffin \badge
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:5: Undefined control sequence.
+l.5 \NewCoffin
+               \pku
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:5: Undefined control sequence.
+l.5 \NewCoffin \pku
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:6: Undefined control sequence.
+l.6 \NewCoffin
+               \headingText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:6: Undefined control sequence.
+l.6 \NewCoffin \headingText
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:7: Undefined control sequence.
+l.7 \NewCoffin
+               \titleText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:7: Undefined control sequence.
+l.7 \NewCoffin \titleText
+                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:8: Undefined control sequence.
+l.8 \NewCoffin
+               \chineseTitleText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:8: Undefined control sequence.
+l.8 \NewCoffin \chineseTitleText
+                                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:9: Undefined control sequence.
+l.9 \NewCoffin
+               \englishTitleText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:9: Undefined control sequence.
+l.9 \NewCoffin \englishTitleText
+                                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:10: Undefined control sequence.
+l.10 \NewCoffin
+                \nameText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:10: Undefined control sequence.
+l.10 \NewCoffin \nameText
+                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:11: Undefined control sequence.
+l.11 \NewCoffin
+                \studentIDText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:11: Undefined control sequence.
+l.11 \NewCoffin \studentIDText
+                              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:12: Undefined control sequence.
+l.12 \NewCoffin
+                \schoolText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:12: Undefined control sequence.
+l.12 \NewCoffin \schoolText
+                           
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:13: Undefined control sequence.
+l.13 \NewCoffin
+                \majorText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:13: Undefined control sequence.
+l.13 \NewCoffin \majorText
+                          
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:14: Undefined control sequence.
+l.14 \NewCoffin
+                \advisorText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:14: Undefined control sequence.
+l.14 \NewCoffin \advisorText
+                            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:15: Undefined control sequence.
+l.15 \NewCoffin
+                \dateText
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:15: Undefined control sequence.
+l.15 \NewCoffin \dateText
+                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:19: Undefined control sequence.
+l.19 \SetHorizontalCoffin
+                          \result {}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:19: Undefined control sequence.
+l.19 \SetHorizontalCoffin \result
+                                  {}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:20: Undefined control sequence.
+l.20 \SetHorizontalCoffin
+                          \topBox {\color{white} \rule{210mm}{41mm}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:20: Undefined control sequence.
+l.20 \SetHorizontalCoffin \topBox
+                                  {\color{white} \rule{210mm}{41mm}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:20: Undefined control sequence.
+l.20 \SetHorizontalCoffin \topBox {\color
+                                         {white} \rule{210mm}{41mm}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./cover.tex:20: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 \SetHorizontalCoffin \topBox {\color{w
+                                           hite} \rule{210mm}{41mm}}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no w in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+./cover.tex:21: Undefined control sequence.
+l.21 \SetHorizontalCoffin
+                          \badge {\includegraphics[width=20.6mm]{images/badge}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:21: Undefined control sequence.
+l.21 \SetHorizontalCoffin \badge
+                                 {\includegraphics[width=20.6mm]{images/badge}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:21: Undefined control sequence.
+l.21 \SetHorizontalCoffin \badge {\includegraphics
+                                                  [width=20.6mm]{images/badge}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+./cover.tex:22: Undefined control sequence.
+l.22 \SetHorizontalCoffin
+                          \pku {\includegraphics[width=60.5mm]{images/pku}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:22: Undefined control sequence.
+l.22 \SetHorizontalCoffin \pku
+                               {\includegraphics[width=60.5mm]{images/pku}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:22: Undefined control sequence.
+l.22 \SetHorizontalCoffin \pku {\includegraphics
+                                                [width=60.5mm]{images/pku}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+./cover.tex:23: Undefined control sequence.
+l.23 \SetVerticalCoffin
+                        \headingText{160mm}{\center\heiti\fontsize{36}{36}\t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:23: Undefined control sequence.
+l.23 \SetVerticalCoffin \headingText
+                                    {160mm}{\center\heiti\fontsize{36}{36}\t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no m in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 20--23
+[]
+ []
+
+
+Overfull \hbox (597.50787pt too wide) in paragraph at lines 20--23
+[]
+ []
+
+./cover.tex:23: Undefined control sequence.
+l.23 ...alCoffin \headingText{160mm}{\center\heiti
+                                                  \fontsize{36}{36}\textcolo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:23: Undefined control sequence.
+l.23 ...}{\center\heiti\fontsize{36}{36}\textcolor
+                                                  {black}{本科生毕业论文}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no b in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no 本 in font nullfont!
+Missing character: There is no 科 in font nullfont!
+Missing character: There is no 生 in font nullfont!
+Missing character: There is no 毕 in font nullfont!
+Missing character: There is no 业 in font nullfont!
+Missing character: There is no 论 in font nullfont!
+Missing character: There is no 文 in font nullfont!
+./cover.tex:24: Undefined control sequence.
+l.24 \SetVerticalCoffin
+                        \titleText{25.4mm}{\bfseries\songti\zihao{3}{题目：}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:24: Undefined control sequence.
+l.24 \SetVerticalCoffin \titleText
+                                  {25.4mm}{\bfseries\songti\zihao{3}{题目：}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no m in font nullfont!
+./cover.tex:24: Undefined control sequence.
+l.24 ...Coffin \titleText{25.4mm}{\bfseries\songti
+                                                  \zihao{3}{题目：}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:24: Undefined control sequence.
+l.24 ... \titleText{25.4mm}{\bfseries\songti\zihao
+                                                  {3}{题目：}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 题 in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no 目 in font [lmroman10-bold]:mapping=tex-text;!
+Missing character: There is no ： in font [lmroman10-bold]:mapping=tex-text;!
+./cover.tex:26: Undefined control sequence.
+l.26 \SetVerticalCoffin
+                        \chineseTitleText{110mm}{\bfseries\kaiti\underline{\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:26: Undefined control sequence.
+l.26 \SetVerticalCoffin \chineseTitleText
+                                         {110mm}{\bfseries\kaiti\underline{\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:26: Undefined control sequence.
+l.26 ...n \chineseTitleText{110mm}{\bfseries\kaiti
+                                                  \underline{\makebox[112mm]...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Calculating math sizes for size <22> on input line 26.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <22> not available
+(Font)              size <20.74> substituted on input line 26.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <15.39993> not available
+(Font)              size <14.4> substituted on input line 26.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <22> not available
+(Font)              size <20.74> substituted on input line 26.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <15.39993> not available
+(Font)              size <14.4> substituted on input line 26.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <22> not available
+(Font)              size <20.74> substituted on input line 26.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <15.39993> not available
+(Font)              size <14.4> substituted on input line 26.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <22> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <15.39993> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 26.
+./cover.tex:26: Undefined control sequence.
+<argument> \chineseTitle 
+                         
+l.26 ...derline{\makebox[112mm][l]{\chineseTitle}}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:27: Undefined control sequence.
+l.27 \SetVerticalCoffin
+                        \englishTitleText{110mm}{\bfseries\kaiti\zihao{3}\un...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:27: Undefined control sequence.
+l.27 \SetVerticalCoffin \englishTitleText
+                                         {110mm}{\bfseries\kaiti\zihao{3}\un...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:27: Undefined control sequence.
+l.27 ...n \englishTitleText{110mm}{\bfseries\kaiti
+                                                  \zihao{3}\underline{\makeb...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:27: Undefined control sequence.
+l.27 ...lishTitleText{110mm}{\bfseries\kaiti\zihao
+                                                  {3}\underline{\makebox[112...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:27: Undefined control sequence.
+<argument> \englishTitle 
+                         
+l.27 ...derline{\makebox[112mm][l]{\englishTitle}}
+                                                  }
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:29: Undefined control sequence.
+l.29 \SetVerticalCoffin
+                        \nameText{104mm}{\center\songti\textcolor{black}{姓\q...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:29: Undefined control sequence.
+l.29 \SetVerticalCoffin \nameText
+                                 {104mm}{\center\songti\textcolor{black}{姓\q...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (14.15pt too wide) in paragraph at lines 23--29
+\TU/lmr/bx/n/10 3题目：
+ []
+
+
+Overfull \hbox (382.93286pt too wide) in paragraph at lines 23--29
+\TU/lmr/m/n/22 110mm$[]$
+ []
+
+
+Overfull \hbox (395.31886pt too wide) in paragraph at lines 23--29
+\TU/lmr/m/n/22 110mm\TU/lmr/bx/n/22 3$[]$
+ []
+
+
+Overfull \hbox (46.73601pt too wide) in paragraph at lines 23--29
+\TU/lmr/m/n/16 104mm 
+ []
+
+./cover.tex:29: Undefined control sequence.
+l.29 ...icalCoffin \nameText{104mm}{\center\songti
+                                                  \textcolor{black}{姓\qquad ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:29: Undefined control sequence.
+l.29 ... \nameText{104mm}{\center\songti\textcolor
+                                                  {black}{姓\qquad 名：\underli...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 姓 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 名 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no ： in font [lmroman17-regular]:mapping=tex-text;!
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 29.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 29.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <16> not available
+(Font)              size <17.28> substituted on input line 29.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
+(Font)              size <17.28> substituted on input line 29.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <16> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11.19995> on input line 29.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 29.
+./cover.tex:29: Undefined control sequence.
+<argument> \kaiti 
+                  {\name }
+l.29 ...nderline{\makebox[76mm][c]{\kaiti{\name}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:29: Undefined control sequence.
+<argument> \kaiti {\name 
+                         }
+l.29 ...nderline{\makebox[76mm][c]{\kaiti{\name}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:30: Undefined control sequence.
+l.30 \SetVerticalCoffin
+                        \studentIDText{104mm}{\center\songti\fontsize{16}{16...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:30: Undefined control sequence.
+l.30 \SetVerticalCoffin \studentIDText
+                                      {104mm}{\center\songti\fontsize{16}{16...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (37.84pt too wide) in paragraph at lines 29--30
+\TU/lmr/m/n/16 black姓
+ []
+
+
+Overfull \hbox (225.20094pt too wide) in paragraph at lines 29--30
+\TU/lmr/m/n/16 名：$[]$
+ []
+
+
+Overfull \hbox (46.73601pt too wide) in paragraph at lines 29--30
+\TU/lmr/m/n/16 104mm 
+ []
+
+./cover.tex:30: Undefined control sequence.
+l.30 ...offin \studentIDText{104mm}{\center\songti
+                                                  \fontsize{16}{16}\textcolo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:30: Undefined control sequence.
+l.30 ...{\center\songti\fontsize{16}{16}\textcolor
+                                                  {black}{学\qquad 号：\underli...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 学 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 号 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no ： in font [lmroman17-regular]:mapping=tex-text;!
+./cover.tex:30: Undefined control sequence.
+<argument> \kaiti 
+                  \zihao {3}{\studentID }
+l.30 ...box[76mm][c]{\kaiti\zihao{3}{\studentID}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:30: Undefined control sequence.
+<argument> \kaiti \zihao 
+                         {3}{\studentID }
+l.30 ...box[76mm][c]{\kaiti\zihao{3}{\studentID}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:30: Undefined control sequence.
+<argument> \kaiti \zihao {3}{\studentID 
+                                        }
+l.30 ...box[76mm][c]{\kaiti\zihao{3}{\studentID}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:31: Undefined control sequence.
+l.31 \SetVerticalCoffin
+                        \schoolText{104mm}{\center\songti\fontsize{16}{16}\t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:31: Undefined control sequence.
+l.31 \SetVerticalCoffin \schoolText
+                                   {104mm}{\center\songti\fontsize{16}{16}\t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (37.84pt too wide) in paragraph at lines 30--31
+\TU/lmr/m/n/16 black学
+ []
+
+
+Overfull \hbox (225.20094pt too wide) in paragraph at lines 30--31
+\TU/lmr/m/n/16 号：$[]$
+ []
+
+
+Overfull \hbox (46.73601pt too wide) in paragraph at lines 30--31
+\TU/lmr/m/n/16 104mm 
+ []
+
+./cover.tex:31: Undefined control sequence.
+l.31 ...alCoffin \schoolText{104mm}{\center\songti
+                                                  \fontsize{16}{16}\textcolo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:31: Undefined control sequence.
+l.31 ...{\center\songti\fontsize{16}{16}\textcolor
+                                                  {black}{院\qquad 系：\underli...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 院 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 系 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no ： in font [lmroman17-regular]:mapping=tex-text;!
+./cover.tex:31: Undefined control sequence.
+<argument> \kaiti 
+                  {\school }
+l.31 ...erline{\makebox[76mm][c]{\kaiti{\school}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:31: Undefined control sequence.
+<argument> \kaiti {\school 
+                           }
+l.31 ...erline{\makebox[76mm][c]{\kaiti{\school}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:32: Undefined control sequence.
+l.32 \SetVerticalCoffin
+                        \majorText{104mm}{\center\songti\fontsize{16}{16}\te...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:32: Undefined control sequence.
+l.32 \SetVerticalCoffin \majorText
+                                  {104mm}{\center\songti\fontsize{16}{16}\te...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (37.84pt too wide) in paragraph at lines 31--32
+\TU/lmr/m/n/16 black院
+ []
+
+
+Overfull \hbox (225.20094pt too wide) in paragraph at lines 31--32
+\TU/lmr/m/n/16 系：$[]$
+ []
+
+
+Overfull \hbox (46.73601pt too wide) in paragraph at lines 31--32
+\TU/lmr/m/n/16 104mm 
+ []
+
+./cover.tex:32: Undefined control sequence.
+l.32 ...calCoffin \majorText{104mm}{\center\songti
+                                                  \fontsize{16}{16}\textcolo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:32: Undefined control sequence.
+l.32 ...{\center\songti\fontsize{16}{16}\textcolor
+                                                  {black}{本科专业：\underline{\m...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 本 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 科 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 专 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 业 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no ： in font [lmroman17-regular]:mapping=tex-text;!
+./cover.tex:32: Undefined control sequence.
+<argument> \kaiti 
+                  {\major }
+l.32 ...derline{\makebox[76mm][c]{\kaiti{\major}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:32: Undefined control sequence.
+<argument> \kaiti {\major 
+                          }
+l.32 ...derline{\makebox[76mm][c]{\kaiti{\major}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:33: Undefined control sequence.
+l.33 \SetVerticalCoffin
+                        \advisorText{104mm}{\center\songti\fontsize{16}{16}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:33: Undefined control sequence.
+l.33 \SetVerticalCoffin \advisorText
+                                    {104mm}{\center\songti\fontsize{16}{16}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (272.00093pt too wide) in paragraph at lines 32--33
+\TU/lmr/m/n/16 black本科专业：$[]$
+ []
+
+
+Overfull \hbox (46.73601pt too wide) in paragraph at lines 32--33
+\TU/lmr/m/n/16 104mm 
+ []
+
+./cover.tex:33: Undefined control sequence.
+l.33 ...lCoffin \advisorText{104mm}{\center\songti
+                                                  \fontsize{16}{16}\textcolo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:33: Undefined control sequence.
+l.33 ...{\center\songti\fontsize{16}{16}\textcolor
+                                                  {black}{指导老师：\underline{\m...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 指 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 导 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 老 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 师 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no ： in font [lmroman17-regular]:mapping=tex-text;!
+./cover.tex:33: Undefined control sequence.
+<argument> \kaiti 
+                  {\advisor }
+l.33 ...rline{\makebox[76mm][c]{\kaiti{\advisor}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:33: Undefined control sequence.
+<argument> \kaiti {\advisor 
+                            }
+l.33 ...rline{\makebox[76mm][c]{\kaiti{\advisor}}}
+                                                  }}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:35: Undefined control sequence.
+l.35 \SetVerticalCoffin
+                        \dateText{104mm}{\center\kaiti\textcolor{black}{二〇二〇...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:35: Undefined control sequence.
+l.35 \SetVerticalCoffin \dateText
+                                 {104mm}{\center\kaiti\textcolor{black}{二〇二〇...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (272.00093pt too wide) in paragraph at lines 33--35
+\TU/lmr/m/n/16 black指导老师：$[]$
+ []
+
+
+Overfull \hbox (52.578pt too wide) in paragraph at lines 33--35
+\TU/lmr/m/n/18 104mm 
+ []
+
+./cover.tex:35: Undefined control sequence.
+l.35 ...ticalCoffin \dateText{104mm}{\center\kaiti
+                                                  \textcolor{black}{二〇二〇\qua...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:35: Undefined control sequence.
+l.35 ...n \dateText{104mm}{\center\kaiti\textcolor
+                                                  {black}{二〇二〇\quad 年\quad 五...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no 二 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 〇 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 二 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 〇 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 年 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 五 in font [lmroman17-regular]:mapping=tex-text;!
+Missing character: There is no 月 in font [lmroman17-regular]:mapping=tex-text;!
+
+Overfull \hbox (57.69pt too wide) in paragraph at lines 35--36
+\TU/lmr/m/n/18 black二〇二〇
+ []
+
+
+Overfull \hbox (5.04pt too wide) in paragraph at lines 35--36
+\TU/lmr/m/n/18 年
+ []
+
+
+Overfull \hbox (5.04pt too wide) in paragraph at lines 35--36
+\TU/lmr/m/n/18 五
+ []
+
+
+Overfull \hbox (5.04pt too wide) in paragraph at lines 35--36
+\TU/lmr/m/n/18 月 
+ []
+
+./cover.tex:39: Undefined control sequence.
+l.39 \JoinCoffins
+                  \result \topBox
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:39: Undefined control sequence.
+l.39 \JoinCoffins \result
+                          \topBox
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:39: Undefined control sequence.
+l.39 \JoinCoffins \result \topBox
+                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:40: Undefined control sequence.
+l.40 \JoinCoffins
+                  \result[\topBox-hc, \topBox-b] \badge[r, b](-27.9mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:40: Undefined control sequence.
+l.40 \JoinCoffins \result
+                         [\topBox-hc, \topBox-b] \badge[r, b](-27.9mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./cover.tex:40: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40 \JoinCoffins \result[
+                          \topBox-hc, \topBox-b] \badge[r, b](-27.9mm, -20.6mm)
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./cover.tex:40: Undefined control sequence.
+l.40 \JoinCoffins \result[\topBox
+                                 -hc, \topBox-b] \badge[r, b](-27.9mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:40: Undefined control sequence.
+l.40 \JoinCoffins \result[\topBox-hc, \topBox
+                                             -b] \badge[r, b](-27.9mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:40: Undefined control sequence.
+l.40 ...fins \result[\topBox-hc, \topBox-b] \badge
+                                                  [r, b](-27.9mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:41: Undefined control sequence.
+l.41 \JoinCoffins
+                  \result[\topBox-hc, \topBox-b] \pku[l, b](-11.3mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:41: Undefined control sequence.
+l.41 \JoinCoffins \result
+                         [\topBox-hc, \topBox-b] \pku[l, b](-11.3mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:41: Undefined control sequence.
+l.41 \JoinCoffins \result[\topBox
+                                 -hc, \topBox-b] \pku[l, b](-11.3mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:41: Undefined control sequence.
+l.41 \JoinCoffins \result[\topBox-hc, \topBox
+                                             -b] \pku[l, b](-11.3mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:41: Undefined control sequence.
+l.41 ...offins \result[\topBox-hc, \topBox-b] \pku
+                                                  [l, b](-11.3mm, -20.6mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:42: Undefined control sequence.
+l.42 \JoinCoffins
+                  \result[\topBox-hc, \topBox-b] \headingText[hc, b](0mm, -6...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:42: Undefined control sequence.
+l.42 \JoinCoffins \result
+                         [\topBox-hc, \topBox-b] \headingText[hc, b](0mm, -6...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:42: Undefined control sequence.
+l.42 \JoinCoffins \result[\topBox
+                                 -hc, \topBox-b] \headingText[hc, b](0mm, -6...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:42: Undefined control sequence.
+l.42 \JoinCoffins \result[\topBox-hc, \topBox
+                                             -b] \headingText[hc, b](0mm, -6...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:42: Undefined control sequence.
+l.42 ...result[\topBox-hc, \topBox-b] \headingText
+                                                  [hc, b](0mm, -63.8mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:43: Undefined control sequence.
+l.43 \JoinCoffins
+                  \result[\headingText-hc, \headingText-b] \titleText[l, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:43: Undefined control sequence.
+l.43 \JoinCoffins \result
+                         [\headingText-hc, \headingText-b] \titleText[l, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:43: Undefined control sequence.
+l.43 \JoinCoffins \result[\headingText
+                                      -hc, \headingText-b] \titleText[l, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:43: Undefined control sequence.
+l.43 ...fins \result[\headingText-hc, \headingText
+                                                  -b] \titleText[l, t](-73.2...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:43: Undefined control sequence.
+l.43 ...headingText-hc, \headingText-b] \titleText
+                                                  [l, t](-73.25mm, -20mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:44: Undefined control sequence.
+l.44 \JoinCoffins
+                  \result[\headingText-hc, \headingText-b] \chineseTitleText...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:44: Undefined control sequence.
+l.44 \JoinCoffins \result
+                         [\headingText-hc, \headingText-b] \chineseTitleText...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:44: Undefined control sequence.
+l.44 \JoinCoffins \result[\headingText
+                                      -hc, \headingText-b] \chineseTitleText...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:44: Undefined control sequence.
+l.44 ...fins \result[\headingText-hc, \headingText
+                                                  -b] \chineseTitleText[l, t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:44: Undefined control sequence.
+l.44 ...Text-hc, \headingText-b] \chineseTitleText
+                                                  [l, t](-46.85mm, -18.85mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:45: Undefined control sequence.
+l.45 \JoinCoffins
+                  \result[\headingText-hc, \headingText-b] \englishTitleText...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:45: Undefined control sequence.
+l.45 \JoinCoffins \result
+                         [\headingText-hc, \headingText-b] \englishTitleText...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:45: Undefined control sequence.
+l.45 \JoinCoffins \result[\headingText
+                                      -hc, \headingText-b] \englishTitleText...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:45: Undefined control sequence.
+l.45 ...fins \result[\headingText-hc, \headingText
+                                                  -b] \englishTitleText[l, t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:45: Undefined control sequence.
+l.45 ...Text-hc, \headingText-b] \englishTitleText
+                                                  [l, t](-49.85mm, -34mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:46: Undefined control sequence.
+l.46 \JoinCoffins
+                  \result[\headingText-hc, \headingText-b] \nameText[hc, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:46: Undefined control sequence.
+l.46 \JoinCoffins \result
+                         [\headingText-hc, \headingText-b] \nameText[hc, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:46: Undefined control sequence.
+l.46 \JoinCoffins \result[\headingText
+                                      -hc, \headingText-b] \nameText[hc, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:46: Undefined control sequence.
+l.46 ...fins \result[\headingText-hc, \headingText
+                                                  -b] \nameText[hc, t](0mm, ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:46: Undefined control sequence.
+l.46 ...\headingText-hc, \headingText-b] \nameText
+                                                  [hc, t](0mm, -60mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:47: Undefined control sequence.
+l.47 \JoinCoffins
+                  \result[\nameText-hc, \nameText-b] \studentIDText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:47: Undefined control sequence.
+l.47 \JoinCoffins \result
+                         [\nameText-hc, \nameText-b] \studentIDText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:47: Undefined control sequence.
+l.47 \JoinCoffins \result[\nameText
+                                   -hc, \nameText-b] \studentIDText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:47: Undefined control sequence.
+l.47 \JoinCoffins \result[\nameText-hc, \nameText
+                                                 -b] \studentIDText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:47: Undefined control sequence.
+l.47 ...[\nameText-hc, \nameText-b] \studentIDText
+                                                  [hc, t](0mm, 0mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:48: Undefined control sequence.
+l.48 \JoinCoffins
+                  \result[\studentIDText-hc, \studentIDText-b] \schoolText[h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:48: Undefined control sequence.
+l.48 \JoinCoffins \result
+                         [\studentIDText-hc, \studentIDText-b] \schoolText[h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:48: Undefined control sequence.
+l.48 \JoinCoffins \result[\studentIDText
+                                        -hc, \studentIDText-b] \schoolText[h...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:48: Undefined control sequence.
+l.48 ... \result[\studentIDText-hc, \studentIDText
+                                                  -b] \schoolText[hc, t](0mm...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:48: Undefined control sequence.
+l.48 ...ntIDText-hc, \studentIDText-b] \schoolText
+                                                  [hc, t](0mm, 0mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:49: Undefined control sequence.
+l.49 \JoinCoffins
+                  \result[\schoolText-hc, \schoolText-b] \majorText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:49: Undefined control sequence.
+l.49 \JoinCoffins \result
+                         [\schoolText-hc, \schoolText-b] \majorText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:49: Undefined control sequence.
+l.49 \JoinCoffins \result[\schoolText
+                                     -hc, \schoolText-b] \majorText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:49: Undefined control sequence.
+l.49 ...offins \result[\schoolText-hc, \schoolText
+                                                  -b] \majorText[hc, t](0mm,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:49: Undefined control sequence.
+l.49 ...[\schoolText-hc, \schoolText-b] \majorText
+                                                  [hc, t](0mm, 0mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:50: Undefined control sequence.
+l.50 \JoinCoffins
+                  \result[\majorText-hc, \majorText-b] \advisorText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:50: Undefined control sequence.
+l.50 \JoinCoffins \result
+                         [\majorText-hc, \majorText-b] \advisorText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:50: Undefined control sequence.
+l.50 \JoinCoffins \result[\majorText
+                                    -hc, \majorText-b] \advisorText[hc, t](0...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:50: Undefined control sequence.
+l.50 ...nCoffins \result[\majorText-hc, \majorText
+                                                  -b] \advisorText[hc, t](0m...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:50: Undefined control sequence.
+l.50 ...[\majorText-hc, \majorText-b] \advisorText
+                                                  [hc, t](0mm, 0mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:51: Undefined control sequence.
+l.51 \JoinCoffins
+                  \result[\advisorText-hc, \advisorText-b] \dateText[hc, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:51: Undefined control sequence.
+l.51 \JoinCoffins \result
+                         [\advisorText-hc, \advisorText-b] \dateText[hc, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:51: Undefined control sequence.
+l.51 \JoinCoffins \result[\advisorText
+                                      -hc, \advisorText-b] \dateText[hc, t](...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:51: Undefined control sequence.
+l.51 ...fins \result[\advisorText-hc, \advisorText
+                                                  -b] \dateText[hc, t](0mm, ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:51: Undefined control sequence.
+l.51 ...\advisorText-hc, \advisorText-b] \dateText
+                                                  [hc, t](0mm, -20mm)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (29.936pt too wide) in paragraph at lines 40--52
+[]\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (15.372pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [r,
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b](-
+ []
+
+
+Overfull \hbox (61.578pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 27.9mm,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (63.45pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 20.6mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (13.5pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [l,
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b](-
+ []
+
+
+Overfull \hbox (61.578pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 11.3mm,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (63.45pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 20.6mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [hc,
+ []
+
+
+Overfull \hbox (60.62401pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b](0mm,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (63.45pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 63.8mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (13.5pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [l,
+ []
+
+
+Overfull \hbox (22.68001pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](-
+ []
+
+
+Overfull \hbox (69.84pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 73.25mm,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (50.688pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 20mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (13.5pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [l,
+ []
+
+
+Overfull \hbox (22.68001pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](-
+ []
+
+
+Overfull \hbox (69.84pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 46.85mm,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (71.712pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 18.85mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (13.5pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [l,
+ []
+
+
+Overfull \hbox (22.68001pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](-
+ []
+
+
+Overfull \hbox (69.84pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 49.85mm,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (50.688pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 34mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [hc,
+ []
+
+
+Overfull \hbox (57.798pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](0mm,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (50.688pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 60mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [hc,
+ []
+
+
+Overfull \hbox (57.798pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](0mm,
+ []
+
+
+Overfull \hbox (42.426pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 0mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [hc,
+ []
+
+
+Overfull \hbox (57.798pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](0mm,
+ []
+
+
+Overfull \hbox (42.426pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 0mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [hc,
+ []
+
+
+Overfull \hbox (57.798pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](0mm,
+ []
+
+
+Overfull \hbox (42.426pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 0mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [hc,
+ []
+
+
+Overfull \hbox (57.798pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](0mm,
+ []
+
+
+Overfull \hbox (42.426pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 0mm)
+ []
+
+
+Overfull \hbox (9.936pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [-
+ []
+
+
+Overfull \hbox (21.006pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 hc,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (13.698pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 b]
+ []
+
+
+Overfull \hbox (25.506pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 [hc,
+ []
+
+
+Overfull \hbox (57.798pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 t](0mm,
+ []
+
+
+Overfull \hbox (5.436pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 -
+ []
+
+
+Overfull \hbox (50.688pt too wide) in paragraph at lines 40--52
+\TU/lmr/m/n/18 20mm) 
+ []
+
+
+./cover.tex:52: LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.52 
+     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1]
+./cover.tex:56: Undefined control sequence.
+l.56 \newgeometry
+                 {left=0mm,bottom=0mm, top=0mm, right=0mm}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./cover.tex:56: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56 \newgeometry{l
+                   eft=0mm,bottom=0mm, top=0mm, right=0mm}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./cover.tex:57: Undefined control sequence.
+l.57 \noindent\TypesetCoffin
+                             \result
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:57: Undefined control sequence.
+l.57 \noindent\TypesetCoffin \result
+                                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./cover.tex:58: Undefined control sequence.
+l.58 \restoregeometry
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+! Emergency stop.
+<*> cover.tex
+             
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 72 strings out of 492909
+ 1108 string characters out of 6136300
+ 69519 words of memory out of 5000000
+ 4213 multiletter control sequences out of 15000+600000
+ 8249 words of font info for 34 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 20i,4n,13p,177b,114s stack positions out of 5000i,500n,10000p,200000b,80000s
+Output written on cover.xdv (1 page, 3356 bytes).

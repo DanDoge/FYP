@@ -1,0 +1,385 @@
+% Copyright (c) 2019 Bochen Tan
+% Public domain.
+%本模板的宗旨是尽量绿色，不需要附加安装任何东西。
+%按照教务部下发的WORD说明文档格式，下简称“说明”
+%没有封面和评阅表，这两部分请直接在Cover&ReviewTable.doc中写再输出pdf拼到一起
+%doc小改动：封面校徽和文字替换为了高清版本，“题目：”和中文题目对齐，中英文题目分在了表的两行
+%doc小改动：插入了两个白页，使得连续打印的时候封面和表格都在奇数页
+%正文部分改动：在每一页下方中央加了页码，因为说明中页眉不分奇偶页，所以页码就都在中央吧
+%不含自动的参考文献，因为说明中参考文献格式不典型，请手动输入或自行写程序
+%在Windows或Linux下渲染出字体更接近说明，Mac OS上字体不太一样
+%有警告\headheight is too small，fancyhdr的上距离有点小，似乎问题不大
+
+\documentclass[UTF8,openany,AutoFakeBold,AutoFakeSlant,cs4size]{ctexbook}
+%openany 使一章可以从偶数页开始，因为说明中每一章并没有只能从奇数页开始，虽然这是常理
+%AutoFakeBold 和 AutoFakeSlant 因为 CJK 里没有真正的加粗和倾斜，如果额外字体则效果更好
+%cs4size 因为要求主题是小四号字
+
+\usepackage[a4paper,left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm]{geometry}
+%office中正常页边距
+
+
+
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+
+
+
+\usepackage{cite}
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}} %引用在右上角
+
+
+
+\usepackage{multirow,booktabs,makecell}
+\usepackage{graphicx}
+\usepackage[font=small,labelsep=space]{caption} %五号，宋体/Time new roman
+\renewcommand{\thetable}{\arabic{table}} %表格和图片编号不分章节，直接1，2，3 ...
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}} %公式标签 章.公式（均为阿拉伯数字）
+
+
+
+\usepackage{tocloft} %自定义目录，说明中没有明确规定，和WORD自动生成目录格式一致
+
+%“全文目录”四个字的格式
+\renewcommand\cftbeforetoctitleskip{0pt}
+\renewcommand\cftaftertoctitleskip{0pt}
+\renewcommand\cfttoctitlefont{\bfseries\heiti\zihao{2}}
+
+\renewcommand\cftchapfont{\heiti\normalsize} %黑体小四
+\renewcommand\cftchapdotsep{\cftdotsep} %有点连到页码，点间距不确定，待改
+\renewcommand\cftchappagefont{\songti\normalsize} %宋体小四页码
+\renewcommand\cftbeforechapskip{0pt}
+
+%1. 第一级 五号宋体，缩进两个字符，页码一致
+\renewcommand\cftsecfont{\songti\small}
+\renewcommand\cftsecpagefont{\songti\small}
+\renewcommand\cftsecaftersnum{.} %一级目录号后加点
+\renewcommand\cftsecindent{2em}
+\renewcommand\cftbeforesecskip{0pt}
+
+%1.1 第二级 五号宋体，缩进四个字符，页码一致
+\renewcommand\cftsubsecfont{\songti\small}
+\renewcommand\cftsubsecpagefont{\songti\small}
+\renewcommand\cftsubsecindent{4em}
+\renewcommand\cftbeforesubsecskip{0pt}
+
+%1.1.1 第二级 五号宋体，缩进四个字符，页码一致
+\renewcommand\cftsubsubsecfont{\songti\small}
+\renewcommand\cftsubsubsecpagefont{\songti\small}
+\renewcommand\cftsubsubsecindent{4em}
+\renewcommand\cftbeforesubsubsecskip{0pt}
+
+
+
+\usepackage{titlesec}%自定义章节标题
+\CTEXsetup[format={\bfseries\center\heiti\zihao{2}},beforeskip=0pt]{chapter}
+%第一章  绪论（二号、黑体） beforeskip为上方垂直距离看起来还比说明偏大，待改
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+%使目录中有三级标题，即subsubsection
+
+\renewcommand\thesection{\arabic{section}} % 使得不显示章名，只显示节名
+\titleformat{\section}
+{\raggedright\zihao{3}\bfseries\songti}
+{\thesection.\quad}
+{0pt}
+{}%1. 第一级（三号、宋体/Time new roman、加粗）
+
+\titleformat{\subsection}
+{\raggedright\bfseries\zihao{4}\songti}
+{\thesubsection\quad}
+{0pt}
+{}%1.1 第二级（四号，宋体/Time new roman，加粗）
+
+\titleformat{\subsubsection}
+{\raggedright\bfseries\zihao{-4}\songti}
+{\thesubsubsection\quad}
+{0pt}
+{}%1.1.1 第三级（小四，宋体/Time new roman，加粗）
+
+
+
+
+% 封面依赖的宏包
+\input{CoverHead}
+% 评阅表依赖的宏包
+\input{ReviewTableHead}
+
+
+
+\title{}
+\author{}
+\date{}
+\begin{document}
+
+% 封面中需要修改的内容直接在此处更改即可
+\newcommand{\chineseTitle}{三维模型最优二维视图生成方法研究}
+\newcommand{\englishTitle}{Synthesizing best 2D views of 3D models}
+\newcommand{\name}{黄道吉}
+\newcommand{\studentID}{1600017857}
+\newcommand{\school}{元培学院}
+\newcommand{\major}{计算机科学与技术}
+\newcommand{\advisor}{连宙辉}
+% 插入封面
+\input{cover}
+\clearpage
+
+
+
+
+%版权声明后空白一页，使得摘要从奇数页开始。
+\quad
+\setcounter{page}{0}
+% 本页不计页码
+\thispagestyle{empty}
+% 本页无页眉和页脚
+\clearpage
+
+
+
+\pagestyle{fancy}
+\normalsize
+\linespread{1.5}\selectfont
+%小四号，宋体/Time new roman，1.5倍行距
+\chapter*{摘要}
+
+生成三维模型的最优视图任务要求给定一个三维模型，我们能够选取出合适的视角，并且在这个视角下渲染出具有真实性的图片。随着三维建模方法的不断完善，三维模型的使用在近几年正变的越来越广泛。大规模三维模型数据库的出现更加便捷了有关三维模型的研究的进展。而三维模型不同于二维图片的特性使得它需要经过渲染才能显示在屏幕上。生成符合人类感知的三维模型的最优视图，将大大方便三维模型库的检索。近年来神经网络在二维视图生成工作的进展飞速，这也使得借助神经网络来生成三维模型的最优视图成为可能，尤其是生成对抗网络和变分自编码器在条件生成和非条件生成领域取得了很好的效果。本文回顾了以往在这个方向上研究者的工作，包括最优视角选择和新视角生成的算法，并提出了新的生成三维模型视图的方法。我们的方法首先能够根据一张导引图片提供的材质信息来渲染给定的三维模型在某一个视角下的视图，也能够通过在隐空间中采样来无条件的生成多样的三维模型的视图。定性和定量的实验结果表明，我们的新算法能够产生更加准确、更具真实性的三维模型图像，也在选择视角方面相对其他算法有自己的优势。最后，我们总结了本文的成果并展望了未来的工作。
+
+\bigskip
+\noindent{\bfseries\songti 关键词: 最优视图\ 图像生成}
+
+
+
+\addcontentsline{toc}{chapter}{摘要} %手动加入目录
+\fancypagestyle{plain} %因为latex默认每章第一页是plain所以需要重置一下plain和说明统一
+{
+	\fancyhf{} %清空
+
+	\fancyhead[RE,RO]{摘要}
+	%偶数页右页眉，奇数页右页眉均为“摘要”，及章名\leftmark
+
+	\fancyhead[LE,LO]{北京大学本科生毕业论文}
+	%偶数页左页眉，奇数页左页眉均为“北京大学本科生毕业论文”
+
+	\fancyfoot[CO,CE]{~\thepage~}
+	%偶数页和奇数页中页脚为页码，从对称考虑，因为每页在说明中都是一样的，不分奇偶
+
+	\renewcommand{\headrulewidth}{0.7pt} %页眉线宽度，可调，不太清楚说明中是多少，待改
+
+	\renewcommand{\footrulewidth}{0pt} %页脚线宽度为0，既没有
+}
+
+%默认的风格是fancy，设置于下，用于每章非第一页
+\fancyhf{}
+\fancyhead[RE,RO]{摘要}
+\fancyhead[LE,LO]{北京大学本科生毕业论文}
+\fancyfoot[CO,CE]{~\thepage~}
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+\clearpage
+
+
+
+
+
+
+\small
+\linespread{1.5}\selectfont
+%5号，Time new roman，1.5倍行距
+\chapter*{\bfseries Abstract}
+
+forem
+
+\bigskip
+\noindent
+{\bfseries Key Words: }
+
+
+
+\addcontentsline{toc}{chapter}{\bfseries Abstract} %Abstract加粗
+\fancypagestyle{plain}
+{
+	\fancyhf{}
+	\fancyhead[RE,RO]{Abstract}
+	\fancyhead[LE,LO]{北京大学本科生毕业论文}
+	\fancyfoot[CO,CE]{~\thepage~}
+	\renewcommand{\headrulewidth}{0.7pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\fancyhf{}
+\fancyhead[RE,RO]{Abstract}
+\fancyhead[LE,LO]{北京大学本科生毕业论文}
+\fancyfoot[CO,CE]{~\thepage~}
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+\clearpage
+
+
+
+
+
+\fancypagestyle{plain}
+{
+	\fancyhf{}
+	\fancyhead[RE,RO]{全文目录}
+	\fancyhead[LE,LO]{北京大学本科生毕业论文}
+	\fancyfoot[CO,CE]{~\thepage~}
+	\renewcommand{\headrulewidth}{0.7pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\fancyhf{}
+\fancyhead[RE,RO]{全文目录}
+\fancyhead[LE,LO]{北京大学本科生毕业论文}
+\fancyfoot[CO,CE]{~\thepage~}
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\contentsname}{\centerline{全文目录}}
+\tableofcontents
+\addcontentsline{toc}{chapter}{全文目录}
+\clearpage
+
+
+
+
+
+\normalsize
+\linespread{1.5}\selectfont
+%正文，小四号，中文宋体，英文Time new roman，1.5倍行距
+\fancypagestyle{plain}
+{
+	\fancyhf{}
+	\fancyhead[RE,RO]{\leftmark}
+	\fancyhead[LE,LO]{北京大学本科生毕业论文}
+	\fancyfoot[CO,CE]{~\thepage~}
+	\renewcommand{\headrulewidth}{0.7pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\fancyhf{}
+\fancyhead[RE,RO]{\leftmark}
+\fancyhead[LE,LO]{北京大学本科生毕业论文}
+\fancyfoot[CO,CE]{~\thepage~}
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+\chapter{引言}
+
+\section{研究背景}
+
+三维模型是图形学和计算机视觉方向的研究重点。近年来，三维模型的应用变得越来越广泛，从游戏界和工业界的 CAD 模型，到前沿领域的自动驾驶，使用三维模型正大大便利着业界。RGB-D 传感器的应用
+也使得产生三维模型更加容易。在学术界，三维模型也有着广泛的应用：三维模型的分割(\cite{Chen2009ABF, Kundu2014JointSS})、重建(\cite{Choy20163DR2N2AU, Mandikal20183DLMNetLE})，以及利用三维模型强化对图片的理解(\cite{Choy2015EnrichingOD})。这些因素都催生了大规模三维模型库的产生和广泛使用(如Shapenet \cite{Chang2015ShapeNetAI}, Pascal3D+ \cite{Xiang2014BeyondPA}, ModelNet\cite{Wu20143DSA})。
+
+在如此多的精力投入利用数据集解决问题的同时，相对少的精力投入到利用数据驱动的方法方便数据集的可视化和检索上。不同于二维图片便于观看、容易生成缩略图，三维模型在不同视角下会有不同的姿态，并且需要材质信息才能渲染出一张图片。这使得检索三维模型的数据库是一件费事的工作。ShapeNet数据集\cite{Chang2015ShapeNetAI}将每一个类别的模型对齐到同一个朝向，并在固定的方向渲染了8张缩略图，ModelNet数据集\cite{Wu20143DSA}只提供了三维模型，这些方法并不能提供一个便捷的检索三维模型的方案。现有的处理三维模型的软件(如MeshLab \cite{Cignoni2008MeshLabAO})，提供用户一个拖拽视角的界面，让用户寻找最好的视角。如果能设计出生成最优视图的算法，将会便利检索三维模型数据库。
+
+我们认为生成三维模型的最优视图至少包括两个部分，一个部分是选定最优的视角，另一部分是在这个选定的视角下渲染出带有材质的二位视图。第一个部分以往工作主要从图形学入手，通过在三维模型的顶点或是在二维视图上定义信息(熵)，取熵最大的视角作为最优视角。渲染材质的工作则集中利用了基于神经网络的生成模型，将材质生成问题定义为有条件的图片到图片翻译的问题。我们借鉴了这两方面方法的核心思想，并提出了新的生成三维模型最优视图的算法。
+
+\clearpage
+
+
+
+
+
+
+
+
+
+\addcontentsline{toc}{chapter}{参考文献}
+\fancypagestyle{plain}
+{
+	\fancyhf{}
+	\fancyhead[RE,RO]{参考文献}
+	\fancyhead[LE,LO]{北京大学本科生毕业论文}
+	\fancyfoot[CO,CE]{~\thepage~}
+	\renewcommand{\headrulewidth}{0.7pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\fancyhf{}
+\fancyhead[RE,RO]{参考文献}
+\fancyhead[LE,LO]{北京大学本科生毕业论文}
+\fancyfoot[CO,CE]{~\thepage~}
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+
+
+
+\bibliographystyle{unsrt}
+\bibliography{ref}
+\clearpage
+
+
+
+
+
+\linespread{1}\selectfont
+\normalsize
+%小四号，中文宋体，英文Time new roman，1倍行距
+\chapter*{本科期间的主要工作和成果}
+
+\noindent 本科期间参加的主要科研项目
+
+\noindent 本研基金
+\begin{enumerate}
+	\item 国家创新训练计划. 基金类型. 连宙辉. 2018-2019
+\end{enumerate}
+
+
+
+\addcontentsline{toc}{chapter}{本科期间的主要工作和成果}
+\fancypagestyle{plain}
+{
+	\fancyhf{}
+	\fancyhead[RE,RO]{本科期间的主要工作和成果}
+	\fancyhead[LE,LO]{北京大学本科生毕业论文}
+	\fancyfoot[CO,CE]{~\thepage~}
+	\renewcommand{\headrulewidth}{0.7pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\fancyhf{}
+\fancyhead[RE,RO]{本科期间的主要工作和成果}
+\fancyhead[LE,LO]{北京大学本科生毕业论文}
+\fancyfoot[CO,CE]{~\thepage~}
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+\clearpage
+
+
+
+
+
+\linespread{1.5}\selectfont
+\normalsize
+\chapter*{致谢}
+
+感谢
+
+\addcontentsline{toc}{chapter}{致谢}
+\fancypagestyle{plain}
+{
+	\fancyhf{}
+	\fancyhead[RE,RO]{致谢}
+	\fancyhead[LE,LO]{北京大学本科生毕业论文}
+	\fancyfoot[CO,CE]{~\thepage~}
+	\renewcommand{\headrulewidth}{0.7pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\fancyhf{}
+\fancyhead[RE,RO]{致谢}
+\fancyhead[LE,LO]{北京大学本科生毕业论文}
+\fancyfoot[CO,CE]{~\thepage~}
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+
+
+\end{document}

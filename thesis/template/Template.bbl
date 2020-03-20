@@ -1,0 +1,62 @@
+\begin{thebibliography}{1}
+
+\bibitem{Chen2009ABF}
+Xiaobai Chen, Aleksey Golovinskiy, and Thomas~A. Funkhouser.
+\newblock A benchmark for 3d mesh segmentation.
+\newblock In {\em SIGGRAPH 2009}, 2009.
+
+\bibitem{Kundu2014JointSS}
+Abhijit Kundu, Yin Li, Frank Dellaert, Fuxin Li, and James~M. Rehg.
+\newblock Joint semantic segmentation and 3d reconstruction from monocular
+  video.
+\newblock In {\em ECCV}, 2014.
+
+\bibitem{Choy20163DR2N2AU}
+Christopher~Bongsoo Choy, Danfei Xu, JunYoung Gwak, Kevin Chen, and Silvio
+  Savarese.
+\newblock 3d-r2n2: A unified approach for single and multi-view 3d object
+  reconstruction.
+\newblock {\em ArXiv}, abs/1604.00449, 2016.
+
+\bibitem{Mandikal20183DLMNetLE}
+Priyanka Mandikal, L.~NavaneetK., Mayank Agarwal, and Venkatesh~Babu
+  Radhakrishnan.
+\newblock 3d-lmnet: Latent embedding matching for accurate and diverse 3d point
+  cloud reconstruction from a single image.
+\newblock In {\em BMVC}, 2018.
+
+\bibitem{Choy2015EnrichingOD}
+Christopher~Bongsoo Choy, Michael Stark, Sam Corbett-Davies, and Silvio
+  Savarese.
+\newblock Enriching object detection with 2d-3d registration and continuous
+  viewpoint estimation.
+\newblock {\em 2015 IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, pages 2512--2520, 2015.
+
+\bibitem{Chang2015ShapeNetAI}
+Angel~X. Chang, Thomas~A. Funkhouser, Leonidas~J. Guibas, Pat Hanrahan, Qi-Xing
+  Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su,
+  Jianxiong Xiao, Li~Yi, and Fisher Yu.
+\newblock Shapenet: An information-rich 3d model repository.
+\newblock {\em ArXiv}, abs/1512.03012, 2015.
+
+\bibitem{Xiang2014BeyondPA}
+Yu~Xiang, Roozbeh Mottaghi, and Silvio Savarese.
+\newblock Beyond pascal: A benchmark for 3d object detection in the wild.
+\newblock {\em IEEE Winter Conference on Applications of Computer Vision},
+  pages 75--82, 2014.
+
+\bibitem{Wu20143DSA}
+Zhirong Wu, Shuran Song, Aditya Khosla, Fisher Yu, Linguang Zhang, Xiaoou Tang,
+  and Jianxiong Xiao.
+\newblock 3d shapenets: A deep representation for volumetric shapes.
+\newblock {\em 2015 IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, pages 1912--1920, 2014.
+
+\bibitem{Cignoni2008MeshLabAO}
+Paolo Cignoni, Marco Callieri, Massimiliano Corsini, Matteo Dellepiane, Fabio
+  Ganovelli, and Guido Ranzuglia.
+\newblock Meshlab: an open-source mesh processing tool.
+\newblock In {\em Eurographics Italian Chapter Conference}, 2008.
+
+\end{thebibliography}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Chen2009ABF}
 Xiaobai Chen, Aleksey Golovinskiy, and Thomas~A. Funkhouser.
@@ -58,5 +58,83 @@ Paolo Cignoni, Marco Callieri, Massimiliano Corsini, Matteo Dellepiane, Fabio
   Ganovelli, and Guido Ranzuglia.
 \newblock Meshlab: an open-source mesh processing tool.
 \newblock In {\em Eurographics Italian Chapter Conference}, 2008.
+
+\bibitem{Vzquez2003AutomaticVS}
+Pere-Pau V{\'a}zquez, Miquel Feixas, Mateu Sbert, and Wolfgang Heidrich.
+\newblock Automatic view selection using viewpoint entropy and its applications
+  to image-based modelling.
+\newblock {\em Comput. Graph. Forum}, 22:689--700, 2003.
+
+\bibitem{Page2003ShapeAA}
+David~L. Page, Andreas~F. Koschan, Sreenivas~R. Sukumar, Besma Roui-Abidi, and
+  Mongi~A. Abidi.
+\newblock Shape analysis algorithm based on information theory.
+\newblock {\em Proceedings 2003 International Conference on Image Processing
+  (Cat. No.03CH37429)}, 1:I--229, 2003.
+
+\bibitem{Dutagaci2010ABF}
+Helin Dutagaci, Chun~Pan Cheung, and Afzal Godil.
+\newblock A benchmark for best view selection of 3d objects.
+\newblock In {\em 3DOR@MM}, 2010.
+
+\bibitem{Lee2005MeshS}
+Chang~Ha Lee, Amitabh Varshney, and David~W. Jacobs.
+\newblock Mesh saliency.
+\newblock In {\em SIGGRAPH 2005}, 2005.
+
+\bibitem{Furukawa:2015:MST:2864699.2864700}
+Yasutaka Furukawa and Carlos Hern\'{a}ndez.
+\newblock Multi-view stereo: A tutorial.
+\newblock {\em Found. Trends. Comput. Graph. Vis.}, 9(1-2):1--148, June 2015.
+
+\bibitem{7780964}
+J.~{Flynn}, I.~{Neulander}, J.~{Philbin}, and N.~{Snavely}.
+\newblock Deep stereo: Learning to predict new views from the world's imagery.
+\newblock In {\em 2016 IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 5515--5524, June 2016.
+
+\bibitem{Zhou2016ViewSB}
+Tinghui Zhou, Shubham Tulsiani, Weilun Sun, Jagannath Malik, and Alexei~A.
+  Efros.
+\newblock View synthesis by appearance flow.
+\newblock In {\em ECCV}, 2016.
+
+\bibitem{sun2018multiview}
+Shao-Hua Sun, Minyoung Huh, Yuan-Hong Liao, Ning Zhang, and Joseph~J Lim.
+\newblock Multi-view to novel view: Synthesizing novel views with self-learned
+  confidence.
+\newblock In {\em European Conference on Computer Vision}, 2018.
+
+\bibitem{olszewski2019tbn}
+Kyle Olszewski, Sergey Tulyakov, Oliver Woodford, Hao Li, and Linjie Luo.
+\newblock Transformable bottleneck networks.
+\newblock {\em The IEEE International Conference on Computer Vision (ICCV)},
+  Nov 2019.
+
+\bibitem{TDB16a}
+M.~Tatarchenko, A.~Dosovitskiy, and T.~Brox.
+\newblock Multi-view 3d models from single images with a convolutional network.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2016.
+
+\bibitem{Huang_2017_ICCV}
+Rui Huang, Shu Zhang, Tianyu Li, and Ran He.
+\newblock Beyond face rotation: Global and local perception gan for
+  photorealistic and identity preserving frontal view synthesis.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  Oct 2017.
+
+\bibitem{VIGAN}
+Xiaogang Xu, Ying-Cong Chen, and Jiaya Jia.
+\newblock View independent generative adversarial network for novel view
+  synthesis.
+\newblock In {\em The IEEE International Conference on Computer Vision (ICCV)},
+  2019.
+
+\bibitem{Park2017TransformationGroundedIG}
+Eunbyung Park, Jimei Yang, Ersin Yumer, Duygu Ceylan, and Alexander~C. Berg.
+\newblock Transformation-grounded image generation network for novel 3d view
+  synthesis.
+\newblock {\em 2017 IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, pages 702--711, 2017.
 
 \end{thebibliography}

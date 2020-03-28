@@ -151,7 +151,7 @@
 生成三维模型的最优视图任务要求给定一个三维模型，我们能够选取出合适的视角，并且在这个视角下渲染出具有真实性的图片。随着三维建模方法的不断完善，三维模型的使用在近几年正变的越来越广泛。大规模三维模型数据库的出现更加便捷了有关三维模型的研究的进展。而三维模型不同于二维图片的特性使得它需要经过渲染才能显示在屏幕上。生成符合人类感知的三维模型的最优视图，将大大方便三维模型库的检索。近年来神经网络在二维视图生成工作的进展飞速，这也使得借助神经网络来生成三维模型的最优视图成为可能，尤其是生成对抗网络和变分自编码器在条件生成和非条件生成领域取得了很好的效果。本文回顾了以往在这个方向上研究者的工作，包括最优视角选择和新视角生成的算法，并提出了新的生成三维模型视图的方法。我们的方法首先能够根据一张导引图片提供的材质信息来渲染给定的三维模型在某一个视角下的视图，也能够通过在隐空间中采样来无条件的生成多样的三维模型的视图。定性和定量的实验结果表明，我们的新算法能够产生更加准确、更具真实性的三维模型图像，也在选择视角方面相对其他算法有自己的优势。最后，我们总结了本文的成果并展望了未来的工作。
 
 \bigskip
-\noindent{\bfseries\songti 关键词: 最优视图\ 图像生成}
+\noindent{\bfseries\songti 关键词: 最优视角选择\ 新视角生成\ 材质迁移}
 
 
 
@@ -193,11 +193,11 @@
 %5号，Time new roman，1.5倍行距
 \chapter*{\bfseries Abstract}
 
-forem
+Synthesizing the best view of 3D models aims to choose to best viewpoint and rendering a realistic image given a 3D model. With the development of 3D modeling, the use of 3D models has been more and more prevalent. The emergent of 3D databases further advocates the development of 3D model related research. Unlike 2D images, 3D models have to be rendered to be displayed on a screen. Synthesizing the best view of 3D models in line with human perception will contribute to the retrieval of 3D databases. Thanks to the rapid development of neural networks' application on synthesizing 2D images, it has been possible in recent years to synthesize the best view of 3D models using neural networks, especially GAN and VAE, which yields great results in conditional and unconditional image synthesis. This paper reviews past research on this field, including best view synthesis and novel view synthesis, and propose a novel method to synthesize views of 3D models. First, our model can render an image of a given 3D model under a specific viewpoint while being consistent in style to a reference image. Second, our method can render various views of 3D models by sampling in latent space. Our new method is proved to be able to yield more accurate and realistic images through qualitative and quantitative experiments and outperforms previous best view selection methods. Finally, we summarize our contribution and proposed future work on this topic.
 
 \bigskip
 \noindent
-{\bfseries Key Words: }
+{\bfseries Key Words: best view selection\ \ novel view synthesis\ \ style transfer}
 
 
 
@@ -287,8 +287,11 @@ forem
 
 \subsection{新视角生成}
 
-新视角生成(novel view synthesis)旨在给定一个三维模型在一个或多个视角下的视图来生成新视角下的视图。因为不同视角下可见的像素不同，这个任务本质上是一个非良定义的问题，而需要足够强的先验知识和正则化约束来得到可接受的结果。以往解决新视角生成任务的方法大致可以分为两大类：基于几何学的和基于学习的方法。几何学的方法能够从输入图片显式的估计三维模型的结构和材质信息。Multi-view stereo\cite{Furukawa:2015:MST:2864699.2864700}方法可以通过多个视角的输入图片直接重构出三维模型。Flynn et al.\cite{7780964}提出的深度神经网络能够在不同视角的图片中进行插值。几何学的方法主要缺点是作为训练数据的三维模型难以获得，并且缺失的像素会导致错误的破洞填补(hole-filling)。基于学习的方法将新视角生成看作图片生成任务，或采取预测从原图片到目标图片的流\cite{Zhou2016ViewSB, sun2018multiview, olszewski2019tbn}的方式，或是采用某种正则化后直接生成每一个像素\cite{TDB16a, Huang_2017_ICCV, VIGAN, Park2017TransformationGroundedIG}。不同的方法针对它非良定义的特性使用了不同的正则化方法，如感知损失函数\cite{olszewski2019tbn}，生成对抗网络的损失函数\cite{Huang_2017_ICCV}和三维信息\cite{VIGAN}的方式。
+新视角生成(novel view synthesis)旨在给定一个三维模型在一个或多个视角下的视图来生成新视角下的视图。因为不同视角下可见的像素不同，这个任务本质上是一个非良定义的问题，而需要足够强的先验知识和正则化约束来得到可接受的结果。以往解决新视角生成任务的方法大致可以分为两大类：基于几何学的和基于学习的方法。几何学的方法能够从输入图片显式的估计三维模型的结构和材质信息。Multi-view stereo\cite{Furukawa:2015:MST:2864699.2864700}方法可以通过多个视角的输入图片直接重构出三维模型。Flynn et al.\cite{7780964}提出的深度神经网络能够在不同视角的图片中进行插值。几何学的方法主要缺点是作为训练数据的三维模型难以获得，并且缺失的像素会导致错误的破洞填补(hole-filling)。基于学习的方法将新视角生成看作图片生成任务，或采取预测从原图片到目标图片的流\cite{Zhou2016ViewSB, sun2018multiview, olszewski2019tbn}的方式，或是采用某种正则化后直接生成每一个像素\cite{TDB16a, Huang_2017_ICCV, VIGAN, Park2017TransformationGroundedIG}。不同的方法针对它非良定义的特性使用了不同的正则化方法，如感知损失函数\cite{olszewski2019tbn}，生成对抗网络的损失函数\cite{Huang_2017_ICCV}和三维信息\cite{VIGAN}的方式。本文提出的模型可以看作\cite{VIGAN}的进一步拓展，将文中的三维信息进一步拆分为材质和内容信息，从而能够应用到材质迁移任务上。本文的方法在应用到新视角生成时，与流方法和像素生成的经典方法比较均有定性和定量结果的优势。
 
+\subsection{材质迁移}
+
+材质迁移旨在给定一张内容图片和一张材质图片(或材质属性)，生成一张具有前者内容和后者的材质信息的图片。一种通用的思路是从输入图片中编码出表征内容和表征材质的向量，如\cite{zheng2019joint, BeautyGlow, Li2018BeautyGANIF, Wu2019DisentanglingCA}。囿于成对训练数据缺失，材质迁移方法无法使用有监督的一范数或二范数损失函数，而需要采取独特的方法训练内容和材质的分离：如认为内容与材质信息分出VGG的不同层中\cite{7780634}，最小化循环损失(cycle loss)\cite{Lu2017ConditionalCF}或增加独特的判别器判定材质信息是否一致\cite{pix2pixSC2019, ma2017pose}。受AdaIN\cite{huang2017adain}启发，另一种融合材质和内容的方法是从内容或材质信息中回归参数来调整神经网络中间层激活量的大小和偏移，如\cite{zhu2019sean, park2019SPADE}。在三维领域，将一个三维模型的材质迁移至另一三维模型或直接生成三维模型的材质，可以通过直接在三维空间中生成每一个点或面片的颜色\cite{cmrKanazawa18}，也可以将三维模型投影至二维空间进行，如VON\cite{VON}。前者的方法生成结果较为模糊，并且因渲染过程不可导，需要采用近似渲染方法和可微分的渲染器\cite{Kato_2018_CVPR}。而后者能够借用图像领域材质迁移的成熟方法，取得更好的效果，并且作为这些方法中常用的深度图，也能够很好的在二维空间表征三维的信息。因此本文采用类似VON的模式，将三维模型渲染为深度图后，在深度图上渲染模型的材质信息。这个材质信息可以来自材质图片，也可以是真实图片，或者是随机采样的隐变量。定性和定量的结果表明我们的方法在生成图片质量上又一定的优势。
 
 
 

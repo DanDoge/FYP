@@ -3,44 +3,46 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Template.aux
 The style file: unsrt.bst
 Database file #1: ref.bib
-You've used 22 entries,
+Warning--empty booktitle in BeautyGlow
+You've used 36 entries,
             1791 wiz_defined-function locations,
-            575 strings with 8135 characters,
-and the built_in function-call counts, 5551 in all, are:
-= -- 407
-> -- 347
-< -- 5
-+ -- 123
-- -- 101
-* -- 353
-:= -- 883
-add.period$ -- 66
-call.type$ -- 22
-change.case$ -- 22
+            639 strings with 10813 characters,
+and the built_in function-call counts, 9094 in all, are:
+= -- 654
+> -- 576
+< -- 8
++ -- 204
+- -- 168
+* -- 567
+:= -- 1427
+add.period$ -- 107
+call.type$ -- 36
+change.case$ -- 36
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 280
-empty$ -- 544
-format.name$ -- 101
-if$ -- 1266
+cite$ -- 37
+duplicate$ -- 465
+empty$ -- 911
+format.name$ -- 168
+if$ -- 2083
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 22
-newline$ -- 113
-num.names$ -- 22
-pop$ -- 103
+int.to.str$ -- 36
+missing$ -- 35
+newline$ -- 182
+num.names$ -- 36
+pop$ -- 187
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 135
+skip$ -- 229
 stack$ -- 0
-substring$ -- 211
-swap$ -- 83
-text.length$ -- 5
+substring$ -- 323
+swap$ -- 140
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 36
-width$ -- 24
-write$ -- 232
+warning$ -- 1
+while$ -- 57
+width$ -- 38
+write$ -- 374
+(There was 1 warning)

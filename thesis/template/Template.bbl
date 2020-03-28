@@ -137,4 +137,94 @@ Eunbyung Park, Jimei Yang, Ersin Yumer, Duygu Ceylan, and Alexander~C. Berg.
 \newblock {\em 2017 IEEE Conference on Computer Vision and Pattern Recognition
   (CVPR)}, pages 702--711, 2017.
 
+\bibitem{zheng2019joint}
+Zhedong Zheng, Xiaodong Yang, Zhiding Yu, Liang Zheng, Yi~Yang, and Jan Kautz.
+\newblock Joint discriminative and generative learning for person
+  re-identification.
+\newblock In {\em IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, 2019.
+
+\bibitem{BeautyGlow}
+Hung-Jen Chen, Ka-Ming Hui, Szu-Yu Wang, Li-Wu Tsao, Hong-Han Shuai, and
+  Wen-Huang Cheng.
+\newblock Beautyglow: On-demand makeup transfer framework with reversible
+  generative network.
+\newblock pages 10034--10042, 06 2019.
+
+\bibitem{Li2018BeautyGANIF}
+TingTing Li, Ruihe Qian, Chao Dong, Si~Liu, Qiong Yan, Wenwu Zhu, and Liang
+  Lin.
+\newblock Beautygan: Instance-level facial makeup transfer with deep generative
+  adversarial network.
+\newblock In {\em MM '18}, 2018.
+
+\bibitem{Wu2019DisentanglingCA}
+Wayne Wu, Kaidi Cao, Cheng Li, Chen Qian, and Chen~Change Loy.
+\newblock Disentangling content and style via unsupervised geometry
+  distillation.
+\newblock {\em ArXiv}, abs/1905.04538, 2019.
+
+\bibitem{7780634}
+L.~A. {Gatys}, A.~S. {Ecker}, and M.~{Bethge}.
+\newblock Image style transfer using convolutional neural networks.
+\newblock In {\em 2016 IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, pages 2414--2423, 2016.
+
+\bibitem{Lu2017ConditionalCF}
+Yongyi Lu, Yu-Wing Tai, and Chi-Keung Tang.
+\newblock Conditional cyclegan for attribute guided face image generation.
+\newblock {\em ArXiv}, abs/1705.09966, 2017.
+
+\bibitem{pix2pixSC2019}
+Miao Wang, Guo-Ye Yang, Ruilong Li, Run-Ze Liang, Song-Hai Zhang, Peter.~M
+  Hall, and Shi-Min Hu.
+\newblock Example-guided style-consistent image synthesis from semantic
+  labeling.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, June 2019.
+
+\bibitem{ma2017pose}
+Liqian Ma, Xu~Jia, Qianru Sun, Bernt Schiele, Tinne Tuytelaars, and Luc
+  Van~Gool.
+\newblock Pose guided person image generation.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  405--415, 2017.
+
+\bibitem{huang2017adain}
+Xun Huang and Serge Belongie.
+\newblock Arbitrary style transfer in real-time with adaptive instance
+  normalization.
+\newblock In {\em ICCV}, 2017.
+
+\bibitem{zhu2019sean}
+Peihao Zhu, Rameen Abdal, Yipeng Qin, and Peter Wonka.
+\newblock Sean: Image synthesis with semantic region-adaptive normalization,
+  2019.
+
+\bibitem{park2019SPADE}
+Taesung Park, Ming-Yu Liu, Ting-Chun Wang, and Jun-Yan Zhu.
+\newblock Semantic image synthesis with spatially-adaptive normalization.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, 2019.
+
+\bibitem{cmrKanazawa18}
+Angjoo Kanazawa, Shubham Tulsiani, Alexei~A. Efros, and Jitendra Malik.
+\newblock Learning category-specific mesh reconstruction from image
+  collections.
+\newblock In {\em ECCV}, 2018.
+
+\bibitem{VON}
+Jun-Yan Zhu, Zhoutong Zhang, Chengkai Zhang, Jiajun Wu, Antonio Torralba,
+  Joshua~B. Tenenbaum, and William~T. Freeman.
+\newblock Visual object networks: Image generation with disentangled 3{D}
+  representations.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2018.
+
+\bibitem{Kato_2018_CVPR}
+Hiroharu Kato, Yoshitaka Ushiku, and Tatsuya Harada.
+\newblock Neural 3d mesh renderer.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, June 2018.
+
 \end{thebibliography}

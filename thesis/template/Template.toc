@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {2.2}新视角生成}{5}% 
 \contentsline {subsection}{\numberline {2.3}材质迁移}{6}% 
 \contentsline {section}{\numberline {3}研究内容}{6}% 
-\contentsline {section}{\numberline {4}本文结构}{6}% 
+\contentsline {section}{\numberline {4}本文结构}{7}% 
 \contentsline {chapter}{参考文献}{8}% 
 \contentsline {chapter}{本科期间的主要工作和成果}{12}% 
 \contentsline {chapter}{致谢}{13}% 

@@ -153,7 +153,7 @@ class DepthStyleModel(BaseModel):
 
 
         if self.opt.lambda_kl_real > 0.0:
-            self.loss_mu_enc = torch.mean(torch.abs(mu_style_B)) + self.critCycle(self.z_style_Bref, self.z_style_B.detach()) + self.critCycle(self.z_texture, self.z_texture_rec)
+            self.loss_mu_enc = torch.mean(torch.abs(mu_style_B)) + self.critCycle(self.z_style_Bref, self.z_style_B.detach()) + self.critCycle(self.z_texture, self.z_texture_rec) + self.critGAN(self.netD_real_single(self.fake_Brandom), True)
             self.loss_var_enc = torch.mean(logvar_style_B.exp())
             self.loss_kl_real = _cal_kl(mu_style_B, logvar_style_B, self.opt.lambda_kl_real)
         # combined loss
@@ -190,7 +190,9 @@ class DepthStyleModel(BaseModel):
                            + self.critGAN(self.netD_real_single(self.fake_B.detach()), False) \
                            + self.critGAN(self.netD_real_single(self.fake_Bref.detach()), False) \
                            + self.critGAN(self.netD_real_single(self.rec_B.detach()), False) \
-                           + self.critGAN(self.netD_real_single(self.rec_Bref.detach()), False)         self.loss_D_real = loss_D_real_real + loss_D_real_fake
+                           + self.critGAN(self.netD_real_single(self.rec_Bref.detach()), False) \
+                           + + self.critGAN(self.netD_real_single(self.fake_Brandom.detach()), False)
+        self.loss_D_real = loss_D_real_real + loss_D_real_fake
         self.loss_D = self.loss_D_real + self.loss_D_depth
         self.loss_D.backward()
 

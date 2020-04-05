@@ -227,4 +227,21 @@ Hiroharu Kato, Yoshitaka Ushiku, and Tatsuya Harada.
 \newblock In {\em The IEEE Conference on Computer Vision and Pattern
   Recognition (CVPR)}, June 2018.
 
+\bibitem{Burgess2018UnderstandingDI}
+Christopher~P. Burgess, Irina Higgins, Arka Pal, Loic Matthey, Nick Watters,
+  Guillaume Desjardins, and Alexander Lerchner.
+\newblock Understanding disentangling in \$\beta\$-vae.
+\newblock 2018.
+
+\bibitem{RubSchTol18b}
+P.~K. Rubenstein, B.~Sch{\"o}lkopf, and I.~Tolstikhin.
+\newblock Learning disentangled representations with wasserstein auto-encoders.
+\newblock In {\em Workshop at the 6th International Conference on Learning
+  Representations (ICLR)}, May 2018.
+
+\bibitem{vunet2018}
+Patrick Esser, Ekaterina Sutter, and Bj{\"o}rn Ommer.
+\newblock A variational u-net for conditional appearance and shape generation.
+\newblock 2018.
+
 \end{thebibliography}

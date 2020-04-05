@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  30 MAR 2020 21:15
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  5 APR 2020 23:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -982,23 +982,67 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [4
 
 
-] [5] [6] [7] (./Template.bbl [8
+] [5] [6] [7]
+第二章
+[8
 
 
-] [9] [10]) [11] [12
+] [9] (./Template.bbl [10
 
 
-] [13
+] [11] [12]
+./Template.bbl:233: Missing $ inserted.
+<inserted text> 
+                $
+l.233 ...ck Understanding disentangling in \$\beta
+                                                  \$-vae.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Template.bbl:235: Missing $ inserted.
+<inserted text> 
+                $
+l.235 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Template.bbl:235: Missing } inserted.
+<inserted text> 
+                }
+l.235 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Template.bbl:235: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.235 
+      
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+[13]) [14] [15
+
+
+] [16
 
 
 ] (./Template.aux) ) 
 Here is how much of TeX's memory you used:
- 21427 strings out of 492909
- 464741 string characters out of 6136300
- 567689 words of memory out of 5000000
- 25192 multiletter control sequences out of 15000+600000
- 558530 words of font info for 175 fonts, out of 8000000 for 9000
+ 21485 strings out of 492909
+ 467201 string characters out of 6136300
+ 567701 words of memory out of 5000000
+ 25245 multiletter control sequences out of 15000+600000
+ 563482 words of font info for 194 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 54i,11n,79p,1495b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,12n,79p,1495b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.xdv (15 pages, 180704 bytes).
+Output written on Template.xdv (18 pages, 218652 bytes).

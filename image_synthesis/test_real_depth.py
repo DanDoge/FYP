@@ -30,6 +30,13 @@ model.netE_style.eval()
 vpB = []
 vpBref = []
 
+style_synthesized = []
+style_real = []
+content_synthesized = []
+vp_synthesized = []
+mask_synthesized = []
+bg_synthesized = []
+
 def savefig(tensor, name, i):
     out_np = tensor[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
     im = Image.fromarray((out_np * 255).astype(np.uint8))
@@ -42,6 +49,25 @@ def cat_feature(x, y):
     x_cat = torch.cat([x, y_expand], 1)
     return x_cat
 
+def content_style_swap(model, content, syn_style, real_style, vp, mask, bg):
+    for i in range(100):
+        for j in range(100):
+            syn_rec = model.apply_mask(model.netG_real(content[i], vp[i], syn_style[j]), mask[i], bg[i])
+            real_rec = model.apply_mask(model.netG_real(content[i], vp[i], real_style[j]), mask[i], bg[i])
+            savefig(syn_rec, "syn_swap", i * 100 + j)
+            savefig(real_rec, "real_swap", i * 100 + j)
+
+        for j in range(100):
+            mix_syn_style = syn_style[i] * j / 100 + syn_style[int((i + 1) % 100)] * (100 - j) / 100
+            mix_real_style = real_style[i] * j / 100 + real_style[int((i + 1) % 100)] * (100 - j) / 100
+            syn_rec = model.apply_mask(model.netG_real(content[i], vp[i], mix_syn_style), mask[i], bg[i])
+            real_rec = model.apply_mask(model.netG_real(content[i], vp[i], mix_real_style), mask[i], bg[i])
+            savefig(syn_rec, "syn_interpolate", i * 100 + j)
+            savefig(real_rec, "real_interpolate", i * 100 + j)
+    return
+
+
+
 
 for epoch in range(1):
 
@@ -53,17 +79,38 @@ for epoch in range(1):
         if model.skip():
             continue
 
-        #model.backward_GE()
         savefig(model.real_B, "real", i)
+        savefig(model.real_Bref, "realref", i)
         realB_with_vp = cat_feature(model.real_B, model.vp_B)
         model.z_style_B, mu_style_B, logvar_style_B = model.encode_style(realB_with_vp, model.vae)
 
+        #model.fake_A = model.apply_mask(model.netG_depth(model.real_B, model.vp_B, model.vp_B), model.mask_B, model.bg_A)
+        #model.fake_Aref = model.apply_mask(model.netG_depth(model.real_B, model.vp_B, model.vp_Bref), model.mask_Bref, model.bg_A)
+
+        model.rec_B = model.apply_mask(model.netG_real(model.real_B2A, model.vp_B, model.z_style_B), model.mask_B, model.bg_B)
+        savefig(model.rec_B, "rec", i)
+        model.rec_Bref = model.apply_mask(model.netG_real(model.real_Bref2A, model.vp_Bref, model.z_style_B), model.mask_Bref, model.bg_B)
+        savefig(model.rec_Bref, "novelview", i)
 
         model.fake_B = model.apply_mask(model.netG_real(model.real_A, model.vp_A, model.z_style_B), model.mask_A, model.bg_B)
         savefig(model.fake_B, "fake", i)
 
         model.fake_Brandom = model.apply_mask(model.netG_real(model.real_A, model.vp_A, model.z_texture), model.mask_A, model.bg_B)
         savefig(model.fake_Brandom, "random", i)
+
+        realBref_with_vp = cat_feature(model.real_Breal, model.vp_Breal)
+        model.z_style_Breal, mu_style_Breal, logvar_style_Breal = model.encode_style(realBreal_with_vp, model.vae)
+        model.fake_Breal = model.apply_mask(model.netG_real(model.real_A, model.vp_A, model.z_style_Breal), model.mask_A, model.bg_B)
+        savefig(model.fake_Breal, "real_real", i)
+
+        if i < 100:
+            content_synthesized.append(model.real_B2A)
+            style_synthesized.append(model.z_style_B)
+            style_real.append(model.z_style_Breal)
+            vp_synthesized.append(model.vp_B)
+            mask_synthesized.append(model.mask_B)
+            bg_synthesized.append(model.bg_B)
+
 
         vpB.append(model.vp_B[0].detach().cpu().numpy())
         vpBref.append(model.vp_Bref[0].detach().cpu().numpy())
@@ -74,4 +121,6 @@ for epoch in range(1):
     import pickle
     pickle.dump(vpB, open("./out/vp_B", "wb"))
     pickle.dump(vpBref, open("./out/vp_Bref", "wb"))
+
+    content_style_swap(model, content_synthesized, style_synthesized, style_real, vp_synthesized, mask_synthesized, bg_synthesized)
     break

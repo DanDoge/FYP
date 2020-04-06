@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  5 APR 2020 23:05
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  6 APR 2020 23:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -987,10 +987,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [8
 
 
-] [9] (./Template.bbl [10
+] [9] [10] (./Template.bbl [11
 
 
-] [11] [12]
+] [12] [13]
 ./Template.bbl:233: Missing $ inserted.
 <inserted text> 
                 $
@@ -1029,10 +1029,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[13]) [14] [15
+[14]) [15] [16
 
 
-] [16
+] [17
 
 
 ] (./Template.aux) ) 
@@ -1045,4 +1045,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  54i,12n,79p,1495b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.xdv (18 pages, 218652 bytes).
+Output written on Template.xdv (19 pages, 231584 bytes).

@@ -244,4 +244,10 @@ Patrick Esser, Ekaterina Sutter, and Bj{\"o}rn Ommer.
 \newblock A variational u-net for conditional appearance and shape generation.
 \newblock 2018.
 
+\bibitem{Karras2017ProgressiveGO}
+Tero Karras, Timo Aila, Samuli Laine, and Jaakko Lehtinen.
+\newblock Progressive growing of gans for improved quality, stability, and
+  variation.
+\newblock {\em ArXiv}, abs/1710.10196, 2017.
+
 \end{thebibliography}

@@ -12,6 +12,7 @@
 \contentsline {chapter}{\numberline {第二章\hspace {.3em}}实验原理}{8}% 
 \contentsline {section}{\numberline {1}变分自编码器}{8}% 
 \contentsline {section}{\numberline {2}生成对抗网络}{10}% 
-\contentsline {chapter}{参考文献}{12}% 
-\contentsline {chapter}{本科期间的主要工作和成果}{17}% 
-\contentsline {chapter}{致谢}{18}% 
+\contentsline {section}{\numberline {3}本文实验原理}{11}% 
+\contentsline {chapter}{参考文献}{15}% 
+\contentsline {chapter}{本科期间的主要工作和成果}{20}% 
+\contentsline {chapter}{致谢}{21}% 

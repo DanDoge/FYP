@@ -37,12 +37,12 @@ class RealDepthModel(BaseModel):
         self.vp_dim = 2
 
         if self.isTrain:
-            self.model_names += ['E_style', 'G_real', 'G_depth', 'D_real', 'D_depth', 'D_real_single']
+            self.model_names += ['E_style', 'G_real', 'G_depth', 'D_real', 'D_depth', 'D_real_single', 'D_real_local']
         else:
             self.model_names += ['E_style', 'G_real', 'G_depth']
 
         self.visual_names += ['real_A', 'real_Aref', 'rec_A', 'rec_Aref', 'fake_A', 'fake_Aref']
-        self.loss_names += ['G_A', 'G_B', 'cycle_A', 'cycle_B', 'D_depth', 'D_real']
+        self.loss_names += ['G_A', 'G_B', 'cycle_A', 'cycle_B', 'D_depth', 'D_real', 'D_local']
         self.cuda_names += ['z_texture']
 
         if opt.lambda_kl_real > 0.0:
@@ -59,6 +59,7 @@ class RealDepthModel(BaseModel):
             self.netD_depth = self.define_D(opt.input_nc * 2, ext='B')
             self.netD_real_single = self.define_D(opt.output_nc, ext='Asingle')
             self.netD_depth_single = self.define_D(opt.input_nc, ext='Bsingle')
+            self.netD_real_local = self.define_D(opt.output_nc * 2, ext='Blocal')
 
 
         self.critCycle = torch.nn.L1Loss().to(self.device)
@@ -68,7 +69,7 @@ class RealDepthModel(BaseModel):
                                                 lr=opt.lr, betas=(opt.beta1, 0.999))
         self.optimizer_G = torch.optim.Adam(itertools.chain(self.netG_real.parameters(), self.netG_depth.parameters()),
                                                 lr=opt.lr, betas=(opt.beta1, 0.999))
-        self.optimizer_D = torch.optim.Adam(itertools.chain(self.netD_depth.parameters(), self.netD_real.parameters(), self.netD_depth_single.parameters(), self.netD_real_single.parameters()),
+        self.optimizer_D = torch.optim.Adam(itertools.chain(self.netD_depth.parameters(), self.netD_real.parameters(), self.netD_depth_single.parameters(), self.netD_real_single.parameters(), self.netD_real_local.parameters()),
                                                 lr=opt.lr, betas=(opt.beta1, 0.999))
         self.optimizers += [self.optimizer_E, self.optimizer_G, self.optimizer_D]
     def set_input(self, input):
@@ -76,6 +77,7 @@ class RealDepthModel(BaseModel):
         self.mask_B = input['Bm'].to(self.device)
         self.real_A = input['A'].to(self.device)
         self.real_B = input['B'].to(self.device)
+        self.blur_B = input['blurB'].to(self.device)
         self.real_A2B = input['Ar'].to(self.device)
         self.real_B2A = input["Bd"].to(self.device)
         self.real_Bref2A = input["Brefd"].to(self.device)
@@ -90,6 +92,7 @@ class RealDepthModel(BaseModel):
 
         self.real_A = self.apply_mask(self.real_A, self.mask_A, self.bg_A)
         self.real_B = self.apply_mask(self.real_B, self.mask_B, self.bg_B)
+        self.blur_B = self.apply_mask(self.blur_B, self.mask_B, self.bg_B)
         self.real_A2B = self.apply_mask(self.real_A2B, self.mask_A, self.bg_B)
         self.real_B2A = self.apply_mask(self.real_B2A, self.mask_B, self.bg_A)
         self.real_Bref2A = self.apply_mask(self.real_Bref2A, self.mask_Bref, self.bg_A)
@@ -154,7 +157,6 @@ class RealDepthModel(BaseModel):
                         + self.critCycle(self.fake_Aref, self.real_Bref2A) * self.opt.lambda_cycle_A
 
 
-        '''
         self.rec_B = self.apply_mask(self.netG_real(self.fake_A, self.vp_B, self.z_style_B), self.mask_B, self.bg_B)
         self.rec_Bref = self.apply_mask(self.netG_real(self.fake_Aref, self.vp_Bref, self.z_style_B), self.mask_Bref, self.bg_B)
         self.loss_cycle_B = (self.critCycle(self.real_Bref, self.rec_Bref)+ self.critCycle(self.real_B, self.rec_B)) * self.opt.lambda_cycle_B
@@ -186,14 +188,21 @@ class RealDepthModel(BaseModel):
             self.loss_mu_enc += torch.mean(torch.abs(mu_style_B))
             self.loss_var_enc = torch.mean(logvar_style_B.exp())
             self.loss_kl_real = _cal_kl(mu_style_B, logvar_style_B, self.opt.lambda_kl_real)
-        '''
 
+
+        self.input_patch, self.ref_patch, self.target_patch, self.blur_patch = self.generate_random_block(self.real_B, self.real_Bref, self.fake_B, self.blur_B)
+        self.real_pair = torch.cat([self.input_patch, self.ref_patch], 1)
+        self.blur_pair = torch.cat([self.input_patch, self.blur_patch], 1)
+        self.fake_pair=  torch.cat([self.input_patch, self.target_patch], 1)
+        self.loss_D_local = self.critGAN(self.netD_real_local(self.fake_pair), True)
         # combined loss
+        '''
         self.loss_cycle_B = 0.0
         self.loss_G_B = 0.0
         self.loss_mu_enc = 0.0
         self.loss_var_enc = 0.0
         self.loss_kl_real = 0.0
+        '''
         self.loss_G = self.loss_cycle_A + self.loss_cycle_B \
                         + self.loss_G_A + self.loss_G_B \
                         + self.loss_mu_enc + self.loss_var_enc + self.loss_kl_real
@@ -214,7 +223,7 @@ class RealDepthModel(BaseModel):
 
 
 
-        '''
+
         loss_D_real_real = self.critGAN(self.netD_real(torch.cat([self.real_B.detach(), self.real_Bref.detach()], 1)), True) * 4 + self.critGAN(self.netD_real_single(self.real_B.detach()), True) * 2 + self.critGAN(self.netD_real_single(self.real_Bref.detach()), True) * 2
         loss_D_real_fake = self.critGAN(self.netD_real(torch.cat([self.rec_B.detach(), self.real_Bref.detach()], 1)), False) \
                            + self.critGAN(self.netD_real(torch.cat([self.rec_Bref.detach(), self.real_B.detach()], 1)), False) \
@@ -227,8 +236,12 @@ class RealDepthModel(BaseModel):
                            + self.critGAN(self.netD_real_single(self.rec_Bref.detach()), False) \
                            + self.critGAN(self.netD_real_single(self.fake_Brandom.detach()), False) \
                            + self.critGAN(self.netD_real_single(self.fake_Breal.detach()), False)
+
+        loss_D_real_single = self.critGAN(self.netD_real_local(self.fake_pair.detach()), False) \
+                             + self.critGAN(self.netD_real_local(self.real_pair.detach()), True) \
+                             + self.critGAN(self.netD_real_local(self.blur_pair.detach()), False)
         self.loss_D_real = loss_D_real_real + loss_D_real_fake
-        '''
+
         self.loss_D_real = 0.0
         self.loss_D = self.loss_D_real + self.loss_D_depth
         #print("!!!")
@@ -236,17 +249,78 @@ class RealDepthModel(BaseModel):
 
 
     def update_D(self, epoch=0):
-        self.set_requires_grad([self.netD_depth, self.netD_real, self.netD_depth_single, self.netD_real_single], True)
-        self.set_requires_grad([self.netE_style, self.netG_real, self.netD_real, self.netD_real_single], False)
+        self.set_requires_grad([self.netD_depth, self.netD_real, self.netD_depth_single, self.netD_real_single, self.netD_real_local], True)
         self.optimizer_D.zero_grad()
         self.backward_D(epoch)
         self.optimizer_D.step()
 
     def update_G(self, epoch=0):
-        self.set_requires_grad([self.netD_depth, self.netD_real, self.netD_depth_single, self.netD_real_single], False)
-        self.set_requires_grad([self.netE_style, self.netG_real, self.netD_real, self.netD_real_single], False)
+        self.set_requires_grad([self.netD_depth, self.netD_real, self.netD_depth_single, self.netD_real_single, self.netD_real_local], False)
         self.optimizer_E.zero_grad()
         self.optimizer_G.zero_grad()
         self.backward_GE()
         self.optimizer_E.step()
         self.optimizer_G.step()
+
+
+    def generate_random_block(self, input, inputref, target, blurs):
+        batch_size, channel, height, width = target.size()  # B X 3*nencode X 64 X 64
+        target_tensor = target.data
+        block_size = 32
+        img_size = self.opt.crop_size  # 128 / 256
+
+        inp_blk = list()
+        ref_blk = list()
+        tar_blk = list()
+        blr_blk = list()
+
+        for b in range(batch_size):
+            for i in range(self.opt.block_num):
+                rand_idx = random.randint(0, self.opt.nencode-1)
+                x = random.randint(0, height - block_size - 1)
+                y = random.randint(0, width - block_size - 1)
+                target_random_block = torch.tensor(target_tensor[b, rand_idx*3:(rand_idx+1)*3,
+                                                   x:x + block_size, y:y + block_size], requires_grad=False)
+                target_blur_block = torch.tensor(blurs[b, rand_idx*3:(rand_idx+1)*3,
+                                                 x:x + block_size, y:y + block_size], requires_grad=False)
+                if i == 0:
+                    target_blocks = target_random_block
+                    blur_blocks = target_blur_block
+                else:
+                    target_blocks = torch.cat([target_blocks, target_random_block], 0)
+                    blur_blocks = torch.cat([blur_blocks, target_blur_block], 0)
+
+                """
+                    x_m = random.randint(0, width-block_size-1)
+                    y_m = random.randint(0, height-block_size-1)
+                    input_blocks.append(torch.tensor(input.data[:, x_m:x_m+block_size, y_m:y_m+block_size].unsqueeze(0),
+                                                     requires_grad=False))
+                """
+                x1 = random.randint(0, img_size - block_size)
+                y1 = random.randint(0, img_size - block_size)
+                input_random_block = torch.tensor(input.data[b, :, x1:x1 + block_size, y1:y1 + block_size],
+                                                  requires_grad=False)
+                ref_random_block = torch.tensor(inputref.data[b, :, x1:x1 + block_size, y1:y1 + block_size],
+                                                  requires_grad=False)
+                if i == 0:
+                    input_blocks = input_random_block
+                    ref_blocks = ref_random_block
+                else:
+                    input_blocks = torch.cat([input_blocks, input_random_block], 0)
+                    ref_blocks = torch.cat([ref_blocks, ref_random_block], 0)
+
+            input_blocks = torch.unsqueeze(input_blocks, 0)
+            ref_blocks = torch.unsqueeze(ref_blocks, 0)
+            target_blocks = torch.unsqueeze(target_blocks, 0)
+            blur_blocks = torch.unsqueeze(blur_blocks, 0)
+            inp_blk.append(input_blocks)
+            ref_blk.append(ref_blocks)
+            tar_blk.append(target_blocks)
+            blr_blk.append(blur_blocks)
+
+        inp_blk = torch.cat(inp_blk)
+        ref_blk = torch.cat(ref_blk)
+        tar_blk = torch.cat(tar_blk)
+        blr_blk = torch.cat(blr_blk)
+
+        return inp_blk, ref_blk, tar_blk, blr_blk

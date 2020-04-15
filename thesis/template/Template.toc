@@ -14,8 +14,9 @@
 \contentsline {section}{\numberline {2}生成对抗网络}{10}% 
 \contentsline {section}{\numberline {3}本文实验原理}{11}% 
 \contentsline {section}{\numberline {4}模型实现细节}{14}% 
-\contentsline {subsection}{\numberline {4.1}编码器}{14}% 
-\contentsline {subsection}{\numberline {4.2}判别器}{14}% 
+\contentsline {subsection}{\numberline {4.1}生成器}{14}% 
+\contentsline {subsection}{\numberline {4.2}编码器}{15}% 
+\contentsline {subsection}{\numberline {4.3}判别器}{15}% 
 \contentsline {chapter}{参考文献}{19}% 
 \contentsline {chapter}{本科期间的主要工作和成果}{24}% 
 \contentsline {chapter}{致谢}{25}% 

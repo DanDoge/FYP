@@ -9,11 +9,14 @@ from torch.nn.functional import pad as pad_tensor
 from os.path import join, dirname
 
 
-class Depth2RealDataset(BaseDataset):
+class RealandDepthDataset(BaseDataset):
     def __init__(self, opt):
         BaseDataset.__init__(self, opt)
-        root = '/data1/huangdj/PyTorch-CycleGAN-master/data'
-        real_root = '/data1/huangdj/PyTorch-CycleGAN-master/real_data'
+        root = '/data1/huangdj/PyTorch-CycleGAN-master/train_data_ap_png'
+        self.real_root = '/data1/huangdj/PyTorch-CycleGAN-master/masked_realimg'
+        with open('/data1/huangdj/PyTorch-CycleGAN-master/name2vp.npy', 'rb') as f:
+            self.name2vp = np.load('/data1/huangdj/PyTorch-CycleGAN-master/name2vp.npy')
+        self.real_list = os.listdir(self.real_root)
         self.transform_mask = get_transform(opt, has_mask=True, no_flip=True, no_normalize=True)
         self.transform_rgb = get_transform(opt, has_mask=False, no_flip=True, no_normalize=True)
 
@@ -73,8 +76,10 @@ class Depth2RealDataset(BaseDataset):
         fileBrefdepth = fileBref.replace("albedo", "depth")
         fileBref_vp = torch.Tensor([int(fileBref.split("_")[-4]), int(fileBref.split("_")[-2])])
 
-        fileBreal = self.real_root + '/' + str(random.randint(0, self.len_albedo - 1)) + '.png'
-        fileBrealvp = torch.Tensor([0, 0])
+        name = self.real_list[int(random.randint(0, len(self.real_list) - 1))]
+        fileBreal = self.real_root + '/' + name
+        idx = int(name.split('.')[0])
+        fileBrealvp = torch.Tensor([self.name2vp[idx][1], self.name2vp[idx][2]])
 
         def get_depth_image(file_depth):
             img_depth = Image.open(file_depth)
@@ -88,12 +93,14 @@ class Depth2RealDataset(BaseDataset):
         def get_rgb_image(file_rgb):
             img_rgb = Image.open(file_rgb)
             img_mask_rgb = self.transform_mask(img_rgb)
-            mask_rgb = img_maskB_rgb[3, :, :]
+            mask_rgb = img_mask_rgb[3, :, :]
             mask_rgb = mask_rgb.unsqueeze(0)
             rgb_rgb = img_rgb.convert("RGB")
             blur_rgb = rgb_rgb.filter(ImageFilter.GaussianBlur(radius=(random.random() * 2 + 2)))
             rgb_rgb = self.transform_rgb(rgb_rgb)
             rgb_rgb = get_normaliztion()(rgb_rgb)
+            blur_rgb = self.transform_rgb(blur_rgb)
+            blur_rgb = get_normaliztion()(blur_rgb)
             return rgb_rgb, blur_rgb, mask_rgb
 
 

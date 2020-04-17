@@ -8,6 +8,8 @@ from .networks_3d import _calc_grad_penalty
 from .networks import *
 from .basics import init_net
 import numpy as np
+import random
+#from .roi_align.functions import roi_align
 
 
 class RealDepthModel(BaseModel):
@@ -41,7 +43,7 @@ class RealDepthModel(BaseModel):
         else:
             self.model_names += ['E_style', 'G_real', 'G_depth']
 
-        self.visual_names += ['real_A', 'real_Aref', 'rec_A', 'rec_Aref', 'fake_A', 'fake_Aref']
+        self.visual_names += ['real_A', 'real_B', 'rec_Aref', 'rec_Bref', 'fake_Aref', 'fake_Bref', 'fake_Breal']
         self.loss_names += ['G_A', 'G_B', 'cycle_A', 'cycle_B', 'D_depth', 'D_real', 'D_local']
         self.cuda_names += ['z_texture']
 
@@ -77,7 +79,7 @@ class RealDepthModel(BaseModel):
         self.mask_B = input['Bm'].to(self.device)
         self.real_A = input['A'].to(self.device)
         self.real_B = input['B'].to(self.device)
-        self.blur_B = input['blurB'].to(self.device)
+        self.blur_B = input['Bblur'].to(self.device)
         self.real_A2B = input['Ar'].to(self.device)
         self.real_B2A = input["Bd"].to(self.device)
         self.real_Bref2A = input["Brefd"].to(self.device)
@@ -205,7 +207,8 @@ class RealDepthModel(BaseModel):
         '''
         self.loss_G = self.loss_cycle_A + self.loss_cycle_B \
                         + self.loss_G_A + self.loss_G_B \
-                        + self.loss_mu_enc + self.loss_var_enc + self.loss_kl_real
+                        + self.loss_mu_enc + self.loss_var_enc + self.loss_kl_real \
+                        + self.loss_D_local
         self.loss_G.backward()
 
     def backward_D(self, epoch):
@@ -242,7 +245,7 @@ class RealDepthModel(BaseModel):
                              + self.critGAN(self.netD_real_local(self.blur_pair.detach()), False)
         self.loss_D_real = loss_D_real_real + loss_D_real_fake
 
-        self.loss_D_real = 0.0
+
         self.loss_D = self.loss_D_real + self.loss_D_depth
         #print("!!!")
         self.loss_D.backward()
@@ -266,61 +269,34 @@ class RealDepthModel(BaseModel):
     def generate_random_block(self, input, inputref, target, blurs):
         batch_size, channel, height, width = target.size()  # B X 3*nencode X 64 X 64
         target_tensor = target.data
-        block_size = 32
+        block_size = 64
         img_size = self.opt.crop_size  # 128 / 256
 
-        inp_blk = list()
-        ref_blk = list()
-        tar_blk = list()
-        blr_blk = list()
-
-        for b in range(batch_size):
-            for i in range(self.opt.block_num):
-                rand_idx = random.randint(0, self.opt.nencode-1)
+        if True:
+            if True:
+                rand_idx = 0
                 x = random.randint(0, height - block_size - 1)
                 y = random.randint(0, width - block_size - 1)
-                target_random_block = torch.tensor(target_tensor[b, rand_idx*3:(rand_idx+1)*3,
-                                                   x:x + block_size, y:y + block_size], requires_grad=False)
-                target_blur_block = torch.tensor(blurs[b, rand_idx*3:(rand_idx+1)*3,
-                                                 x:x + block_size, y:y + block_size], requires_grad=False)
-                if i == 0:
-                    target_blocks = target_random_block
-                    blur_blocks = target_blur_block
-                else:
-                    target_blocks = torch.cat([target_blocks, target_random_block], 0)
-                    blur_blocks = torch.cat([blur_blocks, target_blur_block], 0)
+                target_random_block = torch.tensor(target_tensor[:, :, x:x + block_size, y:y + block_size], requires_grad=True)
+                #rois = Variable(torch.FloatTensor([[i, x, y, x + block_size, y + block_size] for i in range(batch_size)]).to(self.device))
+                #target_random_block = roi_align.roi_align_op(target_tensor, rois, (block_size, block_size), 1.)
+                #print(target_random_block)
+                x = random.randint(0, height - block_size - 1)
+                y = random.randint(0, width - block_size - 1)
+                target_blur_block = torch.tensor(blurs[:, :,x:x + block_size, y:y + block_size], requires_grad=True)
 
-                """
-                    x_m = random.randint(0, width-block_size-1)
-                    y_m = random.randint(0, height-block_size-1)
-                    input_blocks.append(torch.tensor(input.data[:, x_m:x_m+block_size, y_m:y_m+block_size].unsqueeze(0),
-                                                     requires_grad=False))
-                """
-                x1 = random.randint(0, img_size - block_size)
-                y1 = random.randint(0, img_size - block_size)
-                input_random_block = torch.tensor(input.data[b, :, x1:x1 + block_size, y1:y1 + block_size],
-                                                  requires_grad=False)
-                ref_random_block = torch.tensor(inputref.data[b, :, x1:x1 + block_size, y1:y1 + block_size],
-                                                  requires_grad=False)
-                if i == 0:
-                    input_blocks = input_random_block
-                    ref_blocks = ref_random_block
-                else:
-                    input_blocks = torch.cat([input_blocks, input_random_block], 0)
-                    ref_blocks = torch.cat([ref_blocks, ref_random_block], 0)
 
-            input_blocks = torch.unsqueeze(input_blocks, 0)
-            ref_blocks = torch.unsqueeze(ref_blocks, 0)
-            target_blocks = torch.unsqueeze(target_blocks, 0)
-            blur_blocks = torch.unsqueeze(blur_blocks, 0)
-            inp_blk.append(input_blocks)
-            ref_blk.append(ref_blocks)
-            tar_blk.append(target_blocks)
-            blr_blk.append(blur_blocks)
+                target_blocks = target_random_block
+                blur_blocks = target_blur_block
 
-        inp_blk = torch.cat(inp_blk)
-        ref_blk = torch.cat(ref_blk)
-        tar_blk = torch.cat(tar_blk)
-        blr_blk = torch.cat(blr_blk)
+                x1 = random.randint(0, height - block_size - 1)
+                y1 = random.randint(0, width - block_size - 1)
+                input_random_block = torch.tensor(input[:, :, x1:x1 + block_size, y1:y1 + block_size], requires_grad=True)
+                x1 = random.randint(0, height - block_size - 1)
+                y1 = random.randint(0, width - block_size - 1)
+                ref_random_block = torch.tensor(inputref[:, :, x1:x1 + block_size, y1:y1 + block_size], requires_grad=True)
+                input_blocks = input_random_block
+                ref_blocks = ref_random_block
+                #print(input_blocks.size(), ref_blocks.size())
 
-        return inp_blk, ref_blk, tar_blk, blr_blk
+        return input_blocks, ref_blocks, target_blocks, blur_blocks

@@ -12,7 +12,7 @@ from os.path import join, dirname
 class Depth2RealDataset(BaseDataset):
     def __init__(self, opt):
         BaseDataset.__init__(self, opt)
-        root = '/data1/huangdj/PyTorch-CycleGAN-master/data'
+        root = '/data1/huangdj/PyTorch-CycleGAN-master/train_data_ap_png'
         self.transform_mask = get_transform(opt, has_mask=True, no_flip=True, no_normalize=True)
         self.transform_rgb = get_transform(opt, has_mask=False, no_flip=True, no_normalize=True)
 
@@ -24,7 +24,7 @@ class Depth2RealDataset(BaseDataset):
 
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
-        parser.add_argument('--random_shift', action='store_true', help='add random shift to real images and rendered ones')
+        parser.add_argument('--random_shift', action='store_false', help='add random shift to real images and rendered ones')
         parser.add_argument('--color_jitter', action='store_false', help='jitter the hue of loaded images')
         # type of  pose pool to sample from:
         parser.add_argument('--pose_type', type=str, default='hack', choices=['hack'], help='select which pool of poses to sample from')
@@ -72,6 +72,7 @@ class Depth2RealDataset(BaseDataset):
         fileBrefdepth = fileBref.replace("albedo", "depth")
         fileBref_vp = torch.Tensor([int(fileBref.split("_")[-4]), int(fileBref.split("_")[-2])])
 
+
         def get_depth_image(file_depth):
             img_depth = Image.open(file_depth)
             rgb_depth = img_depth.convert("L")
@@ -84,7 +85,7 @@ class Depth2RealDataset(BaseDataset):
         def get_rgb_image(file_rgb):
             img_rgb = Image.open(file_rgb)
             img_mask_rgb = self.transform_mask(img_rgb)
-            mask_rgb = img_maskB_rgb[3, :, :]
+            mask_rgb = img_mask_rgb[3, :, :]
             mask_rgb = mask_rgb.unsqueeze(0)
             rgb_rgb = img_rgb.convert("RGB")
             rgb_rgb = self.transform_rgb(rgb_rgb)

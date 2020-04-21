@@ -11,48 +11,55 @@ Repeated entry---line 461 of file ref.bib
  : @inproceedings{ma2017pose
  :                          ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 555 of file ref.bib
+ : @inproceedings{park2019SPADE
+ :                             ,
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "kingma2014autoencoding"
+refers to entry "conf/iclr/2014", which doesn't exist
+Warning--I didn't find a database entry for "conf/iclr/2014"
 Warning--empty booktitle in BeautyGlow
 Warning--empty booktitle in Burgess2018UnderstandingDI
 Warning--empty journal in vunet2018
-You've used 40 entries,
+You've used 48 entries,
             1791 wiz_defined-function locations,
-            656 strings with 11603 characters,
-and the built_in function-call counts, 9860 in all, are:
-= -- 701
-> -- 635
-< -- 8
-+ -- 225
-- -- 185
-* -- 613
-:= -- 1561
-add.period$ -- 119
-call.type$ -- 40
-change.case$ -- 40
+            704 strings with 13877 characters,
+and the built_in function-call counts, 12948 in all, are:
+= -- 941
+> -- 858
+< -- 13
++ -- 300
+- -- 252
+* -- 830
+:= -- 2035
+add.period$ -- 146
+call.type$ -- 48
+change.case$ -- 48
 chr.to.int$ -- 0
-cite$ -- 43
-duplicate$ -- 504
-empty$ -- 987
-format.name$ -- 185
-if$ -- 2248
+cite$ -- 51
+duplicate$ -- 637
+empty$ -- 1242
+format.name$ -- 252
+if$ -- 2955
 int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 39
-newline$ -- 202
-num.names$ -- 40
-pop$ -- 208
+int.to.str$ -- 48
+missing$ -- 45
+newline$ -- 242
+num.names$ -- 56
+pop$ -- 256
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 242
+skip$ -- 335
 stack$ -- 0
-substring$ -- 323
-swap$ -- 144
-text.length$ -- 8
+substring$ -- 499
+swap$ -- 205
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 61
-width$ -- 42
-write$ -- 413
-(There were 2 error messages)
+while$ -- 86
+width$ -- 50
+write$ -- 501
+(There were 4 error messages)

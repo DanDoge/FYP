@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  15 APR 2020 22:54
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  22 APR 2020 00:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -715,6 +715,9 @@ LaTeX Warning: Label `fig:sample' multiply defined.
 
 LaTeX Warning: Label `fig:sample' multiply defined.
 
+
+LaTeX Warning: Label `fig:sample' multiply defined.
+
 )
 \openout1 = `Template.aux'.
 
@@ -999,19 +1002,12 @@ Underfull \vbox (badness 8019) has occurred while \output is active []
 第二章
 File: ./images/vae_model.png Graphic file (type bmp)
 <./images/vae_model.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [8
 
 
 ] [9]
 File: ./images/gan_model.png Graphic file (type bmp)
 <./images/gan_model.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 
 Underfull \vbox (badness 1048) has occurred while \output is active []
 
@@ -1024,46 +1020,53 @@ Overfull \hbox (10.24257pt too wide) in paragraph at lines 413--414
  []
 
 [13] [14]
-File: ./images/encoder.png Graphic file (type bmp)
-<./images/encoder.png>
+File: ./images/generator.png Graphic file (type bmp)
+<./images/generator.png>
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-File: ./images/discriminator.png Graphic file (type bmp)
-<./images/discriminator.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 458--459
+Overfull \hbox (10.24257pt too wide) in paragraph at lines 449--450
  [][] 
  []
 
+[15]
+File: ./images/encoder.png Graphic file (type bmp)
+<./images/encoder.png>
+ [16] [17] [18]
+File: ./images/discriminator.png Graphic file (type bmp)
+<./images/discriminator.png>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (10.24257pt too wide) in paragraph at lines 488--489
+ [][] 
+ []
 
-[15] [16] [17] [18] (./Template.bbl [19
+[19]
+第三章
+[20
 
 
-] [20] [21]
-./Template.bbl:233: Missing $ inserted.
+] (./Template.bbl [21
+
+
+] [22] [23] [24]
+./Template.bbl:251: Missing $ inserted.
 <inserted text> 
                 $
-l.233 ...ck Understanding disentangling in \$\beta
+l.251 ...ck Understanding disentangling in \$\beta
                                                   \$-vae.
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Template.bbl:235: Missing $ inserted.
+./Template.bbl:253: Missing $ inserted.
 <inserted text> 
                 $
-l.235 
+l.253 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-./Template.bbl:235: Missing } inserted.
+./Template.bbl:253: Missing } inserted.
 <inserted text> 
                 }
-l.235 
+l.253 
       
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1071,10 +1074,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-./Template.bbl:235: Extra }, or forgotten \endgroup.
+./Template.bbl:253: Extra }, or forgotten \endgroup.
 \par ...m \@noitemerr {\@@par }\fi \else {\@@par }
                                                   \fi 
-l.235 
+l.253 
       
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1082,10 +1085,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-[22]) [23] [24
+[25]) [26] [27
 
 
-] [25
+] [28
 
 
 ] (./Template.aux)
@@ -1094,12 +1097,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 21555 strings out of 492909
- 470458 string characters out of 6136300
- 567753 words of memory out of 5000000
- 25309 multiletter control sequences out of 15000+600000
- 563482 words of font info for 194 fonts, out of 8000000 for 9000
+ 21583 strings out of 492909
+ 471007 string characters out of 6136300
+ 567785 words of memory out of 5000000
+ 25330 multiletter control sequences out of 15000+600000
+ 565956 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 54i,12n,79p,1495b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,12n,79p,1495b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.xdv (27 pages, 325512 bytes).
+Output written on Template.xdv (30 pages, 382128 bytes).

@@ -15,7 +15,7 @@ class RealandDepthDataset(BaseDataset):
         root = '/data1/huangdj/PyTorch-CycleGAN-master/train_data_ap_png'
         self.real_root = '/data1/huangdj/PyTorch-CycleGAN-master/masked_realimg'
         with open('/data1/huangdj/PyTorch-CycleGAN-master/name2vp.npy', 'rb') as f:
-            self.name2vp = np.load('/data1/huangdj/PyTorch-CycleGAN-master/name2vp.npy')
+            self.name2vp = np.load(f)
         self.real_list = os.listdir(self.real_root)
         self.transform_mask = get_transform(opt, has_mask=True, no_flip=True, no_normalize=True)
         self.transform_rgb = get_transform(opt, has_mask=False, no_flip=True, no_normalize=True)

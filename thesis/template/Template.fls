@@ -297,6 +297,16 @@ INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT ./images/vae_model.png
 INPUT ./images/gan_model.png
 INPUT ./images/my_model.png
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+INPUT ./images/generator.png
 INPUT ./images/encoder.png
 INPUT ./images/discriminator.png
 INPUT Template.bbl

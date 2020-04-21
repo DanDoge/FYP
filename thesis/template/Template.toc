@@ -14,9 +14,11 @@
 \contentsline {section}{\numberline {2}生成对抗网络}{10}% 
 \contentsline {section}{\numberline {3}本文实验原理}{11}% 
 \contentsline {section}{\numberline {4}模型实现细节}{14}% 
-\contentsline {subsection}{\numberline {4.1}生成器}{14}% 
-\contentsline {subsection}{\numberline {4.2}编码器}{15}% 
-\contentsline {subsection}{\numberline {4.3}判别器}{15}% 
-\contentsline {chapter}{参考文献}{19}% 
-\contentsline {chapter}{本科期间的主要工作和成果}{24}% 
-\contentsline {chapter}{致谢}{25}% 
+\contentsline {subsection}{\numberline {4.1}生成器}{15}% 
+\contentsline {subsection}{\numberline {4.2}编码器}{16}% 
+\contentsline {subsection}{\numberline {4.3}判别器}{18}% 
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}实验结果}{20}% 
+\contentsline {section}{\numberline {1}数据集}{20}% 
+\contentsline {chapter}{参考文献}{21}% 
+\contentsline {chapter}{本科期间的主要工作和成果}{27}% 
+\contentsline {chapter}{致谢}{28}% 

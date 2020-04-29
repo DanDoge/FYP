@@ -1,22 +1,22 @@
 # Fdb version 3
-["bibtex Template"] 1587484942 "Template.aux" "Template.bbl" "Template" 1587485401
-  "Template.aux" 1587485397 7044 37b95064c139f869f96b58bb88708220 "xelatex"
+["bibtex Template"] 1588004137 "Template.aux" "Template.bbl" "Template" 1588004147
+  "Template.aux" 1588004142 7449 386b5c64edfa5f258718e5958337a895 "xelatex"
   "c:/texlive/2019/texmf-dist/bibtex/bst/base/unsrt.bst" 1567418049 18030 1376b4b231b50c66211e47e42eda2875 ""
   "ref.bib" 1587484897 22089 312c979dfd2a0e0714b1bfbd2ee79f4c ""
   (generated)
   "Template.blg"
   "Template.bbl"
-["xdvipdfmx"] 1587485398 "Template.xdv" "Template.pdf" "Template" 1587485401
-  "Template.xdv" 1587485397 382128 f0e5ecbc6030cf5edda5c08571202898 "xelatex"
+["xdvipdfmx"] 1588004143 "Template.xdv" "Template.pdf" "Template" 1588004147
+  "Template.xdv" 1588004142 387264 41b0e0855b3bbde2af45fd0bcbf6b505 "xelatex"
   (generated)
   "Template.pdf"
-["xelatex"] 1587485393 "Template.tex" "Template.xdv" "Template" 1587485401
+["xelatex"] 1588004138 "Template.tex" "Template.xdv" "Template" 1588004147
   "CoverHead.tex" 1584690318 400 2396a4539791267a402b5555fe9a7b83 ""
   "ReviewTableHead.tex" 1567416909 40 af182f22627c86e2fa4a245bee4be816 ""
-  "Template.aux" 1587485397 7044 37b95064c139f869f96b58bb88708220 "xelatex"
-  "Template.bbl" 1587484943 12434 da2fcaf2cd3f9e6a6327af9ea8b7714d "bibtex Template"
-  "Template.tex" 1587485392 49146 fa532a0273a3509fab04d6f2a45395d7 ""
-  "Template.toc" 1587485397 1433 f0918b44c5cc4755941f10da144643bb "xelatex"
+  "Template.aux" 1588004142 7449 386b5c64edfa5f258718e5958337a895 "xelatex"
+  "Template.bbl" 1588004138 12434 da2fcaf2cd3f9e6a6327af9ea8b7714d "bibtex Template"
+  "Template.tex" 1588004126 49253 d7288e62e481161af88d750609ad3e33 ""
+  "Template.toc" 1588004142 1678 10df84030f835441e56ac6b13f7174ea "xelatex"
   "c:/Windows/Fonts/msyh.ttc" 1552970651 19647736 ff2e53a6131130a07589812ea5b5b0d0 ""
   "c:/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1567419145 3332 103109f5612ad95229751940c61aada0 ""
   "c:/texlive/2019/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1567418856 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -145,7 +145,7 @@
   "images/vae_model.png" 1586613972 70334 6b25ce3b7a5346e2c48629b2863e6476 ""
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "Template.xdv"
+  "Template.log"
   "Template.toc"
   "Template.aux"
-  "Template.log"
+  "Template.xdv"

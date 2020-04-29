@@ -156,7 +156,7 @@ for epoch in range(1):
 
         realBreal_with_vp = cat_feature(model.real_Breal, model.vp_Breal)
         model.z_style_Breal, mu_style_Breal, logvar_style_Breal = model.encode_style(realBreal_with_vp, model.vae)
-        model.fake_Breal = model.apply_mask(model.netG_real(model.real_A, model.vp_Breal, model.z_style_Breal), model.mask_A, model.bg_B)
+        model.fake_Breal = model.apply_mask(model.netG_real(model.real_A, model.vp_B, model.z_style_Breal), model.mask_A, model.bg_B)
         savefig(model.fake_Breal, "fake_real", i)
         savefig(model.real_Breal, "real_real", i)
 

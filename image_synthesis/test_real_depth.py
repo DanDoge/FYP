@@ -39,6 +39,9 @@ vp_synthesized = []
 mask_synthesized = []
 bg_synthesized = []
 
+style_list = []
+style_real_list = []
+
 def savefig(tensor, name, i):
     out_np = tensor[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
     im = Image.fromarray((out_np * 255).astype(np.uint8))
@@ -140,6 +143,8 @@ for epoch in range(1):
         realB_with_vp = cat_feature(model.real_B, model.vp_B)
         model.z_style_B, mu_style_B, logvar_style_B = model.encode_style(realB_with_vp, model.vae)
 
+        style_list.append(model.z_style_B[0].detach().cpu().numpy())
+
         #model.fake_A = model.apply_mask(model.netG_depth(model.real_B, model.vp_B, model.vp_B), model.mask_B, model.bg_A)
         #model.fake_Aref = model.apply_mask(model.netG_depth(model.real_B, model.vp_B, model.vp_Bref), model.mask_Bref, model.bg_A)
 
@@ -159,6 +164,8 @@ for epoch in range(1):
         model.fake_Breal = model.apply_mask(model.netG_real(model.real_A, model.vp_B, model.z_style_Breal), model.mask_A, model.bg_B)
         savefig(model.fake_Breal, "fake_real", i)
         savefig(model.real_Breal, "real_real", i)
+
+        style_real_list.append(model.z_style_Breal[0].detach().cpu().numpy())
 
         if i < 100:
             content_synthesized.append(model.real_B2A)
@@ -181,6 +188,8 @@ for epoch in range(1):
     import pickle
     pickle.dump(vpB, open("./out/vp_B", "wb"))
     pickle.dump(vpBref, open("./out/vp_Bref", "wb"))
+    pickle.dump(style_list, open("./out/style_list", "wb"))
+    pickle.dump(style_real_list, open("./out/style_real_list", "wb"))
 
     content_style_swap(model, content_synthesized, style_synthesized, style_real, vp_synthesized, mask_synthesized, bg_synthesized)
     break

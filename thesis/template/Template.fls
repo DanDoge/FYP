@@ -309,6 +309,16 @@ INPUT c:/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT ./images/generator.png
 INPUT ./images/encoder.png
 INPUT ./images/discriminator.png
+INPUT ./images/novel_view_thesis.png
+INPUT ./images/novel_view_thesis_rotate.png
+INPUT ./images/style_transfer_thesis.png
+INPUT ./images/syn_interpolate_thesis.png
+INPUT ./images/best_viewpoint_thesis.png
+INPUT ./images/vsmat_thesis.png
+INPUT ./images/syn_real_dist_thesis.png
+INPUT ./images/real_swap_thesis.png
+INPUT ./images/real_interpolate_thesis.png
+INPUT ./images/vp_style_transfer_thesis.png
 INPUT Template.bbl
 INPUT Template.bbl
 INPUT Template.aux

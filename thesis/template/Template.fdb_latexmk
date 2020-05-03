@@ -1,22 +1,22 @@
 # Fdb version 3
-["bibtex Template"] 1588434730 "Template.aux" "Template.bbl" "Template" 1588434739
-  "Template.aux" 1588434735 7800 3c22eef75aa02edf506ff521eef27e76 "xelatex"
+["bibtex Template"] 1588525908 "Template.aux" "Template.bbl" "Template" 1588525926
+  "Template.aux" 1588525911 10278 f056f773d7b667b4f0b51e94db2e11da "xelatex"
   "c:/texlive/2019/texmf-dist/bibtex/bst/base/unsrt.bst" 1567418049 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "ref.bib" 1587484897 22089 312c979dfd2a0e0714b1bfbd2ee79f4c ""
+  "ref.bib" 1588513032 22087 c3223d42d336c6236e46d8c49ba37626 ""
   (generated)
   "Template.bbl"
   "Template.blg"
-["xdvipdfmx"] 1588434736 "Template.xdv" "Template.pdf" "Template" 1588434739
-  "Template.xdv" 1588434735 430688 42797f3c5bfaefcaa460a8de52c7e9fa "xelatex"
+["xdvipdfmx"] 1588525912 "Template.xdv" "Template.pdf" "Template" 1588525926
+  "Template.xdv" 1588525911 449052 d5d503589bbab2a6538068e7858d75c5 "xelatex"
   (generated)
   "Template.pdf"
-["xelatex"] 1588434731 "Template.tex" "Template.xdv" "Template" 1588434739
+["xelatex"] 1588525908 "Template.tex" "Template.xdv" "Template" 1588525926
   "CoverHead.tex" 1584690318 400 2396a4539791267a402b5555fe9a7b83 ""
   "ReviewTableHead.tex" 1567416909 40 af182f22627c86e2fa4a245bee4be816 ""
-  "Template.aux" 1588434735 7800 3c22eef75aa02edf506ff521eef27e76 "xelatex"
-  "Template.bbl" 1588434731 12434 da2fcaf2cd3f9e6a6327af9ea8b7714d "bibtex Template"
-  "Template.tex" 1588434718 56108 8d088a2ae966e8318b7fc816b1cd944b ""
-  "Template.toc" 1588434735 1786 e75eec2753a997b5fc3b63571f9b422d "xelatex"
+  "Template.aux" 1588525911 10278 f056f773d7b667b4f0b51e94db2e11da "xelatex"
+  "Template.bbl" 1588525908 12432 482df1904b9e1cc0e222b53ab501d66b "bibtex Template"
+  "Template.tex" 1588525903 59871 4452b2f9d6bd690863c1e394968d7876 ""
+  "Template.toc" 1588525911 1786 456cc48f55a515462791fb0f9a5ea653 "xelatex"
   "c:/Windows/Fonts/msyh.ttc" 1552970651 19647736 ff2e53a6131130a07589812ea5b5b0d0 ""
   "c:/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1567419145 3332 103109f5612ad95229751940c61aada0 ""
   "c:/texlive/2019/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1567418856 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -136,16 +136,26 @@
   "c:/texlive/2019/texmf.cnf" 1567422205 673 4ae7b2f49cee444c5343a45b5d0f169c ""
   "cover.tex" 1584692200 3231 389313f1a86106321aa44aadcb320fe0 ""
   "images/badge.png" 1567416909 33496 8a7c9a18654c587bad2aa94b52ce61c4 ""
+  "images/best_viewpoint_thesis.png" 1588524913 148757 417ea8bac9ec93a99bf46b0e125ef24e ""
   "images/discriminator.png" 1586785237 29100 e148be8286f82ec92df7b337ff7fc006 ""
   "images/encoder.png" 1587315575 22605 a764c221dccce912408887f229ef1ad9 ""
   "images/gan_model.png" 1586614360 160853 8e5a9b5b28c0559d519353a88820e356 ""
   "images/generator.png" 1587315286 43780 d36651e3b7c9917a7d9ea88f815d92a3 ""
   "images/my_model.png" 1586618895 18124 9d84d0be3b8b2439898408c6233667ce ""
+  "images/novel_view_thesis.png" 1588515742 314226 21b87f30be4a11cf3e0f613f5d0b4e1f ""
+  "images/novel_view_thesis_rotate.png" 1588516099 431880 9d755dd006086a14625967de9243047d ""
   "images/pku.png" 1567416909 15695 c989ac30669d7c7d3fc1fa968587faf5 ""
+  "images/real_interpolate_thesis.png" 1588517552 715285 b4738a31ac2fb37d1f2e789bbda3ffdf ""
+  "images/real_swap_thesis.png" 1588517426 337442 7b86c610789b3b8a041ebaf62e045ef5 ""
+  "images/style_transfer_thesis.png" 1588516660 366506 4cae536f4fb1cf49569a8e3f17584ff5 ""
+  "images/syn_interpolate_thesis.png" 1588517061 447571 c33d3f43e5ea3f963965100501200430 ""
+  "images/syn_real_dist_thesis.png" 1588512874 778059 3d53333689173d2678be5c1a5d6a4b88 ""
   "images/vae_model.png" 1586613972 70334 6b25ce3b7a5346e2c48629b2863e6476 ""
+  "images/vp_style_transfer_thesis.png" 1588517618 309903 11042166239e76d84317d31903041435 ""
+  "images/vsmat_thesis.png" 1588517953 76702 9374433d6454eae04d9349c7044d17bc ""
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "Template.log"
+  "Template.xdv"
   "Template.toc"
   "Template.aux"
-  "Template.xdv"
+  "Template.log"

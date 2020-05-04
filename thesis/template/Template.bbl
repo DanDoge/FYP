@@ -295,6 +295,12 @@ Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory
   Information Processing Systems 32}, pages 8024--8035. Curran Associates,
   Inc., 2019.
 
+\bibitem{kato2019vpl}
+Hiroharu Kato and Tatsuya Harada.
+\newblock Learning view priors for single-view 3d reconstruction.
+\newblock In {\em The IEEE Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2019.
+
 \bibitem{Su2015MultiviewCN}
 Hang Su, Subhransu Maji, Evangelos Kalogerakis, and Erik~G. Learned-Miller.
 \newblock Multi-view convolutional neural networks for 3d shape recognition.
@@ -306,5 +312,10 @@ J.~{Krause}, M.~{Stark}, J.~{Deng}, and L.~{Fei-Fei}.
 \newblock 3d object representations for fine-grained categorization.
 \newblock In {\em 2013 IEEE International Conference on Computer Vision
   Workshops}, pages 554--561, 2013.
+
+\bibitem{Chen2017RethinkingAC}
+Liang-Chieh Chen, George Papandreou, Florian Schroff, and Hartwig Adam.
+\newblock Rethinking atrous convolution for semantic image segmentation.
+\newblock {\em ArXiv}, abs/1706.05587, 2017.
 
 \end{thebibliography}

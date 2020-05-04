@@ -15,8 +15,8 @@
 \contentsline {section}{\numberline {3}本文实验原理}{11}% 
 \contentsline {section}{\numberline {4}模型实现细节}{14}% 
 \contentsline {subsection}{\numberline {4.1}生成器}{15}% 
-\contentsline {subsection}{\numberline {4.2}编码器}{16}% 
-\contentsline {subsection}{\numberline {4.3}判别器}{18}% 
+\contentsline {subsection}{\numberline {4.2}编码器}{17}% 
+\contentsline {subsection}{\numberline {4.3}判别器}{17}% 
 \contentsline {chapter}{\numberline {第三章\hspace {.3em}}实验结果}{20}% 
 \contentsline {section}{\numberline {1}数据集的构成}{20}% 
 \contentsline {section}{\numberline {2}视角生成任务}{20}% 

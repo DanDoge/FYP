@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  5 MAY 2020 00:10
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  5 MAY 2020 23:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1041,15 +1041,10 @@ File: ./images/vae_model.png Graphic file (type bmp)
 ] [9]
 File: ./images/gan_model.png Graphic file (type bmp)
 <./images/gan_model.png>
- [10] [11] [12]
-File: ./images/my_model.png Graphic file (type bmp)
-<./images/my_model.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 408--409
- [][] 
- []
-
-[13] [14]
+ [10] [11] [12] [13]
+File: ./images/banner.png Graphic file (type bmp)
+<./images/banner.png>
+ [14]
 File: ./images/generator.png Graphic file (type bmp)
 <./images/generator.png>
 
@@ -1178,12 +1173,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 21676 strings out of 492909
- 475684 string characters out of 6136300
- 567803 words of memory out of 5000000
- 25413 multiletter control sequences out of 15000+600000
+ 21666 strings out of 492909
+ 474962 string characters out of 6136300
+ 567807 words of memory out of 5000000
+ 25403 multiletter control sequences out of 15000+600000
  565956 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  54i,12n,79p,1502b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.xdv (38 pages, 460588 bytes).
+Output written on Template.xdv (38 pages, 462320 bytes).

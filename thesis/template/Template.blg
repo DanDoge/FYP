@@ -21,45 +21,45 @@ Warning--I didn't find a database entry for "conf/iclr/2014"
 Warning--empty booktitle in BeautyGlow
 Warning--empty booktitle in Burgess2018UnderstandingDI
 Warning--empty journal in vunet2018
-You've used 50 entries,
+You've used 51 entries,
             1791 wiz_defined-function locations,
-            712 strings with 14162 characters,
-and the built_in function-call counts, 13304 in all, are:
-= -- 966
-> -- 880
+            717 strings with 14315 characters,
+and the built_in function-call counts, 13468 in all, are:
+= -- 979
+> -- 891
 < -- 13
-+ -- 308
-- -- 258
-* -- 847
-:= -- 2096
-add.period$ -- 152
-call.type$ -- 50
-change.case$ -- 50
++ -- 312
+- -- 261
+* -- 856
+:= -- 2127
+add.period$ -- 155
+call.type$ -- 51
+change.case$ -- 51
 chr.to.int$ -- 0
-cite$ -- 53
-duplicate$ -- 657
-empty$ -- 1281
-format.name$ -- 258
-if$ -- 3035
+cite$ -- 54
+duplicate$ -- 665
+empty$ -- 1295
+format.name$ -- 261
+if$ -- 3070
 int.to.chr$ -- 0
-int.to.str$ -- 50
-missing$ -- 47
-newline$ -- 252
-num.names$ -- 58
-pop$ -- 264
+int.to.str$ -- 51
+missing$ -- 48
+newline$ -- 257
+num.names$ -- 59
+pop$ -- 265
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 343
+skip$ -- 347
 stack$ -- 0
 substring$ -- 499
-swap$ -- 208
+swap$ -- 209
 text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 88
-width$ -- 52
-write$ -- 522
+while$ -- 89
+width$ -- 53
+write$ -- 533
 (There were 4 error messages)

@@ -1,22 +1,22 @@
 # Fdb version 3
-["bibtex Template"] 1588608627 "Template.aux" "Template.bbl" "Template" 1588608663
-  "Template.aux" 1588608636 10463 b68a2d183fd6ae6ca7fc5cfde8bfad7f "xelatex"
+["bibtex Template"] 1588692257 "Template.aux" "Template.bbl" "Template" 1588692273
+  "Template.aux" 1588692260 10494 272fa183cd7e98c1191a2fa37da48040 "xelatex"
   "c:/texlive/2019/texmf-dist/bibtex/bst/base/unsrt.bst" 1567418049 18030 1376b4b231b50c66211e47e42eda2875 ""
   "ref.bib" 1588607849 22591 3b51c8c6fa6276ff249b1ef57d0255bd ""
   (generated)
-  "Template.blg"
   "Template.bbl"
-["xdvipdfmx"] 1588608638 "Template.xdv" "Template.pdf" "Template" 1588608664
-  "Template.xdv" 1588608636 460588 68f8dfabd67edb98b22ea9a2a9c8079e "xelatex"
+  "Template.blg"
+["xdvipdfmx"] 1588692261 "Template.xdv" "Template.pdf" "Template" 1588692273
+  "Template.xdv" 1588692260 462320 f184d95d0d10b62d98898cb516df7c07 "xelatex"
   (generated)
   "Template.pdf"
-["xelatex"] 1588608629 "Template.tex" "Template.xdv" "Template" 1588608663
+["xelatex"] 1588692258 "Template.tex" "Template.xdv" "Template" 1588692273
   "CoverHead.tex" 1584690318 400 2396a4539791267a402b5555fe9a7b83 ""
   "ReviewTableHead.tex" 1567416909 40 af182f22627c86e2fa4a245bee4be816 ""
-  "Template.aux" 1588608636 10463 b68a2d183fd6ae6ca7fc5cfde8bfad7f "xelatex"
-  "Template.bbl" 1588608629 12875 7b6a9a8d7a842617a5a03413c4f6d56c "bibtex Template"
-  "Template.tex" 1588608605 61240 31191b00cf98bcb5946b851c80d916f4 ""
-  "Template.toc" 1588608636 1786 4ea15280aa0a011b6504e10e3639f5a8 "xelatex"
+  "Template.aux" 1588692260 10494 272fa183cd7e98c1191a2fa37da48040 "xelatex"
+  "Template.bbl" 1588692257 13064 2c3288a7a4f3d439bcd5ab8f5c83acfd "bibtex Template"
+  "Template.tex" 1588692253 61305 bf85afd5780cd8f1999f41b091f82d03 ""
+  "Template.toc" 1588692260 1786 4ea15280aa0a011b6504e10e3639f5a8 "xelatex"
   "c:/Windows/Fonts/msyh.ttc" 1552970651 19647736 ff2e53a6131130a07589812ea5b5b0d0 ""
   "c:/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1567419145 3332 103109f5612ad95229751940c61aada0 ""
   "c:/texlive/2019/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1567418856 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -136,12 +136,12 @@
   "c:/texlive/2019/texmf.cnf" 1567422205 673 4ae7b2f49cee444c5343a45b5d0f169c ""
   "cover.tex" 1584692200 3231 389313f1a86106321aa44aadcb320fe0 ""
   "images/badge.png" 1567416909 33496 8a7c9a18654c587bad2aa94b52ce61c4 ""
+  "images/banner.png" 1588691830 154232 4f21ed743f02620895765996db716d9a ""
   "images/best_viewpoint_thesis.png" 1588524913 148757 417ea8bac9ec93a99bf46b0e125ef24e ""
   "images/discriminator.png" 1586785237 29100 e148be8286f82ec92df7b337ff7fc006 ""
   "images/encoder.png" 1587315575 22605 a764c221dccce912408887f229ef1ad9 ""
   "images/gan_model.png" 1586614360 160853 8e5a9b5b28c0559d519353a88820e356 ""
   "images/generator.png" 1587315286 43780 d36651e3b7c9917a7d9ea88f815d92a3 ""
-  "images/my_model.png" 1586618895 18124 9d84d0be3b8b2439898408c6233667ce ""
   "images/novel_view_thesis.png" 1588515742 314226 21b87f30be4a11cf3e0f613f5d0b4e1f ""
   "images/novel_view_thesis_rotate.png" 1588516099 431880 9d755dd006086a14625967de9243047d ""
   "images/pku.png" 1567416909 15695 c989ac30669d7c7d3fc1fa968587faf5 ""
@@ -156,6 +156,6 @@
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "Template.toc"
-  "Template.log"
   "Template.xdv"
+  "Template.log"
   "Template.aux"

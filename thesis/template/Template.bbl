@@ -318,4 +318,9 @@ Liang-Chieh Chen, George Papandreou, Florian Schroff, and Hartwig Adam.
 \newblock Rethinking atrous convolution for semantic image segmentation.
 \newblock {\em ArXiv}, abs/1706.05587, 2017.
 
+\bibitem{Massa2016CraftingAM}
+Francisco Massa, Renaud Marlet, and Mathieu Aubry.
+\newblock Crafting a multi-task cnn for viewpoint estimation.
+\newblock {\em ArXiv}, abs/1609.03894, 2016.
+
 \end{thebibliography}

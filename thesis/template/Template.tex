@@ -403,14 +403,7 @@ GAN原文中证明了上式事实上等价于优化生成器的分布和训练�
 
 其中第一项代表我们推导出的内容隐变量的概率，它越表征内容信息，这个概率值应越大，在实验中我们通过网络重构出的深度图和真实深度图之间的L1损失衡量，注意与\cite{Wu2019DisentanglingCA}提出的在关键点上的弱监督不同，我们在这里加的是一个很强的限制条件。第二项即为重构出的图片的真实性，我们遵从VAE的惯例，用重构出的图片和输入图片之间的L1损失实现。第三项为推导出的材质隐变量的KL散度损失，用两个正态分布之间的KL散度实现。
 
-\begin{figure}
-\centering
-\includegraphics[width=15cm]{./images/my_model.png}
-\caption{我们设计的三个实验的流程，左到右分别代表图像重构、新视角生成和材质迁移}
-\label{fig:sample}
-\end{figure}
-
-上述损失函数只描述了重构图片时的损失，单独实现这三个损失函数只保证了我们模型重构图片和采样的精度，但并不能保证我们假定的隐变量之间互相独立。为此，除了图像重构之外，我们另外设计了两个实验：新视角生成和材质迁移。三个实验的流程见图3。注意视角变量$v$在训练时给出，我们在从图片中提取出材质和内容变量的过程中也输入已知的视角信息，来提升提取信息的准确性。这种做法也有助于提取到视角无关的材质和内容信息。
+上述损失函数只描述了重构图片时的损失，单独实现这三个损失函数只保证了我们模型重构图片和采样的精度，但并不能保证我们假定的隐变量之间互相独立。为此，除了图像重构之外，我们另外设计了两个实验：新视角生成和材质迁移。
 
 为保证视角和其他隐变量相互独立，我们在训练过程中给出所有图片的视角，并且设计了新视角生成的实验：从输入图片中提取内容和材质隐变量，在另一个视角下生成输出图片。在这个实验中，视角$v^{1}, v^{2}​$均在训练时给出，损失函数的推导同上，损失函数的实现也完全相同。最小化新视角生成的损失函数能够保证我们的模型能够学习到和视角无关的内容和材质变量，但不能保证后二者很好的分离。
 
@@ -427,13 +420,20 @@ GAN原文中证明了上式事实上等价于优化生成器的分布和训练�
 
 \section{模型实现细节}
 
-本节将讨论我们的方法的具体实现，包括各个模型的输入输出、参数设置和训练过程。上一节的讨论可以得到我们需要实现的映射包括：从真实图片中提取内容和材质隐变量，重构深度图和RGB图片
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{./images/banner.png}
+\caption{模型整体框架}
+\label{fig:sample}
+\end{figure}
+
+本节将讨论我们的方法的具体实现，包括各个模型的输入输出、参数设置和训练过程，一个粗略的示意图在图3中。上一节的讨论可以得到我们需要实现的映射包括：从真实图片中提取内容和材质隐变量，重构深度图和RGB图片
 
 \begin{equation}
 	c = f(i, v),\ i_d = g(c, v),\ s = h(i ,v),\ i_{RGB} = m(c, s, v)
 \end{equation}
 
-以及为保证对抗训练的判别器，下文中会依次详细的介绍每一部分的实现和参数，以及我们应用到的两个模块SPADE\cite{park2019SPADE}和CoordConv\cite{NIPS2018_8169}的细节。我们的代码参考了Pix2Pix-CycleGAN\footnote{https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix}，SPADE\footnote{https://github.com/NVlabs/SPADE}，CoordConv\footnote{https://github.com/walsvid/CoordConv}的实现细节，在整合这些模块的基础上编写了自己的模型和训练代码，实现细节开源在Github上\footnote{https://github.com/DanDoge/FYP}。后文中我们会使用形如图4的图来描述我们的模型的具体结构，其中每一层的含义和参数意义与它们在pytorch\cite{NEURIPS2019_9015}中的定义一致，如$conv(inputnc=1, outputnc=3, kernelsize=3, stride=1, padding=1)$代表输入一通道、输出三通道、卷积核大小$3 \times 3$、步长为$1$、外衬一像素的卷积层。
+以及为保证对抗训练的判别器，下文中会依次详细的介绍每一部分的实现和参数，以及我们应用到的两个模块SPADE\cite{park2019SPADE}和CoordConv\cite{NIPS2018_8169}的细节。我们的代码参考了Pix2Pix-CycleGAN\footnote{https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix}，SPADE\footnote{https://github.com/NVlabs/SPADE}，CoordConv\footnote{https://github.com/walsvid/CoordConv}的实现细节，在整合这些模块的基础上编写了自己的模型和训练代码，实现细节开源在Github上\footnote{https://github.com/DanDoge/FYP}。后文中我们会使用形如图5的图来描述我们的模型的具体结构，其中每一层的含义和参数意义与它们在pytorch\cite{NEURIPS2019_9015}中的定义一致，如$conv(inputnc=1, outputnc=3, kernelsize=3, stride=1, padding=1)$代表输入一通道、输出三通道、卷积核大小$3 \times 3$、步长为$1$、外衬一像素的卷积层。
 
 \subsection{生成器}
 
@@ -542,7 +542,7 @@ ours & 0.208(subject to change) & 13.05 \\
 \toprule %不确定说明中三条线的粗细，待改
 方法 & L1 & FID-视角生成 & FID-材质迁移 \\
 \midrule
-baseline(0203) & 0.671 & 0504跑结果 & 0504跑结果 \\
+baseline(0203) & 0.671 & 205.109 & 206.636 \\
 above+depth map generation & 0.586 & 96.953 & 104.857 \\
 above+SPADE+coordconv & 0.293 & 53.818 & 89.826 \\
 above+realimg finetune & 0.208 & 13.05 & 29.314 \\
@@ -577,7 +577,7 @@ above+local discriminator & - & - & - \\
 \begin{figure}
 \centering
 \includegraphics[width=15cm]{./images/best_viewpoint_thesis.png}
-\caption{最优视角选择的结果}
+\caption{最优视角选择的结果，左面展示了我们的算法选择的top-k视角}
 \label{fig:sample}
 \end{figure}
 
@@ -600,7 +600,7 @@ above+local discriminator & - & - & - \\
 \label{fig:sample}
 \end{figure}
 
-下面我们展示我们的模型在真实图片上的结果。在合成数据集上训练的模型，不能有效的提取出真实图片中的材质信息，因此我们用真实图片的一部分精修训练好的模型，再在测试集上面测试，精修后的模型能够将真实图片和生成的训练图片的材质信息映射到统一分布上，见图7。图8、图9分别展示了将真实图片的材质信息应用到不同的三维模型和在真实图片的材质间插值的结果。同时，应用视角估计方法的结果，我们可以将真实图片的视角和材质都迁移到深度图上，结果如图10。
+下面我们展示我们的模型在真实图片上的结果。在合成数据集上训练的模型，不能有效的提取出真实图片中的材质信息，因此我们用真实图片的一部分精修训练好的模型，再在测试集上面测试，精修后的模型能够将真实图片和生成的训练图片的材质信息映射到统一分布上，见图7。图8、图9分别展示了将真实图片的材质信息应用到不同的三维模型和在真实图片的材质间插值的结果。同时，应用视角估计方法的结果，我们可以将真实图片的视角和材质都迁移到深度图上，结果如图10。视角估计方法采用类似\cite{Massa2016CraftingAM}的方法在物体检测网络上增加一个预测视角的分支，联合训练物体检测和视角估计。这使得我们能够将真实图片的视角和材质都迁移到三维模型上，提供了人为指定最优视角，生成给定真实图片的视角下最优视图的选项。
 
 \begin{figure}
 \centering

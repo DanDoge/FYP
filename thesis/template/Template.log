@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  5 MAY 2020 23:24
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  7 MAY 2020 02:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -709,48 +709,6 @@ LaTeX Warning: Label `fig:sample' multiply defined.
 
 LaTeX Warning: Label `fig:sample' multiply defined.
 
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `tab:input_output_r' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
-
-LaTeX Warning: Label `fig:sample' multiply defined.
-
 )
 \openout1 = `Template.aux'.
 
@@ -1068,103 +1026,68 @@ Overfull \hbox (10.24257pt too wide) in paragraph at lines 483--484
 
 [18] [19]
 第三章
+File: ./images/compare_methods.png Graphic file (type bmp)
+<./images/compare_methods.png>
 [20
 
 
 ]
 File: ./images/novel_view_thesis.png Graphic file (type bmp)
 <./images/novel_view_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 522--523
- [][] 
- []
-
 File: ./images/novel_view_thesis_rotate.png Graphic file (type bmp)
 <./images/novel_view_thesis_rotate.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 529--530
- [][] 
- []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[21]
+[21] [22]
 File: ./images/style_transfer_thesis.png Graphic file (type bmp)
 <./images/style_transfer_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 560--561
- [][] 
- []
-
 File: ./images/syn_interpolate_thesis.png Graphic file (type bmp)
 <./images/syn_interpolate_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 567--568
- [][] 
- []
-
-[22] [23]
+File: ./images/random_SPADE_thesis.png Graphic file (type bmp)
+<./images/random_SPADE_thesis.png>
 File: ./images/best_viewpoint_thesis.png Graphic file (type bmp)
 <./images/best_viewpoint_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 579--580
- [][] 
- []
-
-[24]
+ [23] [24] [25]
 File: ./images/vsmat_thesis.png Graphic file (type bmp)
 <./images/vsmat_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 589--590
- [][] 
- []
-
 File: ./images/syn_real_dist_thesis.png Graphic file (type bmp)
 <./images/syn_real_dist_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 598--599
- [][] 
- []
-
+ [26]
 File: ./images/real_swap_thesis.png Graphic file (type bmp)
 <./images/real_swap_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 607--608
- [][] 
- []
-
 File: ./images/real_interpolate_thesis.png Graphic file (type bmp)
 <./images/real_interpolate_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 614--615
- [][] 
- []
-
 File: ./images/vp_style_transfer_thesis.png Graphic file (type bmp)
 <./images/vp_style_transfer_thesis.png>
-
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 622--623
- [][] 
- []
-
-[25] [26] [27]
+ [27] [28] [29]
 第四章
-[28
+[30
 
 
-] (./Template.bbl [29
+] (./Template.bbl [31
 
 
-] [30] [31] [32] [33]
+] [32] [33] [34] [35]
 Underfull \hbox (badness 2582) in paragraph at lines 317--320
 \TU/TimesNewRoman(0)/m/n/12.045 Rethinking atrous convolution for semantic image segmentation.  \TU/TimesNewRoman(0)/m/it/12.045 ArXiv\TU/TimesNewRoman(0)/m/n/12.045 ,
  []
 
-) [34] [35
+) [36]
+File: ./images/bestview_selection.png Graphic file (type bmp)
+<./images/bestview_selection.png>
+File: ./images/appendix_syn_swap.png Graphic file (type bmp)
+<./images/appendix_syn_swap.png>
+File: ./images/appendix_style_consistency.png Graphic file (type bmp)
+<./images/appendix_style_consistency.png>
+ [37
 
 
-] [36
+] [38] [39] [40
+
+
+] [41
 
 
 ] (./Template.aux)
@@ -1173,12 +1096,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 21666 strings out of 492909
- 474962 string characters out of 6136300
- 567807 words of memory out of 5000000
- 25403 multiletter control sequences out of 15000+600000
+ 21667 strings out of 492909
+ 473449 string characters out of 6136300
+ 567979 words of memory out of 5000000
+ 25399 multiletter control sequences out of 15000+600000
  565956 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  54i,12n,79p,1502b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.xdv (38 pages, 462320 bytes).
+Output written on Template.xdv (43 pages, 472664 bytes).

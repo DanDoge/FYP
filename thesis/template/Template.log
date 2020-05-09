@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  7 MAY 2020 02:11
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  7 MAY 2020 22:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1006,7 +1006,7 @@ File: ./images/banner.png Graphic file (type bmp)
 File: ./images/generator.png Graphic file (type bmp)
 <./images/generator.png>
 
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 444--445
+Overfull \hbox (10.24257pt too wide) in paragraph at lines 443--444
  [][] 
  []
 
@@ -1020,7 +1020,7 @@ File: ./images/encoder.png Graphic file (type bmp)
 File: ./images/discriminator.png Graphic file (type bmp)
 <./images/discriminator.png>
 
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 483--484
+Overfull \hbox (10.24257pt too wide) in paragraph at lines 482--483
  [][] 
  []
 
@@ -1031,7 +1031,7 @@ File: ./images/compare_methods.png Graphic file (type bmp)
 [20
 
 
-]
+] [21]
 File: ./images/novel_view_thesis.png Graphic file (type bmp)
 <./images/novel_view_thesis.png>
 File: ./images/novel_view_thesis_rotate.png Graphic file (type bmp)
@@ -1040,21 +1040,21 @@ File: ./images/novel_view_thesis_rotate.png Graphic file (type bmp)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[21] [22]
+[22]
 File: ./images/style_transfer_thesis.png Graphic file (type bmp)
 <./images/style_transfer_thesis.png>
 File: ./images/syn_interpolate_thesis.png Graphic file (type bmp)
 <./images/syn_interpolate_thesis.png>
 File: ./images/random_SPADE_thesis.png Graphic file (type bmp)
 <./images/random_SPADE_thesis.png>
+ [23] [24] [25]
 File: ./images/best_viewpoint_thesis.png Graphic file (type bmp)
 <./images/best_viewpoint_thesis.png>
- [23] [24] [25]
 File: ./images/vsmat_thesis.png Graphic file (type bmp)
 <./images/vsmat_thesis.png>
+ [26]
 File: ./images/syn_real_dist_thesis.png Graphic file (type bmp)
 <./images/syn_real_dist_thesis.png>
- [26]
 File: ./images/real_swap_thesis.png Graphic file (type bmp)
 <./images/real_swap_thesis.png>
 File: ./images/real_interpolate_thesis.png Graphic file (type bmp)
@@ -1096,12 +1096,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 21667 strings out of 492909
- 473449 string characters out of 6136300
+ 21658 strings out of 492909
+ 472850 string characters out of 6136300
  567979 words of memory out of 5000000
- 25399 multiletter control sequences out of 15000+600000
+ 25390 multiletter control sequences out of 15000+600000
  565956 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  54i,12n,79p,1502b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.xdv (43 pages, 472664 bytes).
+Output written on Template.xdv (43 pages, 473364 bytes).

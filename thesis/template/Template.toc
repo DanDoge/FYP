@@ -3,26 +3,27 @@
 \contentsline {chapter}{全文目录}{3}% 
 \contentsline {chapter}{\numberline {第一章\hspace {.3em}}引言}{4}% 
 \contentsline {section}{\numberline {1}研究背景}{4}% 
-\contentsline {section}{\numberline {2}相关工作}{5}% 
-\contentsline {subsection}{\numberline {2.1}视角选择}{5}% 
-\contentsline {subsection}{\numberline {2.2}视角生成}{5}% 
-\contentsline {subsection}{\numberline {2.3}材质迁移}{6}% 
-\contentsline {section}{\numberline {3}研究内容}{6}% 
-\contentsline {section}{\numberline {4}本文结构}{7}% 
-\contentsline {chapter}{\numberline {第二章\hspace {.3em}}实验原理}{8}% 
-\contentsline {section}{\numberline {1}变分自编码器}{8}% 
-\contentsline {section}{\numberline {2}生成对抗网络}{10}% 
-\contentsline {section}{\numberline {3}本文实验原理}{11}% 
-\contentsline {section}{\numberline {4}模型实现细节}{14}% 
-\contentsline {subsection}{\numberline {4.1}生成器}{15}% 
-\contentsline {subsection}{\numberline {4.2}编码器}{17}% 
-\contentsline {subsection}{\numberline {4.3}判别器}{17}% 
-\contentsline {chapter}{\numberline {第三章\hspace {.3em}}实验结果}{20}% 
-\contentsline {section}{\numberline {1}数据集的构成}{20}% 
-\contentsline {section}{\numberline {2}视角生成任务}{20}% 
-\contentsline {section}{\numberline {3}材质迁移任务}{22}% 
-\contentsline {section}{\numberline {4}最优视角选择}{23}% 
-\contentsline {section}{\numberline {5}真实图片输入}{27}% 
+\contentsline {section}{\numberline {2}研究内容}{5}% 
+\contentsline {section}{\numberline {3}本文结构}{5}% 
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}相关工作}{6}% 
+\contentsline {section}{\numberline {1}生成模型}{6}% 
+\contentsline {subsection}{\numberline {1.1}变分自编码器}{6}% 
+\contentsline {subsection}{\numberline {1.2}生成对抗网络}{8}% 
+\contentsline {section}{\numberline {2}视角选择}{9}% 
+\contentsline {section}{\numberline {3}视角生成}{9}% 
+\contentsline {section}{\numberline {4}材质迁移}{10}% 
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}本文模型}{12}% 
+\contentsline {section}{\numberline {1}实验原理}{12}% 
+\contentsline {section}{\numberline {2}实现细节}{14}% 
+\contentsline {subsection}{\numberline {2.1}生成器}{15}% 
+\contentsline {subsection}{\numberline {2.2}编码器}{17}% 
+\contentsline {subsection}{\numberline {2.3}判别器}{17}% 
+\contentsline {section}{\numberline {3}实验结果}{20}% 
+\contentsline {subsection}{\numberline {3.1}数据集的构成}{20}% 
+\contentsline {subsection}{\numberline {3.2}视角生成任务}{21}% 
+\contentsline {subsection}{\numberline {3.3}材质迁移任务}{22}% 
+\contentsline {subsection}{\numberline {3.4}最优视角选择}{23}% 
+\contentsline {subsection}{\numberline {3.5}真实图片输入}{27}% 
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}总结与展望}{30}% 
 \contentsline {chapter}{参考文献}{31}% 
 \contentsline {chapter}{附录}{37}% 

@@ -18,48 +18,48 @@ I'm skipping whatever remains of this entry
 A bad cross reference---entry "kingma2014autoencoding"
 refers to entry "conf/iclr/2014", which doesn't exist
 Warning--I didn't find a database entry for "conf/iclr/2014"
-Warning--empty booktitle in BeautyGlow
 Warning--empty booktitle in Burgess2018UnderstandingDI
 Warning--empty journal in vunet2018
-You've used 51 entries,
+Warning--empty booktitle in BeautyGlow
+You've used 50 entries,
             1791 wiz_defined-function locations,
-            717 strings with 14315 characters,
-and the built_in function-call counts, 13468 in all, are:
-= -- 979
-> -- 891
+            713 strings with 14134 characters,
+and the built_in function-call counts, 13341 in all, are:
+= -- 969
+> -- 887
 < -- 13
-+ -- 312
-- -- 261
-* -- 856
-:= -- 2127
-add.period$ -- 155
-call.type$ -- 51
-change.case$ -- 51
++ -- 310
+- -- 260
+* -- 855
+:= -- 2108
+add.period$ -- 152
+call.type$ -- 50
+change.case$ -- 50
 chr.to.int$ -- 0
-cite$ -- 54
-duplicate$ -- 665
-empty$ -- 1295
-format.name$ -- 261
-if$ -- 3070
+cite$ -- 53
+duplicate$ -- 660
+empty$ -- 1277
+format.name$ -- 260
+if$ -- 3040
 int.to.chr$ -- 0
-int.to.str$ -- 51
+int.to.str$ -- 50
 missing$ -- 48
-newline$ -- 257
-num.names$ -- 59
-pop$ -- 265
+newline$ -- 252
+num.names$ -- 58
+pop$ -- 258
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 347
+skip$ -- 344
 stack$ -- 0
 substring$ -- 499
-swap$ -- 209
+swap$ -- 208
 text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 89
-width$ -- 53
-write$ -- 533
+while$ -- 88
+width$ -- 52
+write$ -- 523
 (There were 4 error messages)

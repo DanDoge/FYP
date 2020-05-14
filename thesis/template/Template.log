@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  7 MAY 2020 22:46
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  14 MAY 2020 21:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -989,49 +989,47 @@ Underfull \vbox (badness 8019) has occurred while \output is active []
  [4
 
 
-] [5] [6] [7]
+] [5]
 第二章
 File: ./images/vae_model.png Graphic file (type bmp)
 <./images/vae_model.png>
-[8
+[6
 
 
-] [9]
-File: ./images/gan_model.png Graphic file (type bmp)
-<./images/gan_model.png>
- [10] [11] [12] [13]
+] [7] [8] [9] [10] [11]
+第三章
+[12
+
+
+] [13]
 File: ./images/banner.png Graphic file (type bmp)
 <./images/banner.png>
- [14]
+ [14] [15]
 File: ./images/generator.png Graphic file (type bmp)
 <./images/generator.png>
 
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 443--444
+Overfull \hbox (10.24257pt too wide) in paragraph at lines 437--438
  [][] 
  []
 
-[15]
+
 Underfull \vbox (badness 3690) has occurred while \output is active []
 
  [16]
 File: ./images/encoder.png Graphic file (type bmp)
 <./images/encoder.png>
- [17]
+ [17] [18]
 File: ./images/discriminator.png Graphic file (type bmp)
 <./images/discriminator.png>
 
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 482--483
+Overfull \hbox (10.24257pt too wide) in paragraph at lines 476--477
  [][] 
  []
 
-[18] [19]
-第三章
+[19] [20]
 File: ./images/compare_methods.png Graphic file (type bmp)
 <./images/compare_methods.png>
-[20
-
-
-] [21]
+ [21]
 File: ./images/novel_view_thesis.png Graphic file (type bmp)
 <./images/novel_view_thesis.png>
 File: ./images/novel_view_thesis_rotate.png Graphic file (type bmp)
@@ -1070,7 +1068,7 @@ File: ./images/vp_style_transfer_thesis.png Graphic file (type bmp)
 
 
 ] [32] [33] [34] [35]
-Underfull \hbox (badness 2582) in paragraph at lines 317--320
+Underfull \hbox (badness 2582) in paragraph at lines 311--314
 \TU/TimesNewRoman(0)/m/n/12.045 Rethinking atrous convolution for semantic image segmentation.  \TU/TimesNewRoman(0)/m/it/12.045 ArXiv\TU/TimesNewRoman(0)/m/n/12.045 ,
  []
 
@@ -1096,12 +1094,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 21658 strings out of 492909
- 472850 string characters out of 6136300
- 567979 words of memory out of 5000000
- 25390 multiletter control sequences out of 15000+600000
+ 21652 strings out of 492909
+ 472723 string characters out of 6136300
+ 568970 words of memory out of 5000000
+ 25385 multiletter control sequences out of 15000+600000
  565956 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  54i,12n,79p,1502b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.xdv (43 pages, 473364 bytes).
+Output written on Template.xdv (43 pages, 474340 bytes).

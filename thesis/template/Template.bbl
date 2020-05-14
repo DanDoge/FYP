@@ -59,6 +59,60 @@ Paolo Cignoni, Marco Callieri, Massimiliano Corsini, Matteo Dellepiane, Fabio
 \newblock Meshlab: an open-source mesh processing tool.
 \newblock In {\em Eurographics Italian Chapter Conference}, 2008.
 
+\bibitem{kingma2014autoencoding}
+Diederik~P. Kingma and Max Welling.
+\newblock Auto-encoding variational bayes.
+\newblock In Yoshua Bengio and Yann LeCun, editors, {\em ICLR}, 2014.
+
+\bibitem{NIPS2014_5423}
+Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley,
+  Sherjil Ozair, Aaron Courville, and Yoshua Bengio.
+\newblock Generative adversarial nets.
+\newblock In Z.~Ghahramani, M.~Welling, C.~Cortes, N.~D. Lawrence, and K.~Q.
+  Weinberger, editors, {\em Advances in Neural Information Processing Systems
+  27}, pages 2672--2680. Curran Associates, Inc., 2014.
+
+\bibitem{doersch2016tutorial}
+Carl Doersch.
+\newblock Tutorial on variational autoencoders, 2016.
+\newblock cite arxiv:1606.05908.
+
+\bibitem{Burgess2018UnderstandingDI}
+Christopher~P. Burgess, Irina Higgins, Arka Pal, Loic Matthey, Nick Watters,
+  Guillaume Desjardins, and Alexander Lerchner.
+\newblock Understanding disentangling in $\beta$-vae.
+\newblock 2018.
+
+\bibitem{RubSchTol18b}
+P.~K. Rubenstein, B.~Sch{\"o}lkopf, and I.~Tolstikhin.
+\newblock Learning disentangled representations with wasserstein auto-encoders.
+\newblock In {\em Workshop at the 6th International Conference on Learning
+  Representations (ICLR)}, May 2018.
+
+\bibitem{vunet2018}
+Patrick Esser, Ekaterina Sutter, and Bj{\"o}rn Ommer.
+\newblock A variational u-net for conditional appearance and shape generation.
+\newblock 2018.
+
+\bibitem{Wu2019DisentanglingCA}
+Wayne Wu, Kaidi Cao, Cheng Li, Chen Qian, and Chen~Change Loy.
+\newblock Disentangling content and style via unsupervised geometry
+  distillation.
+\newblock {\em ArXiv}, abs/1905.04538, 2019.
+
+\bibitem{ma2017pose}
+Liqian Ma, Xu~Jia, Qianru Sun, Bernt Schiele, Tinne Tuytelaars, and Luc
+  Van~Gool.
+\newblock Pose guided person image generation.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages
+  405--415, 2017.
+
+\bibitem{Karras2017ProgressiveGO}
+Tero Karras, Timo Aila, Samuli Laine, and Jaakko Lehtinen.
+\newblock Progressive growing of gans for improved quality, stability, and
+  variation.
+\newblock {\em ArXiv}, abs/1710.10196, 2017.
+
 \bibitem{Vzquez2003AutomaticVS}
 Pere-Pau V{\'a}zquez, Miquel Feixas, Mateu Sbert, and Wolfgang Heidrich.
 \newblock Automatic view selection using viewpoint entropy and its applications
@@ -158,11 +212,22 @@ TingTing Li, Ruihe Qian, Chao Dong, Si~Liu, Qiong Yan, Wenwu Zhu, and Liang
   adversarial network.
 \newblock In {\em MM '18}, 2018.
 
-\bibitem{Wu2019DisentanglingCA}
-Wayne Wu, Kaidi Cao, Cheng Li, Chen Qian, and Chen~Change Loy.
-\newblock Disentangling content and style via unsupervised geometry
-  distillation.
-\newblock {\em ArXiv}, abs/1905.04538, 2019.
+\bibitem{huang2017adain}
+Xun Huang and Serge Belongie.
+\newblock Arbitrary style transfer in real-time with adaptive instance
+  normalization.
+\newblock In {\em ICCV}, 2017.
+
+\bibitem{zhu2019sean}
+Peihao Zhu, Rameen Abdal, Yipeng Qin, and Peter Wonka.
+\newblock Sean: Image synthesis with semantic region-adaptive normalization,
+  2019.
+
+\bibitem{park2019SPADE}
+Taesung Park, Ming-Yu Liu, Ting-Chun Wang, and Jun-Yan Zhu.
+\newblock Semantic image synthesis with spatially-adaptive normalization.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, 2019.
 
 \bibitem{7780634}
 L.~A. {Gatys}, A.~S. {Ecker}, and M.~{Bethge}.
@@ -183,30 +248,6 @@ Miao Wang, Guo-Ye Yang, Ruilong Li, Run-Ze Liang, Song-Hai Zhang, Peter.~M
 \newblock In {\em The IEEE Conference on Computer Vision and Pattern
   Recognition (CVPR)}, June 2019.
 
-\bibitem{ma2017pose}
-Liqian Ma, Xu~Jia, Qianru Sun, Bernt Schiele, Tinne Tuytelaars, and Luc
-  Van~Gool.
-\newblock Pose guided person image generation.
-\newblock In {\em Advances in Neural Information Processing Systems}, pages
-  405--415, 2017.
-
-\bibitem{huang2017adain}
-Xun Huang and Serge Belongie.
-\newblock Arbitrary style transfer in real-time with adaptive instance
-  normalization.
-\newblock In {\em ICCV}, 2017.
-
-\bibitem{zhu2019sean}
-Peihao Zhu, Rameen Abdal, Yipeng Qin, and Peter Wonka.
-\newblock Sean: Image synthesis with semantic region-adaptive normalization,
-  2019.
-
-\bibitem{park2019SPADE}
-Taesung Park, Ming-Yu Liu, Ting-Chun Wang, and Jun-Yan Zhu.
-\newblock Semantic image synthesis with spatially-adaptive normalization.
-\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
-  Pattern Recognition}, 2019.
-
 \bibitem{cmrKanazawa18}
 Angjoo Kanazawa, Shubham Tulsiani, Alexei~A. Efros, and Jitendra Malik.
 \newblock Learning category-specific mesh reconstruction from image
@@ -226,53 +267,6 @@ Hiroharu Kato, Yoshitaka Ushiku, and Tatsuya Harada.
 \newblock Neural 3d mesh renderer.
 \newblock In {\em The IEEE Conference on Computer Vision and Pattern
   Recognition (CVPR)}, June 2018.
-
-\bibitem{kingma2014autoencoding}
-Diederik~P. Kingma and Max Welling.
-\newblock Auto-encoding variational bayes.
-\newblock In Yoshua Bengio and Yann LeCun, editors, {\em ICLR}, 2014.
-
-\bibitem{NIPS2014_5423}
-Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley,
-  Sherjil Ozair, Aaron Courville, and Yoshua Bengio.
-\newblock Generative adversarial nets.
-\newblock In Z.~Ghahramani, M.~Welling, C.~Cortes, N.~D. Lawrence, and K.~Q.
-  Weinberger, editors, {\em Advances in Neural Information Processing Systems
-  27}, pages 2672--2680. Curran Associates, Inc., 2014.
-
-\bibitem{doersch2016tutorial}
-Carl Doersch.
-\newblock Tutorial on variational autoencoders, 2016.
-\newblock cite arxiv:1606.05908.
-
-\bibitem{Burgess2018UnderstandingDI}
-Christopher~P. Burgess, Irina Higgins, Arka Pal, Loic Matthey, Nick Watters,
-  Guillaume Desjardins, and Alexander Lerchner.
-\newblock Understanding disentangling in $\beta$-vae.
-\newblock 2018.
-
-\bibitem{RubSchTol18b}
-P.~K. Rubenstein, B.~Sch{\"o}lkopf, and I.~Tolstikhin.
-\newblock Learning disentangled representations with wasserstein auto-encoders.
-\newblock In {\em Workshop at the 6th International Conference on Learning
-  Representations (ICLR)}, May 2018.
-
-\bibitem{vunet2018}
-Patrick Esser, Ekaterina Sutter, and Bj{\"o}rn Ommer.
-\newblock A variational u-net for conditional appearance and shape generation.
-\newblock 2018.
-
-\bibitem{goodfellow2016tutorial}
-Ian Goodfellow.
-\newblock Nips 2016 tutorial: Generative adversarial networks, 2016.
-\newblock cite arxiv:1701.00160Comment: v2-v4 are all typo fixes. No
-  substantive changes relative to v1.
-
-\bibitem{Karras2017ProgressiveGO}
-Tero Karras, Timo Aila, Samuli Laine, and Jaakko Lehtinen.
-\newblock Progressive growing of gans for improved quality, stability, and
-  variation.
-\newblock {\em ArXiv}, abs/1710.10196, 2017.
 
 \bibitem{NIPS2018_8169}
 Rosanne Liu, Joel Lehman, Piero Molino, Felipe Petroski~Such, Eric Frank, Alex

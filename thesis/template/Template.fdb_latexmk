@@ -1,22 +1,22 @@
 # Fdb version 3
-["bibtex Template"] 1588859358 "Template.aux" "Template.bbl" "Template" 1588862810
-  "Template.aux" 1588862798 11902 e312b0309e332b8ced675b11446c130a "xelatex"
+["bibtex Template"] 1589464527 "Template.aux" "Template.bbl" "Template" 1589464546
+  "Template.aux" 1589464532 11733 94875e5c65e46d64f3a2ceea44f23f83 "xelatex"
   "c:/texlive/2019/texmf-dist/bibtex/bst/base/unsrt.bst" 1567418049 18030 1376b4b231b50c66211e47e42eda2875 ""
   "ref.bib" 1588607849 22591 3b51c8c6fa6276ff249b1ef57d0255bd ""
   (generated)
   "Template.bbl"
   "Template.blg"
-["xdvipdfmx"] 1588862799 "Template.xdv" "Template.pdf" "Template" 1588862810
-  "Template.xdv" 1588862798 473364 a6a88429fd9d3f581f647cfafeee3a64 "xelatex"
+["xdvipdfmx"] 1589464533 "Template.xdv" "Template.pdf" "Template" 1589464546
+  "Template.xdv" 1589464532 474340 deeed964fbaacfc9316e545e4ed2d551 "xelatex"
   (generated)
   "Template.pdf"
-["xelatex"] 1588862794 "Template.tex" "Template.xdv" "Template" 1588862810
+["xelatex"] 1589464528 "Template.tex" "Template.xdv" "Template" 1589464546
   "CoverHead.tex" 1584690318 400 2396a4539791267a402b5555fe9a7b83 ""
   "ReviewTableHead.tex" 1567416909 40 af182f22627c86e2fa4a245bee4be816 ""
-  "Template.aux" 1588862798 11902 e312b0309e332b8ced675b11446c130a "xelatex"
-  "Template.bbl" 1588859360 13064 2c3288a7a4f3d439bcd5ab8f5c83acfd "bibtex Template"
-  "Template.tex" 1588862793 64167 7cb52adba83d4e1961a379da0e69ab01 ""
-  "Template.toc" 1588862798 1824 cc39d4a58f60c213c683e0106c46f86d "xelatex"
+  "Template.aux" 1589464532 11733 94875e5c65e46d64f3a2ceea44f23f83 "xelatex"
+  "Template.bbl" 1589464528 12838 e64c6b954a5d3062ae5086a8c227caf2 "bibtex Template"
+  "Template.tex" 1589464521 64241 7027b9aa51f88e1352b15c0067d35e2c ""
+  "Template.toc" 1589464532 1891 a56aaf363e25ac435fc09b4a352d41f2 "xelatex"
   "c:/Windows/Fonts/msyh.ttc" 1552970651 19647736 ff2e53a6131130a07589812ea5b5b0d0 ""
   "c:/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1567419145 3332 103109f5612ad95229751940c61aada0 ""
   "c:/texlive/2019/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1567418856 1536 06717a2b50de47d4087ac0e6cd759455 ""
@@ -144,7 +144,6 @@
   "images/compare_methods.png" 1588788213 150792 a101d5bb686d11f6af930932f19f47fc ""
   "images/discriminator.png" 1586785237 29100 e148be8286f82ec92df7b337ff7fc006 ""
   "images/encoder.png" 1587315575 22605 a764c221dccce912408887f229ef1ad9 ""
-  "images/gan_model.png" 1586614360 160853 8e5a9b5b28c0559d519353a88820e356 ""
   "images/generator.png" 1587315286 43780 d36651e3b7c9917a7d9ea88f815d92a3 ""
   "images/novel_view_thesis.png" 1588788547 133374 848d101836b1bb023584bbe769404206 ""
   "images/novel_view_thesis_rotate.png" 1588756568 225434 7f995b06b1517a267faac53991517682 ""
@@ -160,7 +159,7 @@
   "images/vsmat_thesis.png" 1588517953 76702 9374433d6454eae04d9349c7044d17bc ""
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "Template.aux"
-  "Template.toc"
-  "Template.xdv"
   "Template.log"
+  "Template.xdv"
+  "Template.toc"
+  "Template.aux"

@@ -148,7 +148,7 @@
 %小四号，宋体/Time new roman，1.5倍行距
 \chapter*{摘要}
 
-生成三维模型的最优视图任务要求给定一个三维模型，能够选取出合适的视角，并且在这个视角下能渲染出具有真实性的图片。随着三维建模方法的不断完善，三维模型的使用在近几年正变的越来越广泛。大规模三维模型数据库的出现更加便捷了有关三维模型的研究的进展。而三维模型不同于二维图片的特性使得它需要经过渲染才能显示在屏幕上。生成符合人类感知的三维模型的最优视图，将大大方便三维模型库的检索。近年来神经网络在二维视图生成工作的进展飞速，这也使得借助神经网络来生成三维模型的最优视图成为可能，尤其是生成对抗网络和变分自编码器在条件生成和非条件生成领域取得了很好的效果。本文回顾了以往在这个方向上研究者的工作，包括最优视角选择和新视角生成的算法，并提出了新的生成三维模型视图的方法。本文的方法首先能够根据一张导引图片提供的材质信息来渲染给定的三维模型在某一个视角下的视图，也能够通过在隐空间中采样来无条件的生成多样的三维模型的视图。定性和定量的实验结果表明，本文的新算法能够产生更加准确、更具真实性的三维模型图像，也在视角生成相对其他算法有自己的优势。最后，在总结了本文的成果的基础上，本文展望了未来的工作。
+生成三维模型的最优视图任务要求给定一个三维模型，能够选取出合适的视角，并且在这个视角下能渲染出具有真实性的图片。随着三维建模方法的不断完善，三维模型的使用在近几年正变的越来越广泛。大规模三维模型数据库的出现更加便捷了有关三维模型的研究的进展。而三维模型不同于二维图片的特性使得它需要经过渲染才能显示在屏幕上。生成符合人类感知的三维模型的最优视图，将大大方便三维模型库的检索。近年来神经网络在二维视图生成工作的进展飞速，这也使得借助神经网络来生成三维模型的最优视图成为可能，尤其是生成对抗网络和变分自编码器在条件生成和非条件生成领域取得了很好的效果。本文回顾了以往在这个方向上研究者的工作，包括最优视角选择和新视角生成的算法，并提出了新的生成三维模型视图的方法。本文的方法首先能够根据一张导引图片提供的材质信息来渲染给定的三维模型在某一个视角下的视图，也能够通过在隐空间中采样来无条件的生成多样的三维模型的视图。定性和定量的实验结果表明，本文的新算法能够产生更加准确、更具真实性的三维模型图像，也在视角生成相对其他算法有自己的优势。在这个基础上，本文提出了一个考虑到材质信息的最优视角选择算法。最后，在总结了本文的成果的基础上，本文展望了未来的工作。
 
 \bigskip
 \noindent{\bfseries\songti 关键词: 最优视角选择\ 新视角生成\ 材质迁移}
@@ -193,7 +193,7 @@
 %5号，Time new roman，1.5倍行距
 \chapter*{\bfseries Abstract}
 
-Synthesizing the best view of 3D models aims to choose to best viewpoint and rendering a realistic image given a 3D model. With the development of 3D modeling, the use of 3D models has been more and more prevalent. The emergent of 3D databases further advocates the development of 3D model related research. Unlike 2D images, 3D models have to be rendered to be displayed on a screen. Synthesizing the best view of 3D models in line with human perception will contribute to the retrieval of 3D databases. Thanks to the rapid development of neural networks' application on synthesizing 2D images, it has been possible in recent years to synthesize the best view of 3D models using neural networks, especially GAN and VAE, which yields great results in conditional and unconditional image synthesis tasks. This paper reviews past research on this field, including best view synthesis and novel view synthesis, and propose a novel method to synthesize views of 3D models. First, our model can render an image of a given 3D model under a specific viewpoint while being consistent in style to a reference image. Second, our method can render various views of 3D models by sampling in latent space. Our new method is proved to be able to yield more accurate and realistic images through qualitative and quantitative experiments and outperforms previous novel view synthesis methods. Finally, we summarize our contribution and proposed future work on this topic.
+Synthesizing the best view of 3D models aims to choose to best viewpoint and rendering a realistic image given a 3D model. With the development of 3D modeling, the use of 3D models has been more and more prevalent. The emergent of 3D databases further advocates the development of 3D model related research. Unlike 2D images, 3D models have to be rendered to be displayed on a screen. Synthesizing the best view of 3D models in line with human perception will contribute to the retrieval of 3D databases. Thanks to the rapid development of neural networks' application on synthesizing 2D images, it has been possible in recent years to synthesize the best view of 3D models using neural networks, especially GAN and VAE, which yields great results in conditional and unconditional image synthesis tasks. This paper reviews past research on this field, including best view synthesis and novel view synthesis, and propose a novel method to synthesize views of 3D models. First, our model can render an image of a given 3D model under a specific viewpoint while being consistent in style to a reference image. Second, our method can render various views of 3D models by sampling in latent space. Our new method is proved to be able to yield more accurate and realistic images through qualitative and quantitative experiments and outperforms previous novel view synthesis methods. Based on that, we also proposed a novel method to select the best view of 3D models. Finally, we summarize our contribution and proposed future work on this topic.
 
 \bigskip
 \noindent
@@ -284,7 +284,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 \section{本文结构}
 
-第一章引言介绍了本文的研究背景，在回顾了相关工作的基础上阐述了本文的研究内容。第二章将介绍和本文方法密切相关的前人工作。在回顾了前人工作的基础上，第三章将会介绍本文的实验原理，以及介绍本文提出的模型结构和与其他方法的比较结果。最后，我们在第四章总结本文的工作，并从已有的不足之处展望未来可能的进展方向。
+第一章引言介绍了本文的研究背景，在回顾了相关工作的基础上阐述了本文的研究内容。第二章将介绍和本文方法密切相关的前人工作。在此基础上，第三章将会介绍本文的实验原理，以及介绍本文提出的模型结构和与其他方法的比较结果。最后，我们在第四章总结本文的工作，并从已有的不足之处展望未来可能的进展方向。
 
 
 
@@ -292,7 +292,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 \chapter{相关工作}
 
-本章会详细论证本文的方法的统计基础和用来比较的相关工作。在介绍了本文方法中主要使用的生成模型：变分自编码器(VAE)\cite{kingma2014autoencoding}和生成对抗网络(GAN)\cite{NIPS2014_5423}之后，我们将介绍本文研究课题相关的前任工作，包括视角选择、视角生成和材质迁移的经典方法，为最后一节中介绍本文方法的具体实现做好铺垫。
+本章会详细介绍本文的方法的统计基础和用来比较的相关工作。在介绍了本文方法中主要使用的生成模型：变分自编码器(VAE)\cite{kingma2014autoencoding}和生成对抗网络(GAN)\cite{NIPS2014_5423}之后，我们将介绍本文研究课题相关的前人工作，包括视角选择、视角生成和材质迁移的经典方法，为下一章介绍本文方法的具体实现做好铺垫。
 
 
 \section{生成模型}
@@ -303,8 +303,8 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 变分自编码器(VAE)\cite{kingma2014autoencoding}主要可以用来无监督的学习复杂的数据分布。通过将直接采样$X$的任务分解为先采样一个隐变量$z$，再通过学习一个映射将$z$映射到$X$的空间中，VAE将一个复杂的采样任务分解成一个从隐空间采样和一个学习映射的任务。这样做的优点有
 \begin{itemize}
-	\item 因为z从属的空间往往是简单的空间，例如大多数方法中使用的标准正态分布，隐空间中的采样任务很容易实现
-	\item 映射往往用神经网络来实现，这样容易通过随机梯度下降的方法优化，并且计算量也不会十分巨大
+	\item 因为$z$从属的空间往往是简单的空间，例如大多数方法中使用的标准正态分布，隐空间中的采样任务很容易实现
+	\item 映射往往用神经网络来实现，这样容易通过随机梯度下降的方法优化，并且计算量相比基于采样的方法也不会很大
 \end{itemize}
 
 \begin{figure}
@@ -314,7 +314,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 \label{vae_model}
 \end{figure}
 
-公式化的话，VAE期望优化训练集中的每一个数据点的概率值，$P(X) = \int P(X | z; \theta) P(z) dz$，其中由z生成X的分布是由$\theta$参数化的神经网络。为方便后续推导，不妨假定$P(X | z; \theta) = N(X | f(z; \theta), \sigma^2 \* I)$，是一个正态分布。图\ref{vae_model}给出了VAE的图模型，对每一个训练集中的数据点$X$，由$\theta$参数化的神经网络将一个服从于正态分布的隐变量$z$映射到$X$。如果直接对上式采样，将意味着很大的计算负担，并且对于大多数的$z$，$P(X|z)$都接近于$0$，很多样本是无意义的。因此，变分自编码器需要另一个函数$Q(z|X)$来拟合真实的$P(z|X)$分布，这也正是名字中变分一词的来历。其中$Q$分布通常也假定为正态分布，由另一个模型估计出来。这样，通过观察下式推导出的变分下界
+公式化表述的话，VAE期望优化训练集中的每一个数据点的概率值，$P(X) = \int P(X | z; \theta) P(z) dz$，其中由$z$生成$X$的分布是由$\theta$参数化的神经网络。为方便后续推导，不妨假定$P(X | z; \theta) = N(X | f(z; \theta), \sigma^2 \* I)$，是一个正态分布。图\ref{vae_model}给出了VAE的图模型，对每一个训练集中的数据点$X$，由$\theta$参数化的神经网络将一个服从于正态分布的隐变量$z$映射到$X$。如果直接对上式采样，则意味着很大的计算负担，并且对于大多数的$z$，$P(X|z)$都接近于$0$，很多样本是无意义的。因此，变分自编码器需要另一个函数$Q(z|X)$来拟合真实的$P(z|X)$分布，这也正是名字中变分一词的来历。其中$Q$分布通常也假定为正态分布，由另一个网络估计出来。这样，通过观察下式推导出的变分下界
 
 \begin{equation}
 	\begin{aligned}
@@ -329,7 +329,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 从表示学习的角度看，VAE学习到了高维空间图像的一个低维表示。在表示学习中，一个重要的任务是学习到一个分离的表示，这种表示既存储了高维空间向量的全部信息，本身又有很强的可解释性。例如对于手写字符图像任务，一种可行的分离表示可以是$n$维隐变量的第一个维度表示字符的类别，第二/三个表示字符的斜度/粗细，每一个维度表征数据集中一个变化因子。这种表示意味着我们可以通过调整一个维度来调整生成图像的某一个特征，对风格迁移任务有很大的帮助。在传统的VAE基础之上，研究者提出了不同的VAE变种来提升VAE编码的分离能力，如\cite{Burgess2018UnderstandingDI, RubSchTol18b}。他们可以看作在传统的VAE基础上加入$\int Q(z|X) P(X) dX$约束，用不同的方式实现这个后验分布，优化模型的分离能力。
 
-上述的分离学习方法专注于在隐变量的每一个维度都分离的控制不同的变化因子。在细粒度的分离学习之外，我们也可以将VAE的隐变量分成几组，每组控制到不同的特征。\cite{vunet2018}文认为图像是由形状(shape)和外表(appearance)共同控制生成，文中提出了一个条件的U-Net，用形状和RGB图片生成新的图片。\cite{Wu2019DisentanglingCA}文用无监督的方法分离图像中的结构和风格信息。本文同样以VAE为理论基础，专注于分离图片中几何信息和风格信息。本文在理论推导方面受到了上两文的启发，但本文选取了深度图表示结构信息，而不是隐变量\cite{vunet2018}或关键点\cite{Wu2019DisentanglingCA}，另外在模型实现方面也和上两文有所不同。此外，应对材质迁移后的图片无成对数据去监督的情况，本文引入了生成对抗网络来优化生成结果，这些在本章的下一节中会详细论述。
+上述的分离学习方法专注于在隐变量的每一个维度都分离的控制不同的变化因子。在细粒度的分离学习之外，我们也可以将VAE的隐变量分成几组，每组控制到不同的特征。\cite{vunet2018}文认为图像是由形状(shape)和外表(appearance)共同控制生成，文中提出了一个条件的U-Net，用形状和RGB图片生成新的图片。\cite{Wu2019DisentanglingCA}文用无监督的方法分离图像中的结构和风格信息。本文同样以VAE为理论基础，专注于分离图片中几何信息和风格信息。本文在理论推导方面受到了上两文的启发，但选取了深度图表示结构信息，而不是隐变量\cite{vunet2018}或关键点\cite{Wu2019DisentanglingCA}，另外在模型实现方面也和上两文有所不同。此外，应对材质迁移后的图片无成对数据监督的情况，本文引入了生成对抗网络来优化生成结果，这些在本章的下一节中会详细论述。
 
 \subsection{生成对抗网络}
 
@@ -340,7 +340,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 \section{视角选择}
 
-三维模型的最优视角选择任务旨在对给定的三维模型给出符合人类认知的最优的视角。这并不是一个良定义的问题，以往的研究方向往往采用在三维顶点或是二维像素上定义某种函数而将其转换为最优化问题。传统上认为最佳视角是包含最多信息的视角，不同的方法对信息的定义各不相同。在三维模型的二维视图上定义信息的文章主要包括：视角熵\cite{Vzquez2003AutomaticVS}，曲率熵\cite{Page2003ShapeAA}，轮廓熵\cite{Page2003ShapeAA}。这些算法在不同的视角的投影中取信息最大的投影作为最佳视角。\cite{Dutagaci2010ABF}文中对比了几种基于几何学的方法的结果和人为标注的最优视角的差别，文章得出 MeshSaliency\cite{Lee2005MeshS}和视角熵\cite{Vzquez2003AutomaticVS}的方法是效果最好的传统方法。Mesh Saliency\cite{Lee2005MeshS}通过在每一个三维定点定义与曲率有关的显著性，并将可见的显著性加和最大的视角定义为最佳视角。文章更加提出了一种在视角空间中类似梯度下降的方法寻找最优视角的方法，而不需在视角空间中方格搜索(grid search)最优视角。视角熵\cite{Vzquez2003AutomaticVS}的方法关注二维投影中可见的每一个三维面片的投影面积，并将投影面积构成的分布的熵最大的视角作为最优的视角。我们认为这些方法有时并不会产生令人满意的效果。他们在选择最优视角时并没有考虑到材质信息的影响，并且对三维模型网格的建模方式敏感。本研究首先复现了经典的传统方法，在以后的行文中，采用Mesh Saliency和视角熵作为传统方法的代表，和本文提出的方法作比较。
+三维模型的最优视角选择任务旨在对给定的三维模型给出符合人类认知的最优的视角。这并不是一个良定义的问题，以往的研究方向往往采用在三维顶点或是二维像素上定义某种函数而将其转换为最优化问题。传统上认为最佳视角是包含最多信息的视角，不同的方法对信息的定义各不相同。在三维模型的二维视图上定义信息的文章主要包括：视角熵\cite{Vzquez2003AutomaticVS}，曲率熵\cite{Page2003ShapeAA}，轮廓熵\cite{Page2003ShapeAA}。这些算法在不同的视角的投影中取信息最大的投影作为最佳视角。\cite{Dutagaci2010ABF}文中对比了几种基于几何学的方法的结果和人为标注的最优视角的差别，文章得出网格显著性（Mesh Saliency）\cite{Lee2005MeshS}和视角熵\cite{Vzquez2003AutomaticVS}的方法是效果最好的传统方法。网格显著性\cite{Lee2005MeshS}通过在每一个三维定点定义与曲率有关的显著性，并将可见的显著性加和最大的视角定义为最佳视角。文章更加提出了一种在视角空间中类似梯度下降的方法寻找最优视角的方法，而不需在视角空间中方格搜索(grid search)最优视角。视角熵\cite{Vzquez2003AutomaticVS}的方法关注二维投影中可见的每一个三维面片的投影面积，并将投影面积构成的分布的熵最大的视角作为最优的视角。我们认为这些方法有时并不会产生令人满意的效果。他们在选择最优视角时并没有考虑到材质信息的影响，并且对三维模型网格的建模方式敏感。本研究首先复现了经典的传统方法，在以后的行文中，采用网格显著性和视角熵作为传统方法的代表，和本文提出的方法作比较。
 
 \section{视角生成}
 
@@ -348,7 +348,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 \section{材质迁移}
 
-材质迁移旨在给定一张内容图片和一张材质图片(或材质属性)，生成一张具有前者内容和后者的材质信息的图片。这要求材质迁移的算法能够做到材质和内容信息的分离和融合。一种通用的分离信息的思路是从输入图片中编码出表征内容和表征材质的向量，如\cite{zheng2019joint, BeautyGlow, Li2018BeautyGANIF, Wu2019DisentanglingCA}。提取材质信息的方法大多是将材质信息看作高维的向量，用卷积神经网络完成。融合材质和内容信息可以通过在解码器中直接拼接材质和内容变量，或者也使用UNet\cite{vunet2018}将编码器中每层激活值连接到解码器对应的层中。受AdaIN\cite{huang2017adain}启发，另一种融合材质和内容的方法是从内容或材质信息中回归参数来调整神经网络中间层激活量的大小和偏移，如\cite{zhu2019sean, park2019SPADE}。除了网络结构上创新外，材质迁移方法还需要通过设计不同的损失函数要求不同隐变量之间的分离。囿于成对训练数据缺失，材质迁移方法无法使用有监督的一范数或二范数损失函数，可行的替代方案包括：认为内容与材质信息分出VGG的不同层中\cite{7780634}，最小化循环损失(cycle loss)\cite{Lu2017ConditionalCF}或增加独特的判别器判定材质信息是否一致\cite{pix2pixSC2019, ma2017pose}。在三维领域，将一个三维模型的材质迁移至另一三维模型或直接生成三维模型的材质，可以通过直接在三维空间中生成每一个点或面片的颜色\cite{cmrKanazawa18}，也可以将三维模型投影至二维空间进行，如VON\cite{VON}。前者的方法生成结果较为模糊，并且因渲染过程不可导，需要采用近似渲染方法和可微分的渲染器\cite{Kato_2018_CVPR}。后者因为能够借用图像领域材质迁移的成熟方法，可以取得更好的效果，并且作为这些方法中常用的承载三维信息的深度图，也能够很好的在二维空间表征三维的信息。因此本文采用类似VON的模式：将三维模型渲染为深度图后，在深度图上渲染模型的材质信息。这个材质信息可以来自材质图片，也可以是真实图片，或者是随机采样的隐变量。而对内容隐变量则要求它能够生成准确具有真实性的深度图作为约束。实验结果表明本文的方法在生成图片质量上有一定的优势。
+材质迁移旨在给定一张内容图片和一张材质图片(或材质属性)，生成一张具有前者内容和后者的材质信息的图片。这要求材质迁移的算法能够做到材质和内容信息的分离和融合。一种通用的分离信息的思路是从输入图片中编码出表征内容和表征材质的向量，如\cite{zheng2019joint, BeautyGlow, Li2018BeautyGANIF, Wu2019DisentanglingCA}。提取材质信息的方法大多是将材质信息看作高维的向量，用卷积神经网络完成。融合材质和内容信息可以通过在解码器中直接拼接材质和内容变量，或者也可以使用UNet\cite{vunet2018}将编码器中每层激活值连接到解码器对应的层中。受AdaIN\cite{huang2017adain}启发，另一种融合材质和内容的方法是从内容或材质信息中回归参数来调整神经网络中间层激活量的大小和偏移，如\cite{zhu2019sean, park2019SPADE}。除了网络结构上创新外，材质迁移方法还需要通过设计不同的损失函数要求不同隐变量之间的分离。囿于成对训练数据缺失，材质迁移方法无法使用有监督的一范数或二范数损失函数，可行的替代方案包括：认为内容与材质信息分处VGG的不同层中\cite{7780634}，最小化循环损失(cycle loss)\cite{Lu2017ConditionalCF}或增加独特的判别器判定材质信息是否一致\cite{pix2pixSC2019, ma2017pose}。在三维领域，将一个三维模型的材质迁移至另一三维模型或直接生成三维模型的材质，可以通过直接在三维空间中生成每一个点或面片的颜色\cite{cmrKanazawa18}，也可以将三维模型投影至二维空间进行，如VON\cite{VON}。前者的方法生成结果较为模糊，并且因渲染过程不可导，需要采用近似渲染方法和可微分的渲染器\cite{Kato_2018_CVPR}。后者因为能够借用图像领域材质迁移的成熟方法，可以取得更好的效果，并且作为这些方法中常用的承载三维信息的深度图，也能够很好的在二维空间表征三维的信息。因此本文采用类似VON的模式：将三维模型渲染为深度图后，在深度图上渲染模型的材质信息。这个材质信息可以来自材质图片，也可以是真实图片，或者是随机采样的隐变量。而对内容隐变量则要求它能够生成准确具有真实性的深度图作为约束。实验结果表明本文的方法在生成图片质量上有一定的优势。
 
 
 
@@ -356,19 +356,19 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 \chapter{本文模型}
 
-本章会详细介绍本文的方法的统计原理、网络结构和实验结果。在介绍了前文的生成模型在本文研究问题下的优化目标后，我们详细地展示每一个模块的实现细节和训练方法。最后定性和定量的比较实验会说明本文的方法的优越性。
+本章会详细介绍本文的方法的统计原理、网络结构和实验结果。在介绍了前文的生成模型在本文研究问题下的优化目标后，我们详细地展示每一个模块的实现细节和训练方法，最后定性和定量的比较实验会说明本文的方法的优越性。
 
 \section{实验原理}
 
-首先正式的阐述本文研究的问题，并且明确后文中会用到的记号。三维模型的最优视图生成任务即针对一个给定的三维模型$m \in M$，本文的模型能够生成一张图片$i \in I = R^{m \times n \times 3}$，在后文中除非特殊说明$m = n = 128$。由于神经网络难以直接处理三维模型，本文将这个任务拆解为给定一个视角$v$，将三维模型投影为深度图和在图像领域给定一个材质$s$，将深度图渲染为RGB图片的两个问题，如（2.3）式。其中$proj(.)$为投影函数，它能够给定一个三维模型和视角，生成一个深度图，即每一个像素的取值和模型上对应的点距相机的距离有关的图片。本文实验中的相机模型只考虑方位角（$az$）、仰角（$el$）的变化，其他的参数都预设为Blender中的默认值。
+首先正式的阐述本文研究的问题，并且明确后文中会用到的记号。三维模型的最优视图生成任务即针对一个给定的三维模型$m \in M$，本文的模型能够生成一张图片$i \in I = R^{m \times n \times 3}$，在后文中除非特殊说明$m = n = 128$。由于神经网络难以直接处理三维模型，本文将这个任务拆解为给定一个视角$v$，将三维模型投影为深度图和在图像领域给定一个材质$s$，将深度图渲染为RGB图片的两个问题，如（3.1）式。其中$proj(.)$为投影函数，它能够给定一个三维模型和视角，生成一个深度图，即每一个像素的取值和模型上对应的点距相机的距离有关的图片。本文实验中的相机模型只考虑方位角（$az$）、仰角（$el$）的变化，其他的参数都预设为Blender中的默认值。
 
 \begin{equation}
 	\begin{aligned}
 		i_{d} &= proj(m, v) \in R^{m \times n}, vp = [az, el, dist] \\
-		i_{out} &= f(i_{d}, s)
+		i_{RGB} &= f(i_{d}, s)
 	\end{aligned}
 \end{equation}
-（2.3）式确定的两个问题，前者可以确定性的通过Blender渲染，关于视角选择的问题会在后文中阐述。而后者本文应用了VAE和GAN来指导生成，在这里本文假定每一张RGB图片$i \in I = R^{m \times n \times 3}$都由内容（$c$）、材质（$s$）和视角（$v$）三个独立的变量指导生成，其中内容和材质是需要推断的隐变量，而视角在训练时给出，是已知的变量。而每一张深度图$i_{d} \in R^{m \times n}$只由内容和视角两个互相独立的变量指导生成，而因为视角信息在训练时给出，因此可以粗略的认为深度图可以一一对应到内容信息。公式化表示的话：
+（3.1）式确定的两个问题，前者可以确定性的通过Blender渲染，关于视角选择的问题会在后文中阐述。而后者本文应用了VAE和GAN来指导生成，在这里本文假定每一张RGB图片$i \in I = R^{m \times n \times 3}$都由内容（$c$）、材质（$s$）和视角（$v$）三个独立的变量指导生成，其中内容和材质是需要推断的隐变量，而视角在训练时给出，是已知的变量。而每一张深度图$i_{d} \in R^{m \times n}$只由内容和视角两个互相独立的变量指导生成，而因为视角信息在训练时给出，因此可以粗略的认为深度图可以一一对应到内容信息。公式化表示的话：
 
 \begin{equation}
 	\begin{aligned}
@@ -376,7 +376,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 	\end{aligned}
 \end{equation}
 
-我们训练时先从真实图片中提取出内容和材质隐变量，再通过这两个隐变量重组出输出图片。类似前文对VAE的推导，我们得到训练过程中优化训练集的概率，如（2.5）式。其中第一、四步推导应用了贝叶斯公式，第二步的推导基于本文对材质隐变量的高斯分布假设$p(c | i) = N(f(i, \theta), I)$，因而$-\log p(c | i) = \frac{1}{2}||c - f(i, \theta) ||^2 + \frac{N}{2}\log (2\pi) \geq 0$，第三步利用对数函数的凸性，是在积分意义下的Jensen不等式。
+我们训练时先从真实图片中提取出内容和材质隐变量，再通过这两个隐变量重组出输出图片。类似前文对VAE的推导，我们得到训练过程中优化训练集的概率，如（3.3）式。其中第一、四步推导应用了贝叶斯公式，第二步的推导基于本文对材质隐变量的高斯分布假设$p(c | i) = N(f(i, \theta), I)$，因而$-\log p(c | i) = \frac{1}{2}||c - f(i, \theta) ||^2 + \frac{N}{2}\log (2\pi) \geq 0$，第三步利用对数函数的凸性，是在积分意义下的Jensen不等式。
 
 \begin{equation}
 	\begin{aligned}
@@ -420,17 +420,18 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 \label{model_architecture}
 \end{figure}
 
-本节将讨论本文的方法的具体实现，包括各个模块的输入输出、参数设置和训练过程，一个粗略的示意图在图\ref{model_architecture}中。上一节的讨论可以得到我们需要实现的映射包括：从真实图片中提取内容和材质隐变量，重构深度图和RGB图片
+本节将讨论本文的方法的具体实现，包括各个模块的输入输出、参数设置和训练过程，一个粗略的示意图在图\ref{model_architecture}中。上一节的讨论可以得到我们需要实现的映射包括：从真实图片中提取内容和材质隐变量，重构深度图和RGB图片，以及为保证对抗训练的判别器。下文中会依次详细的介绍每一部分的实现和参数，以及本文应用到的两个模块SPADE\cite{park2019SPADE}和CoordConv\cite{NIPS2018_8169}的细节。
 
 \begin{equation}
-	c = f(i, v),\ i_d = g(c, v),\ s = h(i ,v),\ i_{RGB} = m(c, s, v)
+	c = f(i_{RGB}, v),\ i_d = g(c, v),\ s = h(i_{RGB}, v),\ i_{RGB} = m(c, s, v)
 \end{equation}
 
-以及为保证对抗训练的判别器，下文中会依次详细的介绍每一部分的实现和参数，以及本文应用到的两个模块SPADE\cite{park2019SPADE}和CoordConv\cite{NIPS2018_8169}的细节。本文的代码参考了Pix2Pix-CycleGAN\footnote{https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix}，SPADE\footnote{https://github.com/NVlabs/SPADE}，CoordConv\footnote{https://github.com/walsvid/CoordConv}的实现细节，在整合这些模块的基础上编写了自己的模型和训练代码，实现细节开源在Github上\footnote{https://github.com/DanDoge/FYP}。后文会使用形如图\ref{model_generator}的图来描述本文的模型的具体结构，其中每一层的含义和参数意义与它们在PyTorch\cite{NEURIPS2019_9015}中的定义一致，如$conv(inputnc=1, outputnc=3, kernelsize=3, stride=1, padding=1)$代表输入一通道、输出三通道、卷积核大小$3 \times 3$、步长为$1$、外衬一像素的卷积层。
+
+本文的代码参考了Pix2Pix-CycleGAN\footnote{https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix}，SPADE\footnote{https://github.com/NVlabs/SPADE}，CoordConv\footnote{https://github.com/walsvid/CoordConv}的实现细节，在整合这些模块的基础上编写了自己的模型和训练代码，实现细节开源在Github上\footnote{https://github.com/DanDoge/FYP}。后文会使用形如图\ref{model_generator}的图来描述本文的模型的具体结构，其中每一层的含义和参数意义与它们在PyTorch\cite{NEURIPS2019_9015}中的定义一致，如$conv(inputnc=1, outputnc=3, kernelsize=3, stride=1, padding=1)$代表输入一通道、输出三通道、卷积核大小$3 \times 3$、步长为$1$、外衬1像素的卷积层。
 
 \subsection{生成器}
 
-我们将生成深度图像和RGB图像的任务都用相似结构的生成器实现。我们认为给定视角和内容隐变量，深度图可以被唯一的确定，因此生成RGB图片的任务可以重新叙述为$i = m(c, s, v) = m'(i_d, v, s)$。因为深度图$i_d = g(c, v)$中包含了渲染图片必须的视角和内容信息，因此用只接受深度图作为输入的$m'$函数来近似接受隐变量的$m$函数是可以做到的，实验中我们发现这一近似提升了生成结果。类似的，生成深度图的任务也表示为$i_{d} = g(f(i, v_1), v_2) = g'(i, v_1, v_2)$。在这样的表示下，生成RGB图片的任务和生成深度图的任务具有一定的对称性，可以利用同样结构的网络实现，也便于利用已有的图片到图片翻译的工作的成果。注意到这样的方式并没有显式的生成内容隐变量$c$，而是将其作为联系深度图和RGB图片的媒介。这并不会影响上一节的理论推导结果，因为本文对内容的优化是通过优化深度图实现的。下文只讨论形如$y = f(x, a, b)$形式的生成任务。本文借鉴已有的图像到图像翻译工作成果，将$f(.)$函数用编码器-解码器的结构实现，编码器用来从输入变量中提取对生成有用的信息，解码器用来将这些信息整合，生成最终期望的图像。
+我们将生成深度图像和RGB图像的任务都用相似结构的生成器实现。我们认为给定视角和内容隐变量，深度图可以被唯一的确定，因此生成RGB图片的任务可以重新叙述为$i_{RGB} = m(c, s, v) = m'(i_d, v, s)$。因为深度图$i_d = g(c, v)$中包含了渲染图片必须的视角和内容信息，因此用只接受深度图作为输入的$m'$函数来近似接受隐变量的$m$函数是可以做到的，实验中我们发现这一近似提升了生成结果。类似的，生成深度图的任务也表示为$i_{d} = g(f(i_{RGB}, v_1), v_2) = g'(i_{RGB}, v_1, v_2)$。在这样的表示下，生成RGB图片的任务和生成深度图的任务具有一定的对称性，可以利用同样结构的网络实现，也便于利用已有的图片到图片翻译的工作的成果。注意到这样的方式并没有显式的生成内容隐变量$c$，而是将其作为联系深度图和RGB图片的媒介。这并不会影响上一节的理论推导结果，因为本文对内容的优化是通过优化深度图实现的。下文只讨论形如$y = f(x, a, b)$形式的生成任务。本文借鉴已有的图像到图像翻译工作成果，将$f(.)$函数用编码器-解码器的结构实现，编码器用来从输入变量中提取对生成有用的信息，解码器用来将这些信息整合，生成最终期望的图像。
 
 \begin{figure}
 \centering
@@ -442,7 +443,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 编码器用连续的卷积模块和残差模块组成，前者通过步长为2的卷积下采样，精炼输入中的信息，后者通过预测一个增量信息，精修卷积模块提取出来的信息。此外，在每一层都输入视角信息辅助生成，将视角信息作为两个通道的变量附加到每个模块的输入中。对于两个任务，这都有助于辅助编码器生成和视角无关的信息。对生成深度图的任务这是必须加入的，因为新视角生成需要估计出新的视角下的深度图。我们期望编码器能够从二维图像中提取出三维信息，并且通过解码器将三维信息映射回二维平面。对此，二维图像中的坐标信息十分重要，例如输入一辆车的侧面时，有关车轮的信息更有可能在图像的下面获取到而不是上面，解码三维信息时也同理。而卷积层由于自身的空间不变性并不能实现这种需求。为解决这种矛盾，本文将生成器中的所有卷积层替换成坐标卷积（coordconv），这种卷积先在输入变量后附加两个通道，分别包含每一个位置的$x,y$坐标，显式的让卷积层获得位置信息，在不同位置生成不同的输出特征。
 
-解码器是近似对称的结构，对于编码器提取出的信息，先经过几个残差模块，再通过上采样和卷积模块还原到输入的分辨率。在解码器整合内容信息和材质信息时，本文采用了SPADE模块来帮助生成。本文采用的SPADE模块由InstanceNorm和一个MLP组成，MLP负责从深度图和材质特征中估计出用来正则化特征的$\gamma$和$\beta$。通过将输入特征的均值和方差替换成估计出的统计量，本文试图在特征维度对齐生成图片的分布和训练图片的分布。不同的SPADE模块MLP参数不同，这样就能利用连续的几个SPADE模块逐渐将材质信息和内容信息整合。在实验过程中，我们尝试过SPADE以外的其他方法，例如将特征直接拼接在每层的末尾、利用Unet生成，但结果不如SPADE的效果好。
+解码器是近似对称的结构，对于编码器提取出的信息，先经过几个残差模块，再通过上采样和卷积模块还原到输入的分辨率。在解码器整合内容信息和材质信息时，本文采用了SPADE模块来帮助生成。本文采用的SPADE模块由InstanceNorm\cite{Ulyanov2016InstanceNT}和一个MLP组成，MLP负责从深度图和材质特征中估计出用来正则化特征均值和标准差的$\gamma$和$\beta$。通过将输入特征的统计量替换成估计出的统计量，本文试图在特征维度对齐生成图片的分布和训练图片的分布。不同的SPADE模块MLP参数不同，这样就能利用连续的几个SPADE模块逐渐将材质信息和内容信息整合。在实验过程中，我们尝试过SPADE以外的其他方法，例如将特征直接拼接在每层的末尾、利用Unet生成，但结果不如SPADE的效果好。
 
 根据两个生成任务不同的特性，本文采用了不同的超参数。生成深度图的任务要求编码器提取到更加全局的信息，掌握三维模型的结构，以便解码时能够生成不同视角下的深度图，因此对这个任务下采样次数设置为4，而生成RGB图片的任务只设定为2。为平衡两个模型的复杂性以便训练稳定，生成RGB图片的生成器通道数加倍，这也符合渲染任务本身的复杂性。
 
@@ -460,7 +461,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 \subsection{判别器}
 
-判别器采用卷积层和非线性层叠加的方式实现。每一次卷积都使用步长为$2$的卷积，并且倍增输出的通道数以实现在下采样的同时，不丢失原图中信息的效果，通道数最大值设定为$1024$。最后一层卷积输出一通道的结果，判别输入向量的真实性。在本文的实验中，下采样的次数为$4$次，对于输入的$128 \times 128$的图像最终输出长宽为$8\times8$的向量，每一个位置表示它所对应的原图中$16\times16$的部分的真实性。对于前文叙述的一次输入两张图片的情况，每一个位置表示它对应的$16\times16$的部分的两张图片是否属于同一个材质。在原尺度的判别器之外，本文还增加了一个小尺度的判别器，它的输入是原尺度判别器输入$\frac{1}{2}$下采样一次的结果。它的网络结构与原尺度判别器类似，只是通道数减半，以保证每一个通道的信息量大致和原尺度相同。它的输出的每一个位置同样对应它的输入的$16\times16$的部分，也就是原图的$32\times32$的部分。加入小尺度的判别器保证了输出图像在多尺度上都和目标图像有相同的统计特征，为生成器提供更多的指导。优化过程中我们对两个尺度的判别器的输出都做同样的优化：对真样本。下文中提到的判别器都指的是原尺度和小尺度判别器的组合，图中显示了两个尺度的判别器组合的网络结构。
+判别器采用卷积层和非线性层叠加的方式实现。每一次卷积都使用步长为$2$的卷积，并且倍增输出的通道数以实现在下采样的同时，不丢失原图中信息的效果。最后一层卷积输出一通道的结果，判别输入向量的真实性。在本文的实验中，下采样的次数为$4$次，对于输入的$128 \times 128$的图像最终输出长宽为$8\times8$的向量，每一个位置表示它所对应的原图中$16\times16$的部分的真实性。对于前文叙述的一次输入两张图片的情况，每一个位置表示它对应的$16\times16$的部分的两张图片是否属于同一个材质。在原尺度的判别器之外，本文还增加了一个小尺度的判别器，它的输入是原尺度判别器输入$\frac{1}{2}$下采样一次的结果。它的网络结构与原尺度判别器类似，只是通道数减半，以保证每一个通道的信息量大致和原尺度相同。它的输出的每一个位置同样对应它的输入的$16\times16$的部分，也就是原图的$32\times32$的部分。加入小尺度的判别器保证了输出图像在多尺度上都和目标图像有相同的统计特征，为生成器提供更多的指导。优化过程中我们对两个尺度的判别器的输出都做同样的优化：对真样本。下文中提到的判别器都指的是原尺度和小尺度判别器的组合，图中显示了两个尺度的判别器组合的网络结构。
 
 判别器的损失函数采用最小二乘优化（LSGAN），原文中证明了它等价于优化皮尔森卡方散度，训练更加稳定。本文尝试了其他GAN损失函数的变体，包括WGAN，对生成图像的结果没有显著影响。判别器的损失函数优化目标是使得生成器的生成结果贴近于某一个分布，而这一个分布是通过训练数据指定的。通过调整训练数据的构造我们能够要求生成器拟合符合训练目标的分布。在本文的训练过程中，我们希望生成器的生成结果达到下列两个目标：
 
@@ -484,7 +485,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 
 \subsection{数据集的构成}
 
-为了公平比较，本文使用了与\cite{Zhou2016ViewSB}相同的数据集进行实验，这个数据集也是新视角生成任务公用的数据集。\cite{Zhou2016ViewSB}文将shapenet-car分支下的模型分成两部分，分别作为训练集和测试集，训练集有5997个模型，测试集有1500个模型。按新视角生成任务的惯例，对每一个模型在54个视角下渲染，分别是方位角0递增到340，步长为20，仰角分别取0，10，20。本文使用Blender的python脚本先渲染出这些视角下的深度图和RGB图片，以减少训练时渲染的时间开销。\cite{Zhou2016ViewSB}和\cite{Su2015MultiviewCN}开源的代码中采用了自己的渲染器，为保证实验结果的公平性，这些方法都是在本文渲染出的数据集上实验。对于真实数据，本文采用\cite{6755945}中提出的汽车数据集，其中分别包含8144和8401张训练和测试的汽车图片。因为本文的模型并没有编码背景的能力，我们用预训练的场景分割算法DeepLabv3\cite{Chen2017RethinkingAC}分割出包含汽车的部分。为保证真实图片的数据分布和本文的合成图片尽可能的贴合，我们删去了物体大小过小，和物体不居中的图像，并用训练集对模型精修。
+为了公平比较，本文使用了与\cite{Zhou2016ViewSB}相同的数据集进行实验，这个数据集也是新视角生成任务公用的数据集。\cite{Zhou2016ViewSB}文将shapenet-car分支下的模型分成两部分，分别作为训练集和测试集，训练集有5997个模型，测试集有1500个模型。按新视角生成任务的惯例，对每一个模型在54个视角下渲染，分别是方位角0递增到340，步长为20，仰角分别取0，10，20。本文使用Blender的python脚本先渲染出这些视角下的深度图和RGB图片，以减少训练时渲染的时间开销。\cite{Zhou2016ViewSB}和\cite{TDB16a}开源的代码中采用了自己的渲染器，为保证实验结果的公平性，这些方法都是在本文渲染出的数据集上实验。对于真实数据，本文采用\cite{6755945}中提出的汽车数据集，其中分别包含8144和8401张训练和测试的汽车图片。因为本文的模型并没有编码背景的能力，我们用预训练的场景分割算法DeepLabv3\cite{Chen2017RethinkingAC}分割出包含汽车的部分。为保证真实图片的数据分布和本文的合成图片尽可能的贴合，我们删去了物体大小过小，和物体不居中的图像，并用训练集对模型精修。
 
 \subsection{视角生成任务}
 
@@ -498,7 +499,7 @@ Synthesizing the best view of 3D models aims to choose to best viewpoint and ren
 方法 & L1 & FID \\
 \midrule
 AF\cite{Zhou2016ViewSB} & 0.354 & 151.66 \\
-mv3D\cite{Su2015MultiviewCN} & 0.303 & 195.38 \\
+mv3d\cite{TDB16a} & 0.303 & 195.38 \\
 ours & 0.208 & 13.05 \\
 \bottomrule
 \end{tabular}
@@ -542,14 +543,13 @@ baseline & 0.671 & 205.109 & 206.636 \\
 above+depth map generation & 0.586 & 96.953 & 104.857 \\
 above+SPADE+coordconv & 0.293 & 53.818 & 89.826 \\
 above+realimg finetune & 0.208 & 13.05 & 29.314 \\
-above+local discriminator & - & - & - \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 分离隐变量中的材质部分和内容部分也使得本文的模型能够实现材质迁移的效果：即生成融合两张图片的材质和内容特征的视图，这是新视角生成方法所不能做到的。图\ref{result_styletrans}展示材质迁移的结果。可以看到本文的算法能够迁移基本的色彩信息，同时完美的保留内容图片的内容结构。观察到生成结果在细节方面有一些不足之处，在后文中会详细讨论其原因。图\ref{result_interpolate}展示了插值实验的结果，我们对最左端和最右端的图片提取到的材质变量进行插值，生成中间的各个图像。实验结果表明了模型能够学习到连续的材质隐变量流形，也即本文对材质变量的连续分布假设是有效的。
 
-表\ref{ablation_study}列出了本文采用的各个方法的有效性，其中基线(baseline)方法是用卷积网络从图片中提取内容和材质信息，对内容信息不做约束（即不要求它能够生成深度图）的方法。在此基础之上，实验中分别加入了生成深度图的约束，网络结构修改（增加SPADE和coordconv模块），真实图片精修。可以看到生成结果不断增强。
+表\ref{ablation_study}列出了本文采用的各个方法的有效性，其中基线(baseline)方法是用卷积网络从图片中提取内容和材质信息，对内容信息不做约束（即不要求内容隐变量能够生成深度图）的方法。在此基础之上，实验中分别加入了生成深度图的约束，网络结构修改（增加SPADE和coordconv模块），真实图片精修。可以看到生成结果不断增强。
 
 \begin{figure}
 \centering
@@ -575,7 +575,7 @@ above+local discriminator & - & - & - \\
 
 \subsection{最优视角选择}
 
-本文认为最优视角是在考虑了材质的条件下包含最多信息的视角，具体的计算方法在理论一节中有详细叙述。和以往几何学的方法不同，本文的方法直接在RGB图片的尺度上选择最优视角。这种方法既考虑到材质信息，也没有忽略掉模型的几何结构的影响：几何结构复杂的地方通常也是材质信息高频的区域。定性试验上，我们和\cite{Dutagaci2010ABF}文中列出的表现较好的方法\cite{Vzquez2003AutomaticVS}和\cite{Lee2005MeshS}进行了比较，前者在二维视图上定义信息，后者在三维模型上定义信息。为保证公平性，两种方法也是从上文定义的54个视角中选取最优视角。我们参考原文的描述和开源的方法复现了这两种方法，在测试集上的定性结果在图\ref{result_bestview}中。Mesh Saliency\cite{Lee2005MeshS}因为倾向于选择能看到模型几何上更加复杂的区域的视图，它在汽车数据集上倾向于选择侧面的视角，没有很好的把握住模型上材质高频变化的区域。视角熵\cite{Vzquez2003AutomaticVS}的方法会选择看到的表面面积分布熵最大的算法，因此对建模方式高度敏感，同样也没有考虑到材质信息的影响。
+本文认为最优视角是在考虑了材质的条件下包含最多信息的视角，具体的计算方法在理论一节中有详细叙述。和以往几何学的方法不同，本文的方法直接在RGB图片的尺度上选择最优视角。这种方法既考虑到材质信息，也没有忽略掉模型的几何结构的影响：几何结构复杂的地方通常也是材质信息高频的区域。定性试验上，我们和\cite{Dutagaci2010ABF}文中列出的表现较好的方法\cite{Vzquez2003AutomaticVS}和\cite{Lee2005MeshS}进行了比较，前者在二维视图上定义信息，后者在三维模型上定义信息。为保证公平性，两种方法也是从上文定义的54个视角中选取最优视角。我们参考原文的描述和开源的方法复现了这两种方法，在测试集上的定性结果在图\ref{result_bestview}中。网格显著性\cite{Lee2005MeshS}因为倾向于选择能看到模型几何上更加复杂的区域的视图，它在汽车数据集上倾向于选择侧面的视角，没有很好的把握住模型上材质高频变化的区域。视角熵\cite{Vzquez2003AutomaticVS}的方法会选择看到的表面面积分布熵最大的算法，因此对建模方式高度敏感，同样也没有考虑到材质信息的影响。
 
 \begin{figure}
 \centering
@@ -631,7 +631,7 @@ above+local discriminator & - & - & - \\
 
 \chapter{总结与展望}
 
-生成三维模型的最优视图会增强人们对三维模型的理解，便利三维模型的检索和可视化，是一个具有研究价值和使用价值的问题。本文回顾了以往在生成最优视图领域的工作，提出了一个新的模型用于生成三维模型的视图，并提出了一个选择最优视角的方法。在详细描述方法原理之后，我们通过和以往方法的比较，证明了本文提出的方法的有效性。它和以往的新视角生成算法效果相当，并且能够实现图片领域的材质迁移，也能通过一些精修应用到真实图片上。基于这种方法定义的选择最优视角的算法也能够选取出材质意义上更加优秀的算法。
+生成三维模型的最优视图会增强人们对三维模型的理解，便利三维模型的检索和可视化，是一个具有研究价值和实用价值的问题。本文回顾了以往在生成最优视图领域的工作，提出了一个新的模型用于生成三维模型的视图，并提出了一个选择最优视角的方法。在详细描述方法原理之后，我们通过和以往方法的比较，证明了本文提出的方法的有效性。它和以往的新视角生成算法效果相当，并且能够实现图片领域的材质迁移，也能通过一些精修应用到真实图片上。基于这种方法定义的选择最优视角的算法也能够选取出材质意义上更加优秀的算法。
 
 在上文介绍过的模型优点之外，本文的方法还有以下不足：材质提取只停留在全局层面，对于细节特征并不能很好的还原。这是本文采用的卷积网络提取特征，以及像素级别生成方法的通病。我们观察到对于材质多样的模型，本文的方法只能迁移其中主要的或者平均的材质；而对于细粒度的特征，例如车头车尾的细节，本文的模型倾向于生成数据集中平均的特征。这在图\ref{result_heatmap}不同视角重构误差也有反映，相较于材质更加复杂的车头，本文的模型接受相对不那么复杂的车尾作为输入能生成误差更小的图片。这些可能是因为
 \begin{itemize}
@@ -773,7 +773,7 @@ above+local discriminator & - & - & - \\
 \normalsize
 \chapter*{致谢}
 
-感谢
+我要感谢指导老师连宙辉老师在整个项目推进过程中的指导和帮助。定期的报告讨论和修改意见使得这个项目从脑海中的构想一步步变成现实。在硬件平台上，连老师也提供了组内的资源支持。没有这些帮助，我是无法完成这个项目的。在本项目之外，我同样要感谢连老师在本科的两年半时间内对我的指导和敦促。这段时间的培养使得我从一个不熟悉每一个组会中专业词汇的门外汉，变成了能够复现已有成果并尝试作出一些改进的初学者。我也要感谢组内的师兄师姐在每周的组会中介绍自己的成果，他们给了我很大的帮助和启发。我同样感谢默默理解和支持我的父母，他们在这个特殊的时期提供了一个能够安心实验的环境。
 
 \addcontentsline{toc}{chapter}{致谢}
 \fancypagestyle{plain}

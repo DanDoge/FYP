@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {3.1}数据集的构成}{20}% 
 \contentsline {subsection}{\numberline {3.2}视角生成任务}{21}% 
 \contentsline {subsection}{\numberline {3.3}材质迁移任务}{22}% 
-\contentsline {subsection}{\numberline {3.4}最优视角选择}{23}% 
+\contentsline {subsection}{\numberline {3.4}最优视角选择}{26}% 
 \contentsline {subsection}{\numberline {3.5}真实图片输入}{27}% 
 \contentsline {chapter}{\numberline {第四章\hspace {.3em}}总结与展望}{30}% 
 \contentsline {chapter}{参考文献}{31}% 

@@ -23,43 +23,43 @@ Warning--empty journal in vunet2018
 Warning--empty booktitle in BeautyGlow
 You've used 50 entries,
             1791 wiz_defined-function locations,
-            713 strings with 14134 characters,
-and the built_in function-call counts, 13341 in all, are:
-= -- 969
-> -- 887
-< -- 13
-+ -- 310
-- -- 260
-* -- 855
-:= -- 2108
+            712 strings with 14069 characters,
+and the built_in function-call counts, 13158 in all, are:
+= -- 949
+> -- 884
+< -- 12
++ -- 309
+- -- 259
+* -- 844
+:= -- 2091
 add.period$ -- 152
 call.type$ -- 50
 change.case$ -- 50
 chr.to.int$ -- 0
 cite$ -- 53
-duplicate$ -- 660
-empty$ -- 1277
-format.name$ -- 260
-if$ -- 3040
+duplicate$ -- 650
+empty$ -- 1262
+format.name$ -- 259
+if$ -- 2990
 int.to.chr$ -- 0
 int.to.str$ -- 50
 missing$ -- 48
 newline$ -- 252
 num.names$ -- 58
-pop$ -- 258
+pop$ -- 256
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 344
+skip$ -- 333
 stack$ -- 0
-substring$ -- 499
-swap$ -- 208
-text.length$ -- 13
+substring$ -- 471
+swap$ -- 199
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 88
+while$ -- 86
 width$ -- 52
 write$ -- 523
 (There were 4 error messages)

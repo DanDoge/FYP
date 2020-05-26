@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  16 MAY 2020 13:56
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.9.2)  24 MAY 2020 02:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1004,11 +1004,16 @@ File: ./images/vae_model.png Graphic file (type bmp)
 ] [13]
 File: ./images/banner.png Graphic file (type bmp)
 <./images/banner.png>
- [14] [15]
+ [14]
+Overfull \hbox (3.4947pt too wide) in paragraph at lines 430--431
+\TU/SimSun(0)/m/n/12.045 和 参 数 意 义 与 它 们 在 \TU/TimesNewRoman(0)/m/n/12.045 PyTorch [45] \TU/SimSun(0)/m/n/12.045 中 的 定 义 一 致，|  如 $\OML/cmm/m/it/12.045 conv\OT1/cmr/m/n/12.045 (\OML/cmm/m/it/12.045 inputnc \OT1/cmr/m/n/12.045 = 1\OML/cmm/m/it/12.045 ; outputnc \OT1/cmr/m/n/12.045 =
+ []
+
+[15]
 File: ./images/generator.png Graphic file (type bmp)
 <./images/generator.png>
 
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 437--438
+Overfull \hbox (10.24257pt too wide) in paragraph at lines 438--439
  [][] 
  []
 
@@ -1022,7 +1027,7 @@ File: ./images/encoder.png Graphic file (type bmp)
 File: ./images/discriminator.png Graphic file (type bmp)
 <./images/discriminator.png>
 
-Overfull \hbox (10.24257pt too wide) in paragraph at lines 476--477
+Overfull \hbox (10.24257pt too wide) in paragraph at lines 477--478
  [][] 
  []
 
@@ -1045,11 +1050,17 @@ File: ./images/syn_interpolate_thesis.png Graphic file (type bmp)
 <./images/syn_interpolate_thesis.png>
 File: ./images/random_SPADE_thesis.png Graphic file (type bmp)
 <./images/random_SPADE_thesis.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [23] [24] [25]
 File: ./images/best_viewpoint_thesis.png Graphic file (type bmp)
 <./images/best_viewpoint_thesis.png>
 File: ./images/vsmat_thesis.png Graphic file (type bmp)
 <./images/vsmat_thesis.png>
+
+Underfull \vbox (badness 1748) has occurred while \output is active []
+
  [26]
 File: ./images/syn_real_dist_thesis.png Graphic file (type bmp)
 <./images/syn_real_dist_thesis.png>
@@ -1068,7 +1079,7 @@ File: ./images/vp_style_transfer_thesis.png Graphic file (type bmp)
 
 
 ] [32] [33] [34] [35]
-Underfull \hbox (badness 2582) in paragraph at lines 311--314
+Underfull \hbox (badness 2582) in paragraph at lines 310--313
 \TU/TimesNewRoman(0)/m/n/12.045 Rethinking atrous convolution for semantic image segmentation.  \TU/TimesNewRoman(0)/m/it/12.045 ArXiv\TU/TimesNewRoman(0)/m/n/12.045 ,
  []
 
@@ -1095,11 +1106,11 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  21652 strings out of 492909
- 472723 string characters out of 6136300
+ 472727 string characters out of 6136300
  568970 words of memory out of 5000000
  25385 multiletter control sequences out of 15000+600000
  565956 words of font info for 204 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 54i,12n,79p,1502b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,11n,79p,1587b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Template.xdv (43 pages, 474148 bytes).
+Output written on Template.xdv (43 pages, 479340 bytes).

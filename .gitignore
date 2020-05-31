@@ -12,6 +12,10 @@
 *.cb2
 .*.lb
 
+## data
+
+rendering/rotate
+
 ## Intermediate documents:
 *.dvi
 *.xdv

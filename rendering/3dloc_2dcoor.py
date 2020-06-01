@@ -8,7 +8,6 @@
 import argparse, sys, os
 import time
 
-
 parser = argparse.ArgumentParser(description='Renders given obj file by rotation a camera around it.')
 parser.add_argument('--views', type=int, default=18,
                     help='number of views to be rendered')
@@ -95,7 +94,6 @@ bpy.ops.object.delete()
 
 bpy.ops.import_scene.obj(filepath=args.obj)
 for object in bpy.context.scene.objects:
-    #print(object.name)
     if object.name in ['Camera', 'Lamp']:
         continue
     bpy.context.scene.objects.active = object
@@ -158,6 +156,7 @@ fp = os.path.join(args.output_folder, model_identifier, model_identifier)
 scene.render.image_settings.file_format = 'PNG'  # set output format to .png
 
 from math import radians
+import mathutils
 
 stepsize = 360.0 / args.views
 rotation_mode = 'XYZ'
@@ -172,32 +171,49 @@ import numpy as np
 pixel2vertex = np.zeros(shape=[args.views, 3, scene.render.resolution_x, scene.render.resolution_y, 4])
 pixel2vertex[:, :, :, :, 0] = 1234567.0
 
+for object in bpy.context.scene.objects:
+    if object.name in ['Camera', 'Lamp', 'Empty']:
+        continue
+    for vert in object.data.vertices:
+        vert.co[0], vert.co[1] = vert.co[1], -vert.co[0]
+        vert.co[1], vert.co[2] = vert.co[2], -vert.co[1]
+        vert.co[2] = -vert.co[2]
+        pass
+
+
 for i in range(0, args.views):
     for j in range(0, 3):
         vertex2pixel["az_" + str(int(i * stepsize)) + "_el_" + str(int(j * 10))] = []
-        b_empty.rotation_euler[0] = radians(j * 10)
-        print("Rotation {}, {}".format((stepsize * i), j * 10))
+        #b_empty.rotation_euler[0] = radians(j * 10)
+        cam.rotation_euler = b_empty.rotation_euler
+        print("Rotation {}, {}".format((stepsize * i), j * 10), b_empty.rotation_euler, cam.rotation_euler)
         bpy.context.scene.update()
+        print(cam.matrix_world)
         for object in bpy.context.scene.objects:
             if object.name in ['Camera', 'Lamp', 'Empty']:
                 continue
             verts = [vert.co for vert in object.data.vertices]
-            coords_2d = [world_to_camera_view(scene, cam, coord) for coord in verts]
+            #coords_2d = [world_to_camera_view(scene, cam, coord) for coord in verts]
+            coords_2d = []
+            for coord in verts:
+                new_coord = coord.copy()
+                new_coord.rotate(mathutils.Euler((radians(-i * stepsize), 0, radians(j * 10)), "XYZ"))
+                coords_2d.append(world_to_camera_view(scene, cam, new_coord))
             for idx, (x, y, dist) in enumerate(coords_2d):
                 vertex2pixel["az_" + str(int(i * stepsize)) + "_el_" + str(int(j * 10))].append([verts[idx].x, verts[idx].y, verts[idx].z, round(scene.render.resolution_x * x), round(scene.render.resolution_y * y), dist])
-                if dist < pixel2vertex[i, j, x, y, 0]:
+                if dist < pixel2vertex[i, j, round(scene.render.resolution_x * x), round(scene.render.resolution_y * y), 0]:
                     pixel2vertex[i, j, round(scene.render.resolution_x * x), round(scene.render.resolution_y * y)] = [dist, verts[idx].x, verts[idx].y, verts[idx].z]
                 #print(verts[idx].x, verts[idx].y, verts[idx].z, round(scene.render.resolution_x * x), round(scene.render.resolution_y * y), dist)
                 #break
             #break
         #break
-    b_empty.rotation_euler[2] += radians(stepsize)
+    #b_empty.rotation_euler[2] += radians(stepsize)
     #break
 
 import pickle
 
-with open("./vertex2pixel_" + args.obj.split('/')[-1].split('.')[0], "wb") as f:
+with open("./vertex2pixel", "wb") as f:
     pickle.dump(vertex2pixel, f)
 
-with open("./pixel2vertex_" + args.obj.split('/')[-1].split('.')[0], "wb") as f:
+with open("./pixel2vertex", "wb") as f:
     pickle.dump(pixel2vertex, f)

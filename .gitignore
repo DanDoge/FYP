@@ -15,6 +15,7 @@
 ## data
 
 rendering/rotate
+*.tar.gz
 
 ## Intermediate documents:
 *.dvi

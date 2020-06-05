@@ -19,7 +19,7 @@ parser.add_argument('--scale', type=float, default=1,
                     help='Scaling factor applied to model. Depends on size of mesh.')
 parser.add_argument('--remove_doubles', type=bool, default=True,
                     help='Remove double vertices to improve mesh quality.')
-parser.add_argument('--edge_split', type=bool, default=True,
+parser.add_argument('--edge_split', type=bool, default=False,
                     help='Adds edge split filter.')
 parser.add_argument('--depth_scale', type=float, default=1.4,
                     help='Scaling that is applied to depth. Depends on size of mesh. Try out various values until you get a good result. Ignored if format is OPEN_EXR.')
@@ -115,7 +115,6 @@ lamp.type = 'SUN'
 lamp.shadow_method = 'NOSHADOW'
 # Possibly disable specular shading:
 lamp.use_specular = False
-
 # Add another light source so stuff facing away from light is not completely dark
 bpy.ops.object.lamp_add(type='SUN')
 lamp2 = bpy.data.lamps['Sun']
@@ -157,6 +156,7 @@ scene.render.image_settings.file_format = 'PNG'  # set output format to .png
 
 from math import radians
 import mathutils
+from mathutils import Vector
 
 stepsize = 360.0 / args.views
 rotation_mode = 'XYZ'
@@ -169,8 +169,10 @@ vertex2pixel = OrderedDict()
 
 import numpy as np
 pixel2vertex = np.zeros(shape=[args.views, 3, scene.render.resolution_x, scene.render.resolution_y, 4])
-pixel2vertex[:, :, :, :, 0] = 1234567.0
+max_dist = 1234567.0
+pixel2vertex[:, :, :, :, 0] = max_dist
 
+'''
 for object in bpy.context.scene.objects:
     if object.name in ['Camera', 'Lamp', 'Empty']:
         continue
@@ -179,27 +181,37 @@ for object in bpy.context.scene.objects:
         vert.co[1], vert.co[2] = vert.co[2], -vert.co[1]
         vert.co[2] = -vert.co[2]
         pass
+'''
 
-
+be_first = True
 for i in range(0, args.views):
     for j in range(0, 3):
+        be_first = True
         vertex2pixel["az_" + str(int(i * stepsize)) + "_el_" + str(int(j * 10))] = []
         #b_empty.rotation_euler[0] = radians(j * 10)
         cam.rotation_euler = b_empty.rotation_euler
-        print("Rotation {}, {}".format((stepsize * i), j * 10), b_empty.rotation_euler, cam.rotation_euler)
+        vcam = Vector((0,1.2,0))
+        vcam.rotate(mathutils.Euler((radians(i * stepsize), 0, radians(j * 10)), "XYZ"))
+        print("Rotation {}, {}".format((stepsize * i), j * 10), vcam)
         bpy.context.scene.update()
-        print(cam.matrix_world)
         for object in bpy.context.scene.objects:
             if object.name in ['Camera', 'Lamp', 'Empty']:
                 continue
             verts = [vert.co for vert in object.data.vertices]
-            #coords_2d = [world_to_camera_view(scene, cam, coord) for coord in verts]
             coords_2d = []
-            for coord in verts:
+            for idx, coord in enumerate(verts):
                 new_coord = coord.copy()
+                new_coord[0], new_coord[1] = new_coord[1], -new_coord[0]
+                new_coord[1], new_coord[2] = new_coord[2], -new_coord[1]
+                new_coord[2] = -new_coord[2]
                 new_coord.rotate(mathutils.Euler((radians(-i * stepsize), 0, radians(j * 10)), "XYZ"))
-                coords_2d.append(world_to_camera_view(scene, cam, new_coord))
-            for idx, (x, y, dist) in enumerate(coords_2d):
+                location = scene.ray_cast(vcam, (coord - vcam).normalized())
+                if be_first:
+                    be_first = False
+                    print(coord, new_coord, location[0], location[1], (coord - location[1]).length)
+                if location[0] and (coord - location[1]).length < 0.05:
+                    coords_2d.append([idx, world_to_camera_view(scene, cam, new_coord)])
+            for idx, (x, y, dist) in coords_2d:
                 vertex2pixel["az_" + str(int(i * stepsize)) + "_el_" + str(int(j * 10))].append([verts[idx].x, verts[idx].y, verts[idx].z, round(scene.render.resolution_x * x), round(scene.render.resolution_y * y), dist])
                 if dist < pixel2vertex[i, j, round(scene.render.resolution_x * x), round(scene.render.resolution_y * y), 0]:
                     pixel2vertex[i, j, round(scene.render.resolution_x * x), round(scene.render.resolution_y * y)] = [dist, verts[idx].x, verts[idx].y, verts[idx].z]
@@ -207,6 +219,21 @@ for i in range(0, args.views):
                 #break
             #break
         #break
+        '''
+        cnt = 0
+        sum_dist = 0
+        for idxi in range(128):
+            for idxj in range(128):
+                if pixel2vertex[i, j, idxi, idxj, 0] != max_dist:
+                    cnt += 1
+                    sum_dist += pixel2vertex[i, j, idxi, idxj, 0]
+        mean_dist = sum_dist / cnt
+        for idxi in range(128):
+            for idxj in range(128):
+                if pixel2vertex[i, j, idxi, idxj, 0] > mean_dist:
+                    pixel2vertex[i, j, idxi, idxj, 0] = max_dist
+        '''
+
     #b_empty.rotation_euler[2] += radians(stepsize)
     #break
 

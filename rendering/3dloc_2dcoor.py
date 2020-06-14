@@ -209,7 +209,7 @@ for i in range(0, args.views):
                 if be_first:
                     be_first = False
                     print(coord, new_coord, location[0], location[1], (coord - location[1]).length)
-                if location[0] and (coord - location[1]).length < 0.05:
+                if location[0] and (coord - location[1]).length < 1.00:
                     coords_2d.append([idx, world_to_camera_view(scene, cam, new_coord)])
             for idx, (x, y, dist) in coords_2d:
                 vertex2pixel["az_" + str(int(i * stepsize)) + "_el_" + str(int(j * 10))].append([verts[idx].x, verts[idx].y, verts[idx].z, round(scene.render.resolution_x * x), round(scene.render.resolution_y * y), dist])

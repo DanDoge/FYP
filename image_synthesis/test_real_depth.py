@@ -19,11 +19,11 @@ dataset_size = len(dataset)
 print('#training data = %d' % dataset_size)
 model = create_model(opt)
 model.setup(opt)
-total_steps = 0
+total_steps = 3000
 
-model.netG_real.module.load_state_dict(torch.load("/data1/huangdj/VON-master/checkpoints/real_depth/car_df/2020-04-09/car_df/1_net_G_real.pth"))
-model.netG_depth.module.load_state_dict(torch.load("/data1/huangdj/VON-master/checkpoints/real_depth/car_df/2020-04-09/car_df/1_net_G_depth.pth"))
-model.netE_style.module.load_state_dict(torch.load("/data1/huangdj/VON-master/checkpoints/real_depth/car_df/2020-04-09/car_df/1_net_E_style.pth"))
+model.netG_real.module.load_state_dict(torch.load("/data1/huangdj/VON-master/checkpoints/real_depth/car_df/2020-04-02/car_df/latest_net_G_real.pth"))
+model.netG_depth.module.load_state_dict(torch.load("/data1/huangdj/VON-master/checkpoints/real_depth/car_df/2020-04-02/car_df/latest_net_G_depth.pth"))
+model.netE_style.module.load_state_dict(torch.load("/data1/huangdj/VON-master/checkpoints/real_depth/car_df/2020-04-02/car_df/latest_net_E_style.pth"))
 
 model.netG_real.eval()
 model.netG_depth.eval()
@@ -32,6 +32,9 @@ model.netE_style.eval()
 vpB = []
 vpBref = []
 
+style_list = []
+style_real_list = []
+
 style_synthesized = []
 style_real = []
 content_synthesized = []
@@ -39,8 +42,8 @@ vp_synthesized = []
 mask_synthesized = []
 bg_synthesized = []
 
-style_list = []
-style_real_list = []
+model_name = []
+global_id = 0
 
 def savefig(tensor, name, i):
     out_np = tensor[0].permute(1, 2, 0).detach().cpu().numpy() / 2 + 0.5
@@ -83,21 +86,32 @@ def rotate(model, i):
         rgb_rgb = img_rgb.convert("RGB")
         rgb_rgb = dataset.dataset.transform_rgb(rgb_rgb)
         rgb_rgb = get_normaliztion()(rgb_rgb)
+        rgb_rgb = rgb_rgb.unsqueeze(0)
 
         return rgb_rgb, mask_rgb
 
+    def get_depth_image(file_depth):
+        img_depth = Image.open(file_depth)
+        rgb_depth = img_depth.convert("L")
+        rgb_depth = dataset.dataset.transform_rgb(rgb_depth)
+        mask_depth = torch.zeros_like(rgb_depth)
+        mask_depth[rgb_depth != 1.] = 1
+        rgb_depth = (rgb_depth - 0.5) / 0.5
+        return rgb_depth, mask_depth
+
+
     for fileB in model.fileBlist:
         #print(fileB[0])
+        fileBdepth = fileB[0].replace("albedo", "depth")
         vp = torch.Tensor([[int(fileB[0].split("_")[-4]), int(fileB[0].split("_")[-2])]])
         vp = local_tsfm(vp).to(model.device)
         #print(model.vp_B, vp)
-        real_B, mask_B = get_rgb_image(fileB[0])
-        real_B.to(model.device)
-        mask_B.to(model.device)
-        fake_A = model.apply_mask(model.netG_depth(model.real_B, model.vp_B, vp), mask_B, model.bg_A)
-        rec_B = model.apply_mask(model.netG_real(fake_A, vp, model.z_style_B), mask_B, model.bg_B)
-        savefig(rec_B, "rotate", i * 1000 + int(fileB[0].split("_")[-4]) / 20 * 10 + int(fileB[0].split("_")[-2]) / 10)
-
+        real_B2A, mask_B = get_rgb_image(fileBdepth)
+        real_B2A = real_B2A.to(model.device)
+        mask_B = mask_B.to(model.device)
+        rec_B = model.apply_mask(model.netG_real(real_B2A, vp, model.z_style_B), mask_B, model.bg_B)
+        savefig(rec_B, "rotate", (global_id + i) * 1000 + int(fileB[0].split("_")[-4]) / 20 * 10 + int(fileB[0].split("_")[-2]) / 10)
+    '''
     if i < 10:
         minloss = 123456789.0
         viewsynthesis_mattix = []
@@ -111,20 +125,22 @@ def rotate(model, i):
                 tgtvp = local_tsfm(tgtvp).to(model.device)
                 #print(model.vp_B, vp)
                 srcreal_B, srcmask_B = get_rgb_image(srcfileB[0])
-                srcreal_B.to(model.device)
-                srcmask_B.to(model.device)
+                srcreal_B = srcreal_B.to(model.device)
+                srcmask_B = srcmask_B.to(model.device)
                 tgtreal_B, tgtmask_B = get_rgb_image(tgtfileB[0])
-                tgtreal_B.to(model.device)
-                tgtmask_B.to(model.device)
+                tgtreal_B = tgtreal_B.to(model.device)
+                tgtmask_B = tgtmask_B.to(model.device)
+                #print(model.real_B.size(), srcrealB.size())
                 srcrealB_with_vp = cat_feature(srcreal_B, srcvp)
                 srcz_style_B, mu_style_B, logvar_style_B = model.encode_style(srcrealB_with_vp, model.vae)
-                fake_A = model.apply_mask(model.netG_depth(srcreal_B, srcvp, tgtvp), tgtmask_B, model.bg_A)
-                rec_B = model.apply_mask(model.netG_real(fake_A, tgtvp, srcz_style_B), tgtmask_B, model.bg_B)
-                loss = torch.mean(torch.abs(rec_B - tgtreal_B))
+                fake_A = model.apply_mask(model.netG_depth(srcreal_B, srcvp, tgtvp), tgtmask_B, model.bg_A).detach()
+                rec_B = model.apply_mask(model.netG_real(fake_A, tgtvp, srcz_style_B), tgtmask_B, model.bg_B).detach()
+                loss = torch.mean(torch.abs(rec_B - tgtreal_B)).detach()
                 viewsynthesis_mattix.append([srcfileB, tgtfileB, loss])
         import pickle
         with open("./out/vs_mat_" + str(i), "wb") as f:
             pickle.dump(viewsynthesis_mattix, f)
+    '''
 
 
 
@@ -138,10 +154,22 @@ for epoch in range(1):
         if model.skip():
             continue
 
+        '''
         savefig(model.real_B, "real", i)
         savefig(model.real_Bref, "realref", i)
-        realB_with_vp = cat_feature(model.real_B, model.vp_B)
-        model.z_style_B, mu_style_B, logvar_style_B = model.encode_style(realB_with_vp, model.vae)
+        '''
+        if global_id < 3500:
+            savefig(model.real_B, "real", global_id + i)
+            realB_with_vp = cat_feature(model.real_B, model.vp_B)
+            model.z_style_B, mu_style_B, logvar_style_B = model.encode_style(realB_with_vp, model.vae)
+        elif global_id < 5500:
+            model.z_style_B = model.z_texture
+        elif global_id < 7500:
+            savefig(model.real_Breal, "real_real", global_id + i)
+            realBreal_with_vp = cat_feature(model.real_Breal, model.vp_Breal)
+            model.z_style_Breal, mu_style_Breal, logvar_style_Breal = model.encode_style(realBreal_with_vp, model.vae)
+            model.z_style_B = model.z_style_Breal
+        '''
 
         style_list.append(model.z_style_B[0].detach().cpu().numpy())
 
@@ -164,17 +192,20 @@ for epoch in range(1):
         model.fake_Breal = model.apply_mask(model.netG_real(model.real_A, model.vp_B, model.z_style_Breal), model.mask_A, model.bg_B)
         savefig(model.fake_Breal, "fake_real", i)
         savefig(model.real_Breal, "real_real", i)
-
         style_real_list.append(model.z_style_Breal[0].detach().cpu().numpy())
+        '''
 
-        if i < 100:
+        if i < 1000:
+            '''
             content_synthesized.append(model.real_B2A)
             style_synthesized.append(model.z_style_B)
             style_real.append(model.z_style_Breal)
             vp_synthesized.append(model.vp_B)
             mask_synthesized.append(model.mask_B)
             bg_synthesized.append(model.bg_B)
+            '''
             rotate(model, i)
+            model_name.append(model.fileBlist[0][0])
         #else:
            #break
 
@@ -182,14 +213,18 @@ for epoch in range(1):
         vpB.append(model.vp_B[0].detach().cpu().numpy())
         vpBref.append(model.vp_Bref[0].detach().cpu().numpy())
 
-        if i > 10000:
+        if i >= 1000:
             break
 
+
     import pickle
-    pickle.dump(vpB, open("./out/vp_B", "wb"))
+    pickle.dump(model_name, open("./out/model_name_" + str(global_id), "wb"))
+    '''
+    pickle.dump(vpB, open("./out/vp_B_" + str(global_id), "wb"))
     pickle.dump(vpBref, open("./out/vp_Bref", "wb"))
     pickle.dump(style_list, open("./out/style_list", "wb"))
     pickle.dump(style_real_list, open("./out/style_real_list", "wb"))
+    '''
 
-    content_style_swap(model, content_synthesized, style_synthesized, style_real, vp_synthesized, mask_synthesized, bg_synthesized)
+    #content_style_swap(model, content_synthesized, style_synthesized, style_real, vp_synthesized, mask_synthesized, bg_synthesized)
     break
